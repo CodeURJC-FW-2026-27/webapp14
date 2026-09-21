@@ -22,4 +22,24 @@
 
 ### 2. Gestión de Imágenes
 
+Cada imagen está asociada a la entidad principal (el conjunto de vehículos).
+
+* **Relación:** Un vehículo puede tener una cantidad variable de imágenes asociadas.
+* **Propósito:** Permitir la verificación visual del estado del vehículo en cualquier momento.
+
 ### 3. Buscador, Filtrado y Categorización
+
+#### 3.1. Barra de Búsqueda
+Se implementará una barra de búsqueda rápida enfocada en la entidad secundaria, permitiendo la localización de vehículos por **Marca** y **Modelo**.
+
+#### 3.2. Filtros de Consulta
+Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de un sistema de filtrado basado en sus atributos:
+
+1. **Marca**
+2. **Modelo y Tipo de vehículo**
+3. **Precio**
+4. **Kilómetros**
+5. **Año de fabricación**
+6. **Número de puertas**
+7. **Tipo de cambio** (Manual / Automático)
+8. **Potencia**
