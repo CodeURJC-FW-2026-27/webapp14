@@ -1,4 +1,4 @@
-# webapp14
+# CarX
 
 ## Integrantes del Proyecto
 
@@ -12,7 +12,13 @@
 
 ## Funcionalidades de la Aplicación
 
-### 1. Entidades
+### 1. Entidades del Sistema
+
+* **Entidad Principal:**
+  * **Coche:** Representa el vehículo que está en venta. **Atributos**, matrícula, Año de fabricación, precio, kilometraje y estado del coche, motor(Diesel/Gasolina/Eléctrico), potencia(Caballos), Núm de puertas, Tipo de Cambio, Permite financiación (Si se tiene que pagar al contado o financiado) .
+
+* **Entidades Secundarias (Catálogo / Clasificación):**
+  * **Marca:** La marca del propio vehículo. **Atributos**, Una marca tiene asociados varios *Modelos*, Tipo de vehiculo(Carrocería), País de origen, Calificación.
 
 ### 2. Gestión de Imágenes
 
