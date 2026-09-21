@@ -10,6 +10,36 @@
 
 ---
 
+## Descripción de CarX
+
+**CarX** es una plataforma web dedicada a la exhibición y venta de vehículos nuevos, de ocasión y de segunda mano. 
+
+---
+
+### Página de Inicio (*Landing Page*)
+
+La página principal cuenta con una vista a pantalla completa (*Hero section*) estructurada de la siguiente manera:
+
+* **Navegación Superior (20% de la pantalla):** *Navbar* que integra la marca CarX junto a controles de navegación principales:
+  * Acceso directo al catálogo general de vehículos.
+  * Menú desplegable para filtrado rápido por tipo de vehículo.
+  * Opciones de registro e inicio de sesión.
+
+* **Sección Principal (80% de la pantalla):** Carrusel dinámico de imágenes a pantalla completa que expone los vehículos más destacados y con mayor número de visitas en la plataforma.
+
+* **Transición al Catálogo:** Al desplazarse hacia abajo (*scroll*), se presenta un botón para acceder directamente a la interfaz principal.
+
+---
+
+### Interfaz del Catálogo de Vehículos
+
+Al entrar en la sección, la organización de la sección se divide en:
+
+* **Navegación Superior:** El *Navbar* permanece de forma fija en la parte superior.
+* **Barra de Búsqueda:** Ubicada en la parte superior para realizar búsquedas generales.
+* **Barra Lateral / *Sidebar* (20% del ancho):** Situada en el lado izquierdo, contiene los filtros de búsqueda de la página.
+* **Contenido Principal (80% del ancho):** Cuadrícula o tabla (*Grid*) dedicada a mostrar los vehículos disponibles.
+
 ## Funcionalidades de la Aplicación
 
 ### 1. Entidades del Sistema
