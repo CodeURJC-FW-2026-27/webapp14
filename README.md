@@ -45,10 +45,28 @@ Al entrar en la sección, la organización de la sección se divide en:
 ### 1. Entidades del Sistema
 
 * **Entidad Principal:**
-  * **Coche:** Representa el vehículo que está en venta. **Atributos**, matrícula, Año de fabricación, precio, kilometraje y estado del coche, motor(Diesel/Gasolina/Eléctrico), potencia(Caballos), Núm de puertas, Tipo de Cambio, Permite financiación (Si se tiene que pagar al contado o financiado) .
-
+* * **Marca:** La marca del propio vehículo.
+  * **Atributos**,
+  * ** Nombre(String)
+  * ** AñoFundacion(Date)
+  * ** País de origen(String)
+  * ** Calificación(Float): numero de estrellas(1-5)
+  * ** Gama(String): Low-Cost, media, lujo 
+ 
 * **Entidades Secundarias (Catálogo / Clasificación):**
-  * **Marca:** La marca del propio vehículo. **Atributos**, Una marca tiene asociados varios *Modelos*, Tipo de vehiculo(Carrocería), País de origen, Calificación.
+   * **Coche:** Representa el vehículo que está en venta.
+   *  **Atributos**
+   *  **Matrícula(String(7))
+   *  **Año de fabricación(Date)
+   *  **Precio(Float)
+   *  **Kilometraje(Int)
+   *  **Estado del coche(String): Desgastado,SemiNuevo,Nuevo
+   *  **Motor(String): Diesel/Gasolina/Eléctrico
+   *  **Potencia(Float): Caballos
+   *  **Número de puertas(Int)
+   *  **Tipo de Cambio(String) : Manual,Automatico
+   *  **Permite financiación(Boolean)
+
 
 ### 2. Gestión de Imágenes
 
