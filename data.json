@@ -4,8 +4,8 @@
       "name": "Ferrari",
       "year": 1939,
       "country": "Italy",
-      "calification": 4.9,
-      "line": "Luxury",
+      "rating": 4.9,
+      "segment": "Luxury",
       "models": [
         {
           "id": 1,
@@ -14,24 +14,24 @@
           "year": 2017,
           "plate": "1234XYZ",
           "kilometers": 200454,
-          "status": ["New", "Ocasion", "Used"],
-          "motor": ["petrol", "Hybrid"],
+          "condition": "New",
+          "motor": "hybrid",
           "horsepower": 478,
           "doors": 2,
-          "gearbox": ["Manual"]
+          "gearbox": "Manual"
         },
         {
           "id": 2,
           "model": "488 GTB",
           "image": "img",
           "year": 2018,
-          "plate": "5678ABC",
+          "plate": "5778ABC",
           "kilometers": 85420,
-          "status": ["New", "Used"],
-          "motor": ["petrol"],
+          "condition": "Used",
+          "motor": "petrol",
           "horsepower": 661,
           "doors": 2,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 3,
@@ -40,11 +40,11 @@
           "year": 2022,
           "plate": "9012DEF",
           "kilometers": 12500,
-          "status": ["New", "Ocasion"],
-          "motor": ["Hybrid"],
+          "condition": "Certified Pre-Owned",
+          "motor": "hybrid",
           "horsepower": 986,
           "doors": 2,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     },
@@ -52,8 +52,8 @@
       "name": "BMW",
       "year": 1916,
       "country": "Germany",
-      "calification": 4.7,
-      "line": "Premium",
+      "rating": 4.7,
+      "segment": "Premium",
       "models": [
         {
           "id": 4,
@@ -62,11 +62,11 @@
           "year": 2021,
           "plate": "3456GHI",
           "kilometers": 45000,
-          "status": ["New", "Used"],
-          "motor": ["petrol"],
+          "condition": "Used",
+          "motor": "petrol",
           "horsepower": 503,
           "doors": 4,
-          "gearbox": ["Manual", "Automatic"]
+          "gearbox": "Manual"
         },
         {
           "id": 5,
@@ -75,11 +75,11 @@
           "year": 2022,
           "plate": "7890JKL",
           "kilometers": 28500,
-          "status": ["New", "Used"],
-          "motor": ["petrol", "Hybrid"],
+          "condition": "New",
+          "motor": "hybrid",
           "horsepower": 617,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 6,
@@ -88,11 +88,11 @@
           "year": 2023,
           "plate": "1122MNO",
           "kilometers": 18000,
-          "status": ["New", "Ocasion"],
-          "motor": ["diesel", "petrol", "Hybrid"],
+          "condition": "Certified Pre-Owned",
+          "motor": "diesel",
           "horsepower": 335,
           "doors": 5,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     },
@@ -100,8 +100,8 @@
       "name": "Mercedes-Benz",
       "year": 1926,
       "country": "Germany",
-      "calification": 4.8,
-      "line": "Luxury",
+      "rating": 4.8,
+      "segment": "Luxury",
       "models": [
         {
           "id": 7,
@@ -110,11 +110,11 @@
           "year": 2021,
           "plate": "3344PQR",
           "kilometers": 52000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["petrol", "Hybrid"],
+          "condition": "Used",
+          "motor": "petrol",
           "horsepower": 255,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 8,
@@ -123,11 +123,11 @@
           "year": 2023,
           "plate": "5566STU",
           "kilometers": 15000,
-          "status": ["New", "Ocasion"],
-          "motor": ["diesel", "petrol", "Hybrid"],
+          "condition": "New",
+          "motor": "hybrid",
           "horsepower": 375,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 9,
@@ -136,11 +136,11 @@
           "year": 2022,
           "plate": "7788VWX",
           "kilometers": 22000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["petrol"],
+          "condition": "Used",
+          "motor": "petrol",
           "horsepower": 523,
           "doors": 2,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     },
@@ -148,8 +148,8 @@
       "name": "Audi",
       "year": 1910,
       "country": "Germany",
-      "calification": 4.6,
-      "line": "Premium",
+      "rating": 4.6,
+      "segment": "Premium",
       "models": [
         {
           "id": 10,
@@ -158,11 +158,11 @@
           "year": 2020,
           "plate": "9900YZA",
           "kilometers": 67000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["diesel", "petrol"],
+          "condition": "Certified Pre-Owned",
+          "motor": "diesel",
           "horsepower": 261,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 11,
@@ -171,11 +171,11 @@
           "year": 2022,
           "plate": "1020BCD",
           "kilometers": 31000,
-          "status": ["New", "Used"],
-          "motor": ["petrol"],
+          "condition": "New",
+          "motor": "petrol",
           "horsepower": 591,
           "doors": 5,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 12,
@@ -184,11 +184,11 @@
           "year": 2023,
           "plate": "3040EFG",
           "kilometers": 12000,
-          "status": ["New", "Ocasion"],
-          "motor": ["diesel", "petrol", "Hybrid"],
+          "condition": "New",
+          "motor": "hybrid",
           "horsepower": 335,
           "doors": 5,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     },
@@ -196,8 +196,8 @@
       "name": "Porsche",
       "year": 1931,
       "country": "Germany",
-      "calification": 4.9,
-      "line": "Sports",
+      "rating": 4.9,
+      "segment": "Sports",
       "models": [
         {
           "id": 13,
@@ -206,11 +206,11 @@
           "year": 2021,
           "plate": "5060HIJ",
           "kilometers": 18000,
-          "status": ["New", "Used"],
-          "motor": ["petrol"],
+          "condition": "Used",
+          "motor": "petrol",
           "horsepower": 379,
           "doors": 2,
-          "gearbox": ["Manual", "Automatic"]
+          "gearbox": "Manual"
         },
         {
           "id": 14,
@@ -219,11 +219,11 @@
           "year": 2022,
           "plate": "7080KLM",
           "kilometers": 35000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["petrol", "Hybrid"],
+          "condition": "Certified Pre-Owned",
+          "motor": "hybrid",
           "horsepower": 335,
           "doors": 5,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 15,
@@ -232,11 +232,11 @@
           "year": 2023,
           "plate": "9010NOP",
           "kilometers": 9500,
-          "status": ["New"],
-          "motor": ["Electric"],
+          "condition": "New",
+          "motor": "electric",
           "horsepower": 469,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     },
@@ -244,8 +244,8 @@
       "name": "Toyota",
       "year": 1937,
       "country": "Japan",
-      "calification": 4.5,
-      "line": "General",
+      "rating": 4.5,
+      "segment": "General",
       "models": [
         {
           "id": 16,
@@ -254,11 +254,11 @@
           "year": 2021,
           "plate": "1212QRS",
           "kilometers": 78000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["petrol", "Hybrid"],
+          "condition": "Used",
+          "motor": "petrol",
           "horsepower": 169,
           "doors": 4,
-          "gearbox": ["Manual", "Automatic"]
+          "gearbox": "Manual"
         },
         {
           "id": 17,
@@ -267,11 +267,11 @@
           "year": 2022,
           "plate": "3434TUV",
           "kilometers": 25000,
-          "status": ["New", "Used"],
-          "motor": ["petrol"],
+          "condition": "New",
+          "motor": "petrol",
           "horsepower": 382,
           "doors": 2,
-          "gearbox": ["Manual", "Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 18,
@@ -280,11 +280,11 @@
           "year": 2023,
           "plate": "5656WXY",
           "kilometers": 14000,
-          "status": ["New", "Ocasion"],
-          "motor": ["Hybrid", "petrol"],
+          "condition": "Certified Pre-Owned",
+          "motor": "Hybrid",
           "horsepower": 219,
           "doors": 5,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     },
@@ -292,8 +292,8 @@
       "name": "Ford",
       "year": 1903,
       "country": "United States",
-      "calification": 4.4,
-      "line": "General",
+      "rating": 4.4,
+      "segment": "General",
       "models": [
         {
           "id": 19,
@@ -302,11 +302,11 @@
           "year": 2020,
           "plate": "7878ZAB",
           "kilometers": 42000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["petrol"],
+          "condition": "Used", 
+          "motor": "petrol",
           "horsepower": 450,
           "doors": 2,
-          "gearbox": ["Manual", "Automatic"]
+          "gearbox": "Manual"
         },
         {
           "id": 20,
@@ -315,11 +315,11 @@
           "year": 2022,
           "plate": "9090CDE",
           "kilometers": 30000,
-          "status": ["New", "Used"],
-          "motor": ["petrol", "Hybrid"],
+          "condition": "New",
+          "motor": "Hybrid",
           "horsepower": 430,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 21,
@@ -328,11 +328,11 @@
           "year": 2019,
           "plate": "1122FGH",
           "kilometers": 92000,
-          "status": ["Used"],
-          "motor": ["diesel", "petrol"],
+          "condition": "Used",
+          "motor": "diesel",
           "horsepower": 150,
           "doors": 5,
-          "gearbox": ["Manual", "Automatic"]
+          "gearbox": "Manual"
         }
       ]
     },
@@ -340,8 +340,8 @@
       "name": "Lamborghini",
       "year": 1963,
       "country": "Italy",
-      "calification": 4.9,
-      "line": "Luxury",
+      "rating": 4.9,
+      "segment": "Luxury",
       "models": [
         {
           "id": 22,
@@ -350,11 +350,11 @@
           "year": 2021,
           "plate": "3344IJK",
           "kilometers": 11000,
-          "status": ["New", "Ocasion"],
-          "motor": ["petrol"],
+          "condition": "New",
+          "motor": "petrol",
           "horsepower": 631,
           "doors": 2,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 23,
@@ -363,11 +363,11 @@
           "year": 2020,
           "plate": "5566LMN",
           "kilometers": 17000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["petrol"],
+          "condition": "Used",
+          "motor": "petrol",
           "horsepower": 769,
           "doors": 2,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 24,
@@ -376,11 +376,11 @@
           "year": 2023,
           "plate": "7788OPQ",
           "kilometers": 8000,
-          "status": ["New"],
-          "motor": ["petrol"],
+          "condition": "New",
+          "motor": "petrol",
           "horsepower": 657,
           "doors": 5,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     },
@@ -388,8 +388,8 @@
       "name": "Tesla",
       "year": 2003,
       "country": "United States",
-      "calification": 4.6,
-      "line": "Electric",
+      "rating": 4.6,
+      "segment": "Electric",
       "models": [
         {
           "id": 25,
@@ -398,11 +398,11 @@
           "year": 2022,
           "plate": "9900RST",
           "kilometers": 21000,
-          "status": ["New", "Used"],
-          "motor": ["Electric"],
+          "condition": "New",
+          "motor": "Electric",
           "horsepower": 670,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 26,
@@ -411,11 +411,11 @@
           "year": 2021,
           "plate": "1020UVW",
           "kilometers": 48000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["Electric"],
+          "condition": "Certified Pre-Owned",
+          "motor": "Electric",
           "horsepower": 283,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 27,
@@ -424,11 +424,11 @@
           "year": 2023,
           "plate": "3040XYZ",
           "kilometers": 9000,
-          "status": ["New"],
-          "motor": ["Electric"],
+          "condition": "New",
+          "motor": "Electric",
           "horsepower": 670,
           "doors": 5,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     },
@@ -436,8 +436,8 @@
       "name": "Volkswagen",
       "year": 1937,
       "country": "Germany",
-      "calification": 4.3,
-      "line": "General",
+      "rating": 4.3,
+      "segment": "General",
       "models": [
         {
           "id": 28,
@@ -446,11 +446,11 @@
           "year": 2020,
           "plate": "5678ABC",
           "kilometers": 65000,
-          "status": ["Used", "Ocasion"],
-          "motor": ["diesel", "petrol"],
+          "condition": "Certified Pre-Owned",
+          "motor": "diesel",
           "horsepower": 150,
           "doors": 5,
-          "gearbox": ["Manual", "Automatic"]
+          "gearbox": "Manual"
         },
         {
           "id": 29,
@@ -459,11 +459,11 @@
           "year": 2021,
           "plate": "7890DEF",
           "kilometers": 52000,
-          "status": ["Used"],
-          "motor": ["diesel", "petrol"],
+          "condition": "Used",
+          "motor": "diesel", 
           "horsepower": 190,
           "doors": 4,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         },
         {
           "id": 30,
@@ -472,11 +472,11 @@
           "year": 2022,
           "plate": "1234GHI",
           "kilometers": 28000,
-          "status": ["New", "Ocasion"],
-          "motor": ["diesel", "petrol", "Hybrid"],
+          "condition": "New",
+          "motor": "Hybrid",
           "horsepower": 245,
           "doors": 5,
-          "gearbox": ["Automatic"]
+          "gearbox": "Automatic"
         }
       ]
     }
