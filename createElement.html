@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Creador de elementos</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/global.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <form action="" id="formCreator">
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-4" id="model">
+          <div class="mb-3">
+            <label for="model" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="model">
+          </div>
+        </div>
+        <div class="col-12 col-md-4" id="plate">
+          <div class="mb-3">
+            <label for="plate" class="form-label">Matrícula</label>
+            <input type="text" class="form-control" id="plate">
+          </div>
+        </div>
+        <div class="col-12 col-md-4" id="brand">
+          <div class="mb-3">
+            <label for="brand" class="form-label">Marca</label>
+            <select class="form-select" id="brand">
+              <option selected disabled>Elija una marca</option>
+              <option value="bmw">BMW</option>
+              <option value="audi">Audi</option>
+              <option value="mercedes">Mercedes-Benz</option>
+              <option value="ferrari">Ferrari</option>
+              <option value="ford">Ford</option>
+              <option value="lamborghini">Lamborghini</option>
+              <option value="tesla">Tesla</option>
+              <option value="toyota">Toyota</option>
+              <option value="volkswagen">Volkswagen</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-3" id="kilometers">
+          <div class="mb-3">
+            <label for="kilometers class=" form-label">Kilometros</label>
+            <input type="text" class="form-control" id="kilometers">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="year">
+          <div class="mb-3">
+            <label for="year" class="form-label">Año de creación</label>
+            <input type="date" class="form-control" id="year">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="doors">
+          <div class="mb-3">
+            <label for="doors" class="form-label">Número de puertas</label>
+            <input type="text" class="form-control" id="doors">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="condition">
+          <div class="mb-3">
+            <label for="condition" class="form-label">Estado del vehiculo</label>
+            <select class="form-select" id="condition">
+              <option selected disabled>Estado del coche</option>
+              <option value="bmw">Usado</option>
+              <option value="audi">Ocasión</option>
+              <option value="audi">Nuevo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-3" id="motor">
+          <div class="mb-3">
+            <label for="model" class="form-label">Tipo de motor</label>
+             <select class="form-select" id="condition">
+              <option selected disabled>Estado del coche</option>
+              <option value="diesel">Diesel</option>
+              <option value="petrol">Gasolina</option>
+              <option value="hybrid">Híbrido</option>
+              <option value="electric">Eléctrico</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="gearbox">
+          <div class="mb-3">
+            <label for="model" class="form-label">Caja de cambios</label>
+             <select class="form-select" id="gearbox">
+              <option selected disabled>Marcha</option>
+              <option value="manual">Manual</option>
+              <option value="automatic">Automático</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="horsepower">
+          <div class="mb-3">
+            <label for="horsepower" class="form-label">Caballos</label>
+            <input type="text" class="form-control" id="horsepower">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="financing">
+          <div class="mb-3">
+            <label for="financing" class="form-label">Financiación</label>
+             <select class="form-select" id="financing">
+              <option selected disabled></option>
+              <option value="yes">Si</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-6" id="image">
+          <div class="mb-3">
+            <label for="model" class="form-label">Suba aqui la foto del vehiculo</label>
+            <input type="file" class="form-control" id="model">
+          </div>
+        </div>
+          <div class="col-12 col-md-6" id="price">
+            <div class="mb-3">
+              <label for="price" class="form-label">Precio</label>
+              <input type="text" class="form-control" id="price">
+            </div>
+          </div>
+        </div>
+      <div class="row g-3 mt-3 mb-3">
+    <div class="col-12 d-flex justify-content-end gap-2">
+      <a href="index.html" class="btn btn-secondary" id="cancel">CANCELAR</a>
+      <button type="submit" class="btn btn-primary" id="send">CREAR OFERTA</button>
+    </div>
+  </div>
+
+
+
+    </form>
+
+  </div>
+
+
+  <footer class="footer bg-black small text-center text-white-50">
+    <div class="container px-4 px-lg-5">Copyright &copy; CarX</div>
+  </footer>
+</body>
+
+</html>
