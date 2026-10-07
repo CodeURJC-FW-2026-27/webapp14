@@ -204,6 +204,10 @@ ol ul,
 ul ol {
   margin-bottom: 0;
 }
+discount,.discount{
+    color:#ebe700; 
+    text-decoration: line-through;
+}
 
 dt {
   font-weight: 700;
