@@ -40,17 +40,17 @@
     >
       <div
         class="p-5"
-        style="background: linear-gradient(135deg, #000000 0%, #b10000 100%)"
+        style="background: linear-gradient(135deg, #c5b501 -50%, #b30909 100%)"
       >
         <div class="row align-items-center">
           <!-- Texto del Banner -->
-          <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
-            <h1
-              class="display-4 fw-bolder text-uppercase mb-2"
+          <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+            <h3
+              class="display-4 fw-bolder text-uppercase mb-2 text-black"
               style="letter-spacing: 1px"
             >
-              Scuderia Ferrari
-            </h1>
+              Scuderia
+            </h3>
 
           </div>
 
@@ -61,11 +61,19 @@
               alt="Ferrari Logo PNG"
               class="img-fluid drop-shadow"
               style="
-                max-height: 180px;
-                filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.6));
-              "
+                max-height: 180px;"
 
             />
+          </div>
+          <!-- Texto del Banner -->
+          <div class="col-lg-4 text-center text-lg-end mb-4 mb-lg-0">
+            <h3
+              class="display-4 fw-bolder text-uppercase mb-2 text-black"
+              style="letter-spacing: 1px"
+            >
+              Ferrari
+            </h3>
+
           </div>
         </div>
       </div>
@@ -124,7 +132,7 @@
       <!-- Título de la sección secundaria -->
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="h4 mb-0">Models</h3>
-        <a href="crear-elemento.html" class="btn btn-success btn-sm">
+        <a href="#formulario" class="btn btn-success btn-sm">
           <i class="fas fa-plus me-1"></i>add Model
         </a>
       </div>
@@ -145,8 +153,12 @@
               <p class="text-white-50 small mb-2">
                 Plate: <strong>1234XYZ</strong>
               </p>
+              <div class="badge bg-light ">
+                <h5 class="h5 card-title text-dark mb-0">3.000.000€</h5>
+              </div> 
               <div class="mb-3">
                 <span class="badge bg-success">New</span>
+                <span class="badge bg-primary text-end">Financing options: available</span>
               </div>
               <ul class="list-unstyled small text-white-50 mb-0">
                 <li class="mb-1">
@@ -201,6 +213,9 @@
               <p class="text-white-50 small mb-2">
                 Plate: <strong>5778ABC</strong>
               </p>
+              <div class="badge bg-light ">
+                <h5 class="h5 card-title text-dark mb-0">190.000€</h5>
+              </div>
               <div class="mb-3">
                 <span class="badge bg-secondary">Used</span>
               </div>
@@ -258,6 +273,9 @@
               <p class="text-white-50 small mb-2">
                 Plate: <strong>9012DEF</strong>
               </p>
+              <div class="badge bg-light ">
+                <h5 class="h5 card-title text-dark mb-0">335.000€</h5>
+              </div>
               <div class="mb-3">
                 <span class="badge bg-warning text-dark"
                   >Certified Pre-Owned</span
@@ -304,7 +322,7 @@
         </div>
       </div>
       <!-- parte de foro-->
-       <div class="container">
+       <div class="container" id="formulario">
     <form action="" id="formCreator">
       <div class="row g-3 mt-1">
         <div class="col-12 col-md-4" id="model">
