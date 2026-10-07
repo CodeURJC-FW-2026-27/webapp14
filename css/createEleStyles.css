@@ -60,14 +60,7 @@ option{
     position: relative;
 
 }
-#titleCreate {
-    font-weight: bold;
-    text-shadow: 1px 1px 10px black;
-    border-bottom: 2px solid white;
-    border-bottom-style: dotted;
-    border-width: 2px;
 
-}
 .container-md h4{
  text-shadow: 1px 1px 10px black;
 }
@@ -91,4 +84,22 @@ option{
     border-bottom-right-radius: 20px;
     height: 15px;
     
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/carCreateBg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
 }
