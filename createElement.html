@@ -47,129 +47,140 @@
   </nav>
 
   <main>
-    <div class="container-md position-relative">
-      <img src="assets/img/coche_fondoOscuro.jpg" class="img-fluid" alt="" id="carBg">
-      <div class="position-absolute top-50 start-50 translate-middle w-75">
-        <div class="text-center text-white">
-          <h1 class="mx-auto my-0 text-uppercase" id="titleCreate">CREATOR OF BRANDS</h1>
-          <h4 class="mx-auto my-0 " ">You can create any brand</h4>
+    <aside class="hero">
+          <h1 class="text-uppercase fw-bold" id="titleCreate">Car Creator</h1>
+          <h4>Create your brand</h4>
+    </aside>
+      
+    <section class="container text-white-50" id="formulario">
+    <form action="" id="formCreator">
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-4" id="model">
+          <div class="mb-3">
+            <label for="model" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="model">
+          </div>
+        </div>
+        <div class="col-12 col-md-4" id="plate">
+          <div class="mb-3">
+            <label for="plate" class="form-label">Name</label>
+            <input type="text" class="form-control" id="plate">
+          </div>
+        </div>
+        <div class="col-12 col-md-4" id="brand">
+          <div class="mb-3">
+            <label for="brand" class="form-label">Year</label>
+            <select class="form-select" id="brand">
+              <option selected disabled>Segment</option>
+              <option value="bmw">BMW</option>
+              <option value="audi">Audi</option>
+          
+
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="container" id="divForm" >
-      <form action="" id="formCreator">
-        <div class="row g-3 mt-1">
-          <div class="col-12 col-md-6" id="brand">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="brand" placeholder="Nombre">
-            </div>
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-3" id="kilometers">
+          <div class="mb-3">
+            <label for="kilometers class=" form-label">Country</label>
+            <input type="text" class="form-control" id="kilometers">
           </div>
-          <div class="col-12 col-md-6" id="year">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="year" placeholder="Año de fundación">
-            </div>
+        </div>
+        <div class="col-12 col-md-3" id="year">
+          <div class="mb-3">
+            <label for="year" class="form-label">Rating</label>
+            <input type="date" class="form-control" id="year">
           </div>
-          <div class="col-12 col-md-12" id="segment">
+        </div>
+        <div class="col-12 col-md-3" id="doors">
+          <div class="mb-3">
+            <label for="doors" class="form-label">Número de puertas</label>
+            <input type="text" class="form-control" id="doors">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="condition">
+          <div class="mb-3">
+            <label for="condition" class="form-label">Estado del vehiculo</label>
+            <select class="form-select" id="condition">
+              <option selected disabled>Estado del coche</option>
+              <option value="bmw">Usado</option>
+              <option value="audi">Ocasión</option>
+              <option value="audi">Nuevo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-3" id="motor">
+          <div class="mb-3">
+            <label for="model" class="form-label">Tipo de motor</label>
+             <select class="form-select" id="condition">
+              <option selected disabled>Estado del coche</option>
+              <option value="diesel">Diesel</option>
+              <option value="petrol">Gasolina</option>
+              <option value="hybrid">Híbrido</option>
+              <option value="electric">Eléctrico</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="gearbox">
+          <div class="mb-3">
+            <label for="model" class="form-label">Caja de cambios</label>
+             <select class="form-select" id="gearbox">
+              <option selected disabled>Marcha</option>
+              <option value="manual">Manual</option>
+              <option value="automatic">Automático</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="horsepower">
+          <div class="mb-3">
+            <label for="horsepower" class="form-label">Caballos</label>
+            <input type="text" class="form-control" id="horsepower">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="financing">
+          <div class="mb-3">
+            <label for="financing" class="form-label">Financiación</label>
+             <select class="form-select" id="financing">
+              <option selected disabled></option>
+              <option value="yes">Si</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-6" id="image">
+          <div class="mb-3">
+            <label for="model" class="form-label">Suba aqui la foto del vehiculo</label>
+            <input type="file" class="form-control" id="model">
+          </div>
+        </div>
+          <div class="col-12 col-md-6" id="price">
             <div class="mb-3">
-              <select class="form-select" id="segment">
-                <option selected disabled>Elija la gama de la marca</option>
-                <option value="lowcost">Low-Cost</option>
-                <option value="general">Media</option>
-                <option value="luxury">Lujo</option>
-              </select>
+              <label for="price" class="form-label">Precio</label>
+              <input type="text" class="form-control" id="price">
             </div>
           </div>
         </div>
-        <div class="row g-3 mt-1">
-          <div class="col-12 col-md-6" id="country">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="country" placeholder="País">
-            </div>
-          </div>
-          <div class="col-12 col-md-6" id="rating">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="rating" placeholder="Calificación">
-            </div>
-          </div>
-          <div class="col-12 col-md-12" id="segment">
-            <div class="mb-3">
-               <input type="file" class="form-control" id="imageForm">           
-            </div>
-          </div>
-
-          <div class="row g-3 mt-3 mb-3">
-            <div class="col-12 d-flex justify-content-end gap-2">
-              <a href="index.html" class="btn btn-secondary" id="cancel">CANCELAR</a>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                id="createBrand">
-                CREAR
-              </button>
-
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">CREAR MARCA</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      Esta funcionalidad se implementara posteriormente.
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
-                      <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                        CONFIRMAR
-                      </button>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-      </form>
-    
+      <div class="row g-3 mt-3 mb-3">
+    <div class="col-12 d-flex justify-content-end gap-2">
+      <a href="index.html" class="btn btn-secondary" id="cancel">CANCELAR</a>
+      <button type="submit" class="btn btn-primary" id="send">CREAR OFERTA</button>
     </div>
+  </div>
+
+
+
+    </form>
+
+  </section>
   
   </main>
       <footer class=" bg-black small text-white-50 border-top mt-auto pt-5 pb-4">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <h5 class="mb-3">CarX</h5>
-        <ul class="list-unstyled small text-body-secondary">
-          <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Madrid, Spain</li>
-          <li class="mb-2"><i class="bi bi-envelope me-2"></i><a class="link-secondary text-decoration-none" href="mailto:carx@carx.com">carx@carx.com</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h6 class="text-uppercase small fw-bold mb-3">Quick links</h6>
-        <div class="row">
-          <div class="col-6"><ul class="list-unstyled small">
-            <li class="mb-2"><a class="link-secondary text-decoration-none" href="#page-top">Home</a></li>
-            <li class="mb-2"><a class="link-secondary text-decoration-none" href="#cars">Cars</a></li>
-            <li class="mb-2"><a class="link-secondary text-decoration-none" href="#contact">Contact</a></li>
-          </ul></div>
-        
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <h6 class="text-uppercase small fw-bold mb-3">Wanna buy a car?</h6>
-        <p class="small text-body-secondary">Contact us about your dream car.</p>
-        <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-chat-dots me-1"></i>Start a conversation</a>
-      </div>
-    </div>
-    <div class="border-top pt-3 mt-4 small text-body-secondary">&copy; CarX</div>
-  </div>
-</footer>
-
-  <footer class=" bg-black small text-white-50 border-top mt-auto pt-5 pb-4">
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-4">
