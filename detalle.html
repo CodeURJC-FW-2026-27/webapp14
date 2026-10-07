@@ -40,17 +40,17 @@
     >
       <div
         class="p-5"
-        style="background: linear-gradient(135deg, #000000 0%, #b10000 100%)"
+        style="background: linear-gradient(135deg, #c5b501 -50%, #b30909 100%)"
       >
         <div class="row align-items-center">
           <!-- Texto del Banner -->
-          <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
-            <h1
-              class="display-4 fw-bolder text-uppercase mb-2"
+          <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+            <h3
+              class="display-4 fw-bolder text-uppercase mb-2 text-black"
               style="letter-spacing: 1px"
             >
-              Scuderia Ferrari
-            </h1>
+              Scuderia
+            </h3>
 
           </div>
 
@@ -61,11 +61,19 @@
               alt="Ferrari Logo PNG"
               class="img-fluid drop-shadow"
               style="
-                max-height: 180px;
-                filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.6));
-              "
+                max-height: 180px;"
 
             />
+          </div>
+          <!-- Texto del Banner -->
+          <div class="col-lg-4 text-center text-lg-end mb-4 mb-lg-0">
+            <h3
+              class="display-4 fw-bolder text-uppercase mb-2 text-black"
+              style="letter-spacing: 1px"
+            >
+              Ferrari
+            </h3>
+
           </div>
         </div>
       </div>
@@ -124,7 +132,7 @@
       <!-- Título de la sección secundaria -->
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="h4 mb-0">Models</h3>
-        <a href="crear-elemento.html" class="btn btn-success btn-sm">
+        <a href="#formulario" class="btn btn-success btn-sm">
           <i class="fas fa-plus me-1"></i>add Model
         </a>
       </div>
@@ -134,9 +142,7 @@
         <!-- Modelo 1: F40 -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <div class="bg-secondary text-center py-4 rounded-top">
-              <i class="fas fa-car fa-4x text-white-50"></i>
-            </div>
+           <img src="assets/img/Ferrari_F40.jpg" class="card-img-top" alt="Ferrari F40" style="height: 200px; object-fit: cover;">
             <div class="card-body">
               <div
                 class="d-flex justify-content-between align-items-start mb-2"
@@ -147,8 +153,12 @@
               <p class="text-white-50 small mb-2">
                 Plate: <strong>1234XYZ</strong>
               </p>
+              <div class="badge bg-light ">
+                <h5 class="h5 card-title text-dark mb-0">3.000.000€</h5>
+              </div> 
               <div class="mb-3">
                 <span class="badge bg-success">New</span>
+                <span class="badge bg-primary text-end">Financing options: available</span>
               </div>
               <ul class="list-unstyled small text-white-50 mb-0">
                 <li class="mb-1">
@@ -192,9 +202,7 @@
         <!-- Modelo 2: 488 GTB -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <div class="bg-secondary text-center py-4 rounded-top">
-              <i class="fas fa-car fa-4x text-white-50"></i>
-            </div>
+            <img src="assets/img/Ferrari_488_GTB.jpeg" class="card-img-top" alt="Ferrari 488 GTB" style="height: 200px; object-fit: cover;">
             <div class="card-body">
               <div
                 class="d-flex justify-content-between align-items-start mb-2"
@@ -205,6 +213,9 @@
               <p class="text-white-50 small mb-2">
                 Plate: <strong>5778ABC</strong>
               </p>
+              <div class="badge bg-light ">
+                <h5 class="h5 card-title text-dark mb-0">190.000€</h5>
+              </div>
               <div class="mb-3">
                 <span class="badge bg-secondary">Used</span>
               </div>
@@ -242,7 +253,7 @@
                 href="editar-elemento.html?id=1"
                 class="btn btn-sm btn-warning text-dark fw-bold"
               >
-                <i class="fas fa-edit me-1"></i>Editar
+                <i class="fas fa-edit me-1"></i>Edit
               </a>
             </div>
           </div>
@@ -251,9 +262,7 @@
         <!-- Modelo 3: SF90 Stradale -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <div class="bg-secondary text-center py-4 rounded-top">
-              <i class="fas fa-car fa-4x text-white-50"></i>
-            </div>
+           <img src="assets/img/Ferrari_SF90_Stradale.webp" class="card-img-top" alt="Ferrari SF90 Stradale" style="height: 200px; object-fit: cover;">
             <div class="card-body">
               <div
                 class="d-flex justify-content-between align-items-start mb-2"
@@ -264,6 +273,9 @@
               <p class="text-white-50 small mb-2">
                 Plate: <strong>9012DEF</strong>
               </p>
+              <div class="badge bg-light ">
+                <h5 class="h5 card-title text-dark mb-0">335.000€</h5>
+              </div>
               <div class="mb-3">
                 <span class="badge bg-warning text-dark"
                   >Certified Pre-Owned</span
@@ -303,12 +315,145 @@
                 href="editar-elemento.html?id=1"
                 class="btn btn-sm btn-warning text-dark fw-bold"
               >
-                <i class="fas fa-edit me-1"></i>Editar
-              </a>
+                <i class="fas fa-edit me-1"></i>Edit
+             </a>
             </div>
           </div>
         </div>
       </div>
+      <!-- parte de foro-->
+       <div class="container" id="formulario">
+    <form action="" id="formCreator">
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-4" id="model">
+          <div class="mb-3">
+            <label for="model" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="model">
+          </div>
+        </div>
+        <div class="col-12 col-md-4" id="plate">
+          <div class="mb-3">
+            <label for="plate" class="form-label">Matrícula</label>
+            <input type="text" class="form-control" id="plate">
+          </div>
+        </div>
+        <div class="col-12 col-md-4" id="brand">
+          <div class="mb-3">
+            <label for="brand" class="form-label">Marca</label>
+            <select class="form-select" id="brand">
+              <option selected disabled>Elija una marca</option>
+              <option value="bmw">BMW</option>
+              <option value="audi">Audi</option>
+              <option value="mercedes">Mercedes-Benz</option>
+              <option value="ferrari">Ferrari</option>
+              <option value="ford">Ford</option>
+              <option value="lamborghini">Lamborghini</option>
+              <option value="tesla">Tesla</option>
+              <option value="toyota">Toyota</option>
+              <option value="volkswagen">Volkswagen</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-3" id="kilometers">
+          <div class="mb-3">
+            <label for="kilometers class=" form-label">Kilometros</label>
+            <input type="text" class="form-control" id="kilometers">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="year">
+          <div class="mb-3">
+            <label for="year" class="form-label">Año de creación</label>
+            <input type="date" class="form-control" id="year">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="doors">
+          <div class="mb-3">
+            <label for="doors" class="form-label">Número de puertas</label>
+            <input type="text" class="form-control" id="doors">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="condition">
+          <div class="mb-3">
+            <label for="condition" class="form-label">Estado del vehiculo</label>
+            <select class="form-select" id="condition">
+              <option selected disabled>Estado del coche</option>
+              <option value="bmw">Usado</option>
+              <option value="audi">Ocasión</option>
+              <option value="audi">Nuevo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-3" id="motor">
+          <div class="mb-3">
+            <label for="model" class="form-label">Tipo de motor</label>
+             <select class="form-select" id="condition">
+              <option selected disabled>Estado del coche</option>
+              <option value="diesel">Diesel</option>
+              <option value="petrol">Gasolina</option>
+              <option value="hybrid">Híbrido</option>
+              <option value="electric">Eléctrico</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="gearbox">
+          <div class="mb-3">
+            <label for="model" class="form-label">Caja de cambios</label>
+             <select class="form-select" id="gearbox">
+              <option selected disabled>Marcha</option>
+              <option value="manual">Manual</option>
+              <option value="automatic">Automático</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="horsepower">
+          <div class="mb-3">
+            <label for="horsepower" class="form-label">Caballos</label>
+            <input type="text" class="form-control" id="horsepower">
+          </div>
+        </div>
+        <div class="col-12 col-md-3" id="financing">
+          <div class="mb-3">
+            <label for="financing" class="form-label">Financiación</label>
+             <select class="form-select" id="financing">
+              <option selected disabled></option>
+              <option value="yes">Si</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row g-3 mt-1">
+        <div class="col-12 col-md-6" id="image">
+          <div class="mb-3">
+            <label for="model" class="form-label">Suba aqui la foto del vehiculo</label>
+            <input type="file" class="form-control" id="model">
+          </div>
+        </div>
+          <div class="col-12 col-md-6" id="price">
+            <div class="mb-3">
+              <label for="price" class="form-label">Precio</label>
+              <input type="text" class="form-control" id="price">
+            </div>
+          </div>
+        </div>
+      <div class="row g-3 mt-3 mb-3">
+    <div class="col-12 d-flex justify-content-end gap-2">
+      <a href="index.html" class="btn btn-secondary" id="cancel">CANCELAR</a>
+      <button type="submit" class="btn btn-primary" id="send">CREAR OFERTA</button>
+    </div>
+  </div>
+
+
+
+    </form>
+
+  </div>
     </main>
 
     <!-- FOOTER    -->
