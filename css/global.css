@@ -31,6 +31,7 @@
 
 }
 
-.background_grey{
-    background-color: rgb(55, 63, 65) !important;
+.bg-banner{
+    background: linear-gradient(135deg, #c5b501 -50%, #b30909 100%);
+    padding: 24px;
 }

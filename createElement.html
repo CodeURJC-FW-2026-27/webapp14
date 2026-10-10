@@ -21,110 +21,143 @@
   <link rel="stylesheet" href="css/createEleStyles.css">
 </head>
 
-<body class="text-white d-flex flex-column min-vh-100" style="background-color: #2b3035">
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top text-bg-white text-black-50">
-    <div class="container px-4 px-lg-5">
-      <a class="navbar-brand" href="index.html">CarX</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="detalle.html">Car-Detail</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="createElement.html">Create-Element</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<body class="text-white bg-dark d-flex flex-column min-vh-100">
+  <header>
+    <!-- fixed navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top text-bg-white text-black-50">
 
-  <section class="container px-4 px-lg-5 mt-5 pt-5">
+      <!-- Container for elements-->
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="index.html">CarX</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- container for responsive, wraps the elements into a menu-->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="detalle.html">Car-Detail</a>
+            </li>
+            <li>
+              <a class="nav-link" href="createElement.html">Create-Element</a>
+
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+<!--Aside content-->
+  <aside class="container px-4 px-lg-5 mt-5 pt-5">
     <div class="position-relative">
       <img src="assets/img/coche_fondoOscuro.jpg" class="img-fluid rounded-3" alt="" id="carBg">
       <div class="position-absolute top-50 start-50 translate-middle w-75">
         <div class="text-center text-white">
-          <h1 class="mx-auto my-0 text-uppercase" id="titleCreate">CREATOR OF BRANDS</h1>
-          <h4 class="mx-auto my-0">You can create any brand</h4>
+          <h1 class="mx-auto my-0 text-uppercase" id="titleCreate">BRAND CREATOR</h1>
+          <h4 class="mx-auto my-0">Create any brand.</h4>
         </div>
       </div>
     </div>
-  </section>
+  </aside>
 
+  <!--Main content-->
   <main class="container px-4 px-lg-5 my-5 flex-grow-1">
 
+    <section>
+      <div
+        class="container fw-bold text-capitalize bg-dark d-flex border border-secondary  justify-content-center align-items-center rounded-4 shadow p-5  text-center"" id="
+        bannerCreate">
+        <h2 class="m-0">Create your brand here</h2>
+      </div>
+      <div class="container bg-dark border border-secondary rounded-4 shadow p-4 p-md-5 mt-5" id="formulario">
 
-    <div class="container bg-dark border border-secondary rounded-4 shadow p-4 p-md-5" id="formulario">
-      <form action="" id="formCreator">
-        <div class="row g-3 mt-1">
-          <div class="col-12 col-md-6" id="brandDiv">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="brand" placeholder="Name of brand">
+        <form action="" id="formCreator">
+          <div class="row g-3 mt-1">
+            <div class="col-12 col-md-6" id="brandDiv">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="brand" placeholder="Name of brand">
+              </div>
+            </div>
+            <div class="col-12 col-md-6" id="yearDiv">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="year" placeholder="Year of foundation">
+              </div>
             </div>
           </div>
-          <div class="col-12 col-md-6" id="yearDiv">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="year" placeholder="Year of foundation">
-            </div>
-          </div>
-        </div>
 
-        <div class="row g-3 mt-1">
-          <div class="col-12 col-md-6" id="countryDiv">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="country" placeholder="Country">
+          <div class="row g-3 mt-1">
+            <div class="col-12 col-md-6" id="countryDiv">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="country" placeholder="Country">
+              </div>
+            </div>
+            <div class="col-12 col-md-6" id="ratingDiv">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="rating" placeholder="Rating">
+              </div>
             </div>
           </div>
-          <div class="col-12 col-md-6" id="ratingDiv">
-            <div class="mb-3">
-              <input type="text" class="form-control" id="rating" placeholder="Rating">
-            </div>
-          </div>
-        </div>
 
-        <div class="row g-3 mt-1">
-          <div class="col-12 col-md-6" id="imageDiv">
-            <div class="mb-3">
-              <input type="file" class="form-control" id="imageFile">
+          <div class="row g-3 mt-1">
+            <div class="col-12 col-md-6" id="imageDiv">
+              <div class="mb-3">
+                <input type="file" class="form-control" id="imageFile">
+              </div>
+            </div>
+            <div class="col-12 col-md-6" id="segmentDiv">
+              <div class="mb-3">
+                <select class="form-select" id="segment">
+                  <option selected disabled>Choose the segment</option>
+                  <option value="lowCost">LOW-COST</option>
+                  <option value="midRange">Mid-range</option>
+                  <option value="luxury">Luxury</option>
+                </select>
+              </div>
             </div>
           </div>
-          <div class="col-12 col-md-6" id="segmentDiv">
-            <div class="mb-3">
-              <select class="form-select" id="segment">
-                <option selected disabled>Choose the segment</option>
-                <option value="lowCost">LOW-COST</option>
-                <option value="midRange">Mid-range</option>
-                <option value="luxury">Luxury</option>
-              </select>
-            </div>
-          </div>
-        </div>
 
-        <div class="row g-3 mt-3 mb-3">
-          <div class="col-12 d-flex justify-content-end gap-2">
-            <a href="index.html" class="btn btn-secondary" id="cancel">CANCEL</a>
-            <button type="submit" class="btn btn-primary" id="send">CREATE</button>
+          <div class="row g-3 mt-3 mb-3">
+            <div class="col-12 d-flex justify-content-end gap-2">
+              <a href="index.html" class="btn btn-secondary" id="cancel">CANCEL</a>
+              <button type="submit" class="btn btn-primary" id="send">CREATE</button>
+            </div>
           </div>
-        </div>
-      </form>
-    </div>
+        </form>
+
+      </div>
+    </section>
+
   </main>
+<!--end of main and header-->
 
 
-  <footer class="bg-black small text-white-50 border-top mt-auto pt-5 pb-4">
+<!-- footer-->
+  <footer class=" bg-black small text-white-50 border-top mt-auto pt-5 pb-4">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
           <h5 class="mb-3">CarX</h5>
           <ul class="list-unstyled small text-body-secondary">
-            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Madrid, Spain</li>
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                <path
+                  d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
+              </svg> Madrid, Spain</li>
             <li class="mb-2"><i class="bi bi-envelope me-2"></i><a class="link-secondary text-decoration-none"
-                href="mailto:carx@carx.com">carx@carx.com</a></li>
+                href="mailto:carx@carx.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
+                </svg>
+                carx@carx.com</a></li>
           </ul>
         </div>
         <div class="col-lg-4">
@@ -134,21 +167,32 @@
               <ul class="list-unstyled small">
                 <li class="mb-2"><a class="link-secondary text-decoration-none" href="#page-top">Home</a></li>
                 <li class="mb-2"><a class="link-secondary text-decoration-none" href="#cars">Cars</a></li>
-                <li class="mb-2"><a class="link-secondary text-decoration-none" href="#contact">Contact</a></li>
+                <li class="mb-2"><a class="link-secondary text-decoration-none" href="mailto:carx@carx.com">Contact</a>
+                </li>
               </ul>
             </div>
+
           </div>
         </div>
         <div class="col-lg-4">
           <h6 class="text-uppercase small fw-bold mb-3">Wanna buy a car?</h6>
-          <p class="small text-body-secondary">Contact us about your dream car.</p>
-          <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-chat-dots me-1"></i>Start a
-            conversation</a>
+          <p class="small text-body-secondary">At CarX we care about your dream car. Contact us</p>
+          <p class="small text-body-secondary">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+            </svg>
+            +34 123 45 67 89
+          </p>
+
         </div>
       </div>
       <div class="border-top pt-3 mt-4 small text-body-secondary">&copy; CarX</div>
     </div>
   </footer>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
