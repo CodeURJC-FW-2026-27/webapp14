@@ -91,3 +91,22 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 6. **Número de puertas**
 7. **Tipo de cambio** (Manual / Automático)
 8. **Potencia**
+
+
+### Participación en la prácticaç
+## Fernando Cuesta ROmay 
+
+* **Página de Detalle:**
+  * Desarrollo completo de la estructura HTML.
+  * Implementación y maquetación de los detalles visuales y de contenido.
+
+* **Ajustes y Maquetación Web:**
+  * Retoques y optimizaciones en la *grid* de la página principal.
+  * Ajustes puntuales en otras páginas HTML.
+
+* **Estructura y Gestión de Datos:**
+  * Revisión y validación de la estructura de datos almacenada en el archivo `JSON`.
+
+* **Documentación y Organización:**
+  * Participación activa en la definición de la estructura del trabajo.
+  * Colaboración directa en la redacción y organización de este `README.md`.
