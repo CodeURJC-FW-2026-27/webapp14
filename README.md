@@ -97,11 +97,11 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 <img width="953" height="471" alt="Captura de pantalla 2026-10-13 163137" src="https://github.com/user-attachments/assets/01f09dc7-1ca7-4479-8a28-6512bc4fabb4" />
 <img width="955" height="471" alt="Captura de pantalla 2026-10-13 163256" src="https://github.com/user-attachments/assets/48080a30-e928-4f7d-bb15-9f006a7d5267" />
   <img width="953" height="471" alt="Captura de pantalla 2026-10-13 163153" src="https://github.com/user-attachments/assets/8676ebe0-e2d7-4914-9ca6-a98567e4bfc4" />
-  * **Página de detalle:**
+* **Página de detalle:**
   <img width="956" height="470" alt="Captura de pantalla 2026-10-13 163346" src="https://github.com/user-attachments/assets/2d6db1b6-fc15-4300-b377-bf140c07707d" />
 <img width="950" height="472" alt="Captura de pantalla 2026-10-13 163318" src="https://github.com/user-attachments/assets/b0253e64-6fc4-416d-b26b-05d6bc88fa1b" />
 <img width="950" height="470" alt="Captura de pantalla 2026-10-13 163307" src="https://github.com/user-attachments/assets/27346e77-50e1-4080-a32e-dc77ea71e2cb" />
-  * **Página de añadir marca<img width="866" height="352" alt="Captura de pantalla 2026-10-13 163433" src="https://github.com/user-attachments/assets/1e192215-3a24-4a6a-b953-58581d7f158b" />
+* **Página de añadir marca<img width="866" height="352" alt="Captura de pantalla 2026-10-13 163433" src="https://github.com/user-attachments/assets/1e192215-3a24-4a6a-b953-58581d7f158b" />
 <img width="947" height="467" alt="Captura de pantalla 2026-10-13 163418" src="https://github.com/user-attachments/assets/3f6bfe02-0902-4d1e-9f84-5ca6f519ab49" />
 <img width="947" height="469" alt="Captura de pantalla 2026-10-13 163401" src="https://github.com/user-attachments/assets/7bc13e59-7416-431a-b44b-f132b1c305e4" />
 :**
@@ -124,3 +124,21 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 * **Documentación y Organización:**
   * Participación activa en la definición de la estructura del trabajo.
   * Colaboración directa en la redacción y organización de este `README.md`.
+    
+## Joaquín Farias Ovelar
+
+* **Página de inicio:**
+  * Modificación del template de Boostrap 5 adaptado a nuestra temática.
+  * Implementación de un nuevo navbar y footer para todas las páginas.
+
+* **Ajustes SEO:**
+  * Modificación y adición correcta de las etiquetas semánticas y comentarios en el código.
+  * Ajustes puntuales en otras páginas HTML y estilos css.
+
+* **Estructura y Gestión de Datos:**
+  * Implementación inicial de la estructura de datos almacenada en el archivo `JSON`.
+
+* **Documentación y Organización:**
+  * Participación activa en la definición de la estructura del trabajo.
+  * Colaboración directa en la redacción y organización de este `README.md`.
+
