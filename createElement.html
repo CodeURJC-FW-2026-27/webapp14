@@ -24,33 +24,36 @@
 <body class="text-white bg-dark d-flex flex-column min-vh-100">
   <header>
     <!-- fixed navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top text-bg-white text-black-50">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top text-bg-white text-black-50">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="index.html">CarX</a>
+    
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
 
-      <!-- Container for elements-->
-      <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="index.html">CarX</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-          aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
+    <div class="input-group w-auto mx-auto" style="max-width: 300px;">
+      <input id="search-focus" type="search" placeholder="Search" id="form1" class="form-control" />
+      <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
 
-        <!-- container for responsive, wraps the elements into a menu-->
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="detalle.html">Car-Detail</a>
-            </li>
-            <li>
-              <a class="nav-link" href="createElement.html">Create-Element</a>
-
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
+    <!-- Container for responsive, wraps the elements into a menu -->
+    <div class="collapse navbar-collapse flex-grow-0" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="detalle.html">Detail</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="createElement.html">Create</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   </header>
 
 <!--Aside content-->

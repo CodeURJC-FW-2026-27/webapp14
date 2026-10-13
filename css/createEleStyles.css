@@ -4,18 +4,6 @@ body {
 }
 
 
-
-.form-control {
-    border: 1px solid black;
-    height: 40px;
-}
-
-.form-select {
-    border: 1px solid black;
-    height: 40px;
-
-}
-
 option {
     border: 1px solid black;
     height: 50px;
