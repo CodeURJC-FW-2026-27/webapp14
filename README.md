@@ -94,7 +94,7 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 
 
 ### Participación en la prácticaç
-## Fernando Cuesta ROmay 
+## Fernando Cuesta
 
 * **Página de Detalle:**
   * Desarrollo completo de la estructura HTML.
