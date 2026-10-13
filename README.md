@@ -156,3 +156,36 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 * [Estilos css nativos](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/css/global.css)
 
 
+## Adrián Dueñas Gómez
+
+* **Página de crear elementos entidad principal**
+  * Desarrollo completo de la estructura HTML.
+  * Implementación y maquetación de los detalles visuales y de contenido.
+  * Formulario adaptado a las necesidades de la entidad principal con cada atributo necesario.
+  * Se ha añadido un fichero CSS para acompañar los estilos de bootstrap.
+
+* **Formulario de creación entidades secundarias**
+  * Formulario adaptado a las necesidades de la entidad secundaria.
+  * Implementación y maquetación de los detalles visuales y de contenido.
+
+* *Ajustes SEO:**
+  * Implementación de algunas necesidades extras del proyecto.
+
+* **Documentación y Organización:**
+  * Participación activa en la definición de la estructura del trabajo.
+  * Colaboración directa en la redacción y organización de este `README.md`.
+ 
+* **Commits más significativos:**
+* [Commit 1](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/2bbdd3ba961ee7b5019a6d615e1d398db20eb12a)
+* [Commit 2](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/59f92f810dd9e36e45d3dcdd2e5f3935bace4f59)
+* [Commit 3](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/e71144c478394e3751a5c2e23134d8135c9e4878)
+* [Commit 4](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/0e96d0435896ab9f1dc1d25c0a849705c86bc1cd)
+* [Commit 5](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/2fec8e29ffbfdbf3b083fcc90bb65c66e388ab94)
+* **ficheros en los que más he participado:**
+* [Página de inicio](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/index.html)
+* [Página de detalle](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/detalle.html)
+* [Estilos pagina de creación de entidad principal](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/css/createEleStyles.css)
+* [Página de creación de entidad principal](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/createElement.html)
+* [Estilos css nativos](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/css/global.css)
+
+
