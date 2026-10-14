@@ -125,7 +125,21 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 * **Documentación y Organización:**
   * Participación activa en la definición de la estructura del trabajo.
   * Colaboración directa en la redacción y organización de este `README.md`.
-    
+
+ * **Commits más significativos:**
+* [Commit 1](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/4431242ac5ebf4f32629c1ada5bfcdafa3ff69d9)
+* [Commit 2](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/b8d651a650e2b8cce44baf4baf622b97b67c2dac)
+* [Commit 3](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/50a536bda94f7e75eb91bee8fdbf68a64bc008ee)
+* [Commit 4](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/573f3f114b3f4f28a66714e1f76922b3352a5f54)
+* [Commit 5](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/bc4eb9dc813d923890c4dca05c6e092f2562304a)
+
+  * **ficheros en los que más he participado:**
+* [Página de detalle](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/detalle.html)
+* [Página de inicio](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/index.html)
+* [Estructura JSON](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/data.json)
+* [Estilos css nativos](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/css/global.css)
+* [Imagenes y logos](https://github.com/CodeURJC-FW-2026-27/webapp14/tree/main/assets)
+
 ## Joaquín Farias Ovelar
 
 * **Página de inicio:**
