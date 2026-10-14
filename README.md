@@ -133,7 +133,7 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 * [Commit 4](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/573f3f114b3f4f28a66714e1f76922b3352a5f54)
 * [Commit 5](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/bc4eb9dc813d923890c4dca05c6e092f2562304a)
 
-  * **ficheros en los que más he participado:**
+* **ficheros en los que más he participado:**
 * [Página de detalle](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/detalle.html)
 * [Página de inicio](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/index.html)
 * [Estructura JSON](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/data.json)
