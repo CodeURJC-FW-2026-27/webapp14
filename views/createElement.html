@@ -35,7 +35,7 @@
     </button>
 
     <div class="input-group w-auto mx-auto" style="max-width: 300px;">
-      <input id="search-focus" type="search" placeholder="Search" id="form1" class="form-control" />
+      <input id="search-focus" type="search" placeholder="Search" class="form-control" />
       <button type="button" class="btn btn-primary" data-mdb-ripple-init>
         <i class="fas fa-search"></i>
       </button>
@@ -74,22 +74,24 @@
 
     <section>
       <div
-        class="container fw-bold text-capitalize bg-dark d-flex border border-secondary  justify-content-center align-items-center rounded-4 shadow p-5  text-center"" id="
-        bannerCreate">
+        class="container fw-bold text-capitalize bg-dark d-flex border border-secondary justify-content-center align-items-center rounded-4 shadow p-5 text-center" id="bannerCreate">
         <h2 class="m-0">Create your brand here</h2>
       </div>
       <div class="container bg-dark border border-secondary rounded-4 shadow p-4 p-md-5 mt-5" id="formulario">
 
         <form action="" id="formCreator">
+       
           <div class="row g-3 mt-1">
             <div class="col-12 col-md-6" id="brandDiv">
               <div class="mb-3">
+                <label class="form-label text-white small text-uppercase fw-bold mb-2">Brand Name</label>
                 <input type="text" class="form-control" id="brand" placeholder="Name of brand">
               </div>
             </div>
             <div class="col-12 col-md-6" id="yearDiv">
               <div class="mb-3">
-                <input type="text" class="form-control" id="year" placeholder="Year of foundation">
+                <label class="form-label text-white small text-uppercase fw-bold mb-2">Year of Foundation</label>
+                <input type="date" class="form-control" id="year" placeholder="Year of foundation">
               </div>
             </div>
           </div>
@@ -97,24 +99,50 @@
           <div class="row g-3 mt-1">
             <div class="col-12 col-md-6" id="countryDiv">
               <div class="mb-3">
+                <label class="form-label text-white small text-uppercase fw-bold mb-2">Country</label>
                 <input type="text" class="form-control" id="country" placeholder="Country">
               </div>
             </div>
             <div class="col-12 col-md-6" id="ratingDiv">
-              <div class="mb-3">
-                <input type="text" class="form-control" id="rating" placeholder="Rating">
+              <div class="mb-3 d-flex flex-column justify-content-center">
+                <label class="form-label text-white small text-uppercase fw-bold mb-2">Rating</label>
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 px-3 py-2 bg-black bg-opacity-25 rounded border border-secondary">
+                  <div class="form-check m-0">
+                    <input class="form-check-input" type="radio" name="estrellas" id="rate1" value="1">
+                    <label class="form-check-label text-white fw-bold" for="rate1">1</label>
+                  </div>
+                  <div class="form-check m-0">
+                    <input class="form-check-input" type="radio" name="estrellas" id="rate2" value="2">
+                    <label class="form-check-label text-white fw-bold" for="rate2">2</label>
+                  </div>
+                  <div class="form-check m-0">
+                    <input class="form-check-input" type="radio" name="estrellas" id="rate3" value="3">
+                    <label class="form-check-label text-white fw-bold" for="rate3">3</label>
+                  </div>
+                  <div class="form-check m-0">
+                    <input class="form-check-input" type="radio" name="estrellas" id="rate4" value="4">
+                    <label class="form-check-label text-white fw-bold" for="rate4">4</label>
+                  </div>
+                  <div class="form-check m-0">
+                    <input class="form-check-input" type="radio" name="estrellas" id="rate5" value="5">
+                    <label class="form-check-label text-white fw-bold" for="rate5">5</label>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
+         
           <div class="row g-3 mt-1">
             <div class="col-12 col-md-6" id="imageDiv">
               <div class="mb-3">
+                <label class="form-label text-white small text-uppercase fw-bold mb-2">Image</label>
                 <input type="file" class="form-control" id="imageFile">
               </div>
             </div>
             <div class="col-12 col-md-6" id="segmentDiv">
               <div class="mb-3">
+                <label class="form-label text-white small text-uppercase fw-bold mb-2">Segment</label>
                 <select class="form-select" id="segment">
                   <option selected disabled>Choose the segment</option>
                   <option value="lowCost">LOW-COST</option>
@@ -125,6 +153,7 @@
             </div>
           </div>
 
+      
           <div class="row g-3 mt-3 mb-3">
             <div class="col-12 d-flex justify-content-end gap-2">
               <a href="index.html" class="btn btn-secondary" id="cancel">CANCEL</a>
@@ -137,7 +166,6 @@
     </section>
 
   </main>
-<!--end of main and header-->
 
 
 <!-- footer-->
@@ -147,16 +175,16 @@
         <div class="col-lg-4">
           <h5 class="mb-3">CarX</h5>
           <ul class="list-unstyled small text-body-secondary">
-            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+            <li class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
                 <path
                   d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
                 <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
               </svg> Madrid, Spain</li>
-            <li class="mb-2"><i class="bi bi-envelope me-2"></i><a class="link-secondary text-decoration-none"
+            <li class="mb-2"><a class="link-secondary text-decoration-none"
                 href="mailto:carx@carx.com">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                  class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
                   <path
                     d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
                 </svg>
@@ -174,22 +202,19 @@
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
         <div class="col-lg-4">
           <h6 class="text-uppercase small fw-bold mb-3">Wanna buy a car?</h6>
           <p class="small text-body-secondary">At CarX we care about your dream car. Contact us</p>
           <p class="small text-body-secondary">
-
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              class="bi bi-telephone-fill me-2" viewBox="0 0 16 16">
               <path fill-rule="evenodd"
                 d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
             </svg>
             +34 123 45 67 89
           </p>
-
         </div>
       </div>
       <div class="border-top pt-3 mt-4 small text-body-secondary">&copy; CarX</div>

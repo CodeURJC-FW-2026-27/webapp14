@@ -8,26 +8,18 @@
   <meta name="author" content="" />
   <title>Grayscale - Start Bootstrap Theme</title>
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-  <!-- Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet" />
-  <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
   <link href="css/global.css" rel="stylesheet" />
 </head>
 
-<!--Start-->
-
 <body class="text-white d-flex flex-column min-vh-100 bg-dark">
 
-  <!--Add header semantically here-->
   <header>
-
-    <!--Reuse same navbar-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top text-bg-white text-black-50">
       <div class="container-fluid px-4">
         <a class="navbar-brand" href="index.html">CarX</a>
@@ -38,15 +30,13 @@
           <i class="fas fa-bars"></i>
         </button>
 
-        <!-- Search button -->
         <div class="input-group w-auto mx-auto" style="max-width: 300px;">
-          <input id="search-focus" type="search" placeholder="Search" id="form1" class="form-control" />
+          <input type="search" placeholder="Search" id="search-focus" class="form-control" />
           <button type="button" class="btn btn-primary" data-mdb-ripple-init>
             <i class="fas fa-search"></i>
           </button>
         </div>
 
-        <!-- Container for responsive, wraps the elements into a menu -->
         <div class="collapse navbar-collapse flex-grow-0" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
@@ -60,47 +50,33 @@
       </div>
     </nav>
   </header>
-  <!-- banner section-->
-  <section class="card border-0 shadow-lg overflow-hidden mb-5 mt-5 rounded-3 text-white">
 
-    <!-- main container, does  flex-row + flex-wrap of elements-->
+  <section class="card border-0 shadow-lg overflow-hidden mb-5 mt-5 rounded-3 text-white">
     <div class="bg-banner row align-items-center">
       <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
         <h3 class="display-4 fw-bolder text-uppercase mb-2 text-black">
           Scuderia
         </h3>
       </div>
-
-      <!-- brand logo svg -->
       <div class="col-lg-4 text-center">
-
-        <!-- need to fix inline styles...-->
-        <img src="assets/logos/ferrari.svg" alt="Ferrari Logo PNG" class="img-fluid drop-shadow" style="
-                max-height: 180px;" />
+        <img src="assets/logos/ferrari.svg" alt="Ferrari Logo PNG" class="img-fluid drop-shadow" style="max-height: 180px;" />
       </div>
-      <!-- Texto del Banner -->
       <div class="col-lg-4 text-center text-lg-end mb-4 mb-lg-0">
         <h3 class="display-4 fw-bolder text-uppercase mb-2 text-black">
           Ferrari
         </h3>
       </div>
-
     </div>
   </section>
 
-  </header>
-
-  <!-- main content-->
   <main class="container px-4 px-lg-5 my-5 flex-grow-1">
     <aside>
-      <!-- Back home button -->
       <div class="mb-4">
         <a href="index.html#cars" class="btn btn-outline-secondary btn-sm text-white">
           <i class="fas fa-arrow-left me-2"></i>Go back to main page
         </a>
       </div>
 
-      <!-- 1. primary entity (brand) info -->
       <div class="card bg-dark text-white border-secondary mb-5 p-4 shadow">
         <div class="row align-items-center">
           <div class="col-md-3 text-center mb-3 mb-md-0">
@@ -131,11 +107,7 @@
       </div>
     </aside>
 
-
-    <!-- models section-->
     <section>
-
-      <!-- secondary entity section title-->
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="h4 mb-0">Models</h3>
         <a href="#formulario" class="btn btn-success btn-sm">
@@ -143,13 +115,10 @@
         </a>
       </div>
 
-      <!--secondary entity display of models -->
       <div class="row g-4">
-        <!-- Model 1: F40 -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <img src="assets/img/Ferrari_F40.jpg" class="card-img-top" alt="Ferrari F40"
-              style="height: 200px; object-fit: cover;">
+            <img src="assets/img/Ferrari_F40.jpg" class="card-img-top" alt="Ferrari F40" style="height: 200px; object-fit: cover;">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <h4 class="h5 card-title mb-0">F40</h4>
@@ -198,11 +167,9 @@
           </div>
         </div>
 
-        <!-- Model 2: 488 GTB -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <img src="assets/img/Ferrari_488_GTB.jpeg" class="card-img-top" alt="Ferrari 488 GTB"
-              style="height: 200px; object-fit: cover;">
+            <img src="assets/img/Ferrari_488_GTB.jpeg" class="card-img-top" alt="Ferrari 488 GTB" style="height: 200px; object-fit: cover;">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <h4 class="h5 card-title mb-0">488 GTB</h4>
@@ -243,7 +210,6 @@
               <button class="btn btn-sm btn-outline-danger">
                 <i class="fas fa-trash"></i>
               </button>
-
               <a href="editar-elemento.html?id=1" class="btn btn-sm btn-warning text-dark fw-bold">
                 <i class="fas fa-edit me-1"></i>Edit
               </a>
@@ -251,11 +217,9 @@
           </div>
         </div>
 
-        <!-- Model 3: SF90 Stradale -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <img src="assets/img/Ferrari_SF90_Stradale.webp" class="card-img-top" alt="Ferrari SF90 Stradale"
-              style="height: 200px; object-fit: cover;">
+            <img src="assets/img/Ferrari_SF90_Stradale.webp" class="card-img-top" alt="Ferrari SF90 Stradale" style="height: 200px; object-fit: cover;">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-start mb-2">
                 <h4 class="h5 card-title mb-0">SF90 Stradale</h4>
@@ -296,7 +260,6 @@
               <button class="btn btn-sm btn-outline-danger">
                 <i class="fas fa-trash"></i>
               </button>
-
               <a href="editar-elemento.html?id=1" class="btn btn-sm btn-warning text-dark fw-bold">
                 <i class="fas fa-edit me-1"></i>Edit
               </a>
@@ -304,33 +267,32 @@
           </div>
         </div>
       </div>
-
     </section>
 
-    <!--form section-->
     <section class="mt-5">
-      <div
-        class="container fw-bold text-capitalize bg-dark d-flex border border-secondary  justify-content-center align-items-center rounded-4 shadow p-5  text-center"" id="
-        bannerCreate">
+      <div class="container fw-bold text-capitalize bg-dark d-flex border border-secondary justify-content-center align-items-center rounded-4 shadow p-5 text-center" id="bannerCreate">
         <h2 class="m-0">Model creation section</h2>
       </div>
-      <!-- form-->
-      <div class="container" id="formulario">
+
+      <div class="container mt-4" id="formulario">
         <form action="" id="formCreator">
-          <div class="row g-3 mt-1">
-            <div class="col-12 col-md-4" id="model">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
               <div class="mb-3">
-                <input type="text" class="form-control" id="model" placeholder="Name of model">
+                <label for="inputModel" class="form-label text-white">Model Name</label>
+                <input type="text" class="form-control" id="inputModel" placeholder="Name of model">
               </div>
             </div>
-            <div class="col-12 col-md-4" id="plate">
+            <div class="col-12 col-md-4">
               <div class="mb-3">
-                <input type="text" class="form-control" id="plate" placeholder="Plate">
+                <label for="inputPlate" class="form-label text-white">Plate</label>
+                <input type="text" class="form-control" id="inputPlate" placeholder="Plate">
               </div>
             </div>
-            <div class="col-12 col-md-4" id="brand">
+            <div class="col-12 col-md-4">
               <div class="mb-3">
-                <select class="form-select" id="brand" aria-placeholder="Brand">
+                <label for="selectBrand" class="form-label text-white">Brand</label>
+                <select class="form-select" id="selectBrand">
                   <option selected disabled>Choose the brand</option>
                   <option value="bmw">BMW</option>
                   <option value="audi">Audi</option>
@@ -341,42 +303,48 @@
                   <option value="tesla">Tesla</option>
                   <option value="toyota">Toyota</option>
                   <option value="volkswagen">Volkswagen</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-                </select>
+          <div class="row g-3">
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="inputKm" class="form-label text-white">Kilometers</label>
+                <input type="number" class="form-control" id="inputKm" placeholder="Km">
               </div>
             </div>
-          </div>
-          <div class="row g-3 mt-1">
-            <div class="col-12 col-md-3" id="kilometers">
+            <div class="col-12 col-md-3">
               <div class="mb-3">
-                <input type="text" class="form-control" id="kilometers" placeholder="Km">
+                <label for="inputYear" class="form-label text-white">Year</label>
+                <input type="number" class="form-control" id="inputYear" placeholder="Year of model">
               </div>
             </div>
-            <div class="col-12 col-md-3" id="year">
+            <div class="col-12 col-md-3">
               <div class="mb-3">
-                <input type="text" class="form-control" id="year" placeholder="Year of model">
+                <label for="inputDoors" class="form-label text-white">Doors</label>
+                <input type="number" class="form-control" id="inputDoors" placeholder="Number of doors">
               </div>
             </div>
-            <div class="col-12 col-md-3" id="doors">
+            <div class="col-12 col-md-3">
               <div class="mb-3">
-                <input type="text" class="form-control" id="doors" placeholder="Number of doors">
-              </div>
-            </div>
-            <div class="col-12 col-md-3" id="condition">
-              <div class="mb-3">
-                <select class="form-select" id="condition">
+                <label for="selectCondition" class="form-label text-white">Condition</label>
+                <select class="form-select" id="selectCondition">
                   <option selected disabled>Car's condition</option>
-                  <option value="bmw">In poor condition</option>
-                  <option value="audi">Pre-owned</option>
-                  <option value="audi">New</option>
+                  <option value="poor">In poor condition</option>
+                  <option value="preowned">Pre-owned</option>
+                  <option value="new">New</option>
                 </select>
               </div>
             </div>
           </div>
-          <div class="row g-3 mt-1">
-            <div class="col-12 col-md-3" id="motor">
+
+          <div class="row g-3">
+            <div class="col-12 col-md-3">
               <div class="mb-3">
-                <select class="form-select" id="condition">
+                <label for="selectMotor" class="form-label text-white">Engine Type</label>
+                <select class="form-select" id="selectMotor">
                   <option selected disabled>Engine type</option>
                   <option value="diesel">Diesel</option>
                   <option value="petrol">Gasoline</option>
@@ -385,43 +353,47 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-md-3" id="gearbox">
+            <div class="col-12 col-md-3">
               <div class="mb-3">
-                <select class="form-select" id="gearbox">
+                <label for="selectGearbox" class="form-label text-white">Gearbox</label>
+                <select class="form-select" id="selectGearbox">
                   <option selected disabled>Gearbox</option>
                   <option value="manual">Manual</option>
                   <option value="automatic">Automatic</option>
                 </select>
               </div>
             </div>
-            <div class="col-12 col-md-3" id="horsepower">
+            <div class="col-12 col-md-3">
               <div class="mb-3">
-                <input type="text" class="form-control" id="horsepower" placeholder="Horsepower">
+                <label for="inputHorsepower" class="form-label text-white">Horsepower</label>
+                <input type="number" class="form-control" id="inputHorsepower" placeholder="Horsepower">
               </div>
             </div>
-            <div class="col-12 col-md-3" id="financing">
-              <div class="mb-3">
-                <select class="form-select" id="financing">
-                  <option selected disabled>Vehicle financing</option>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
+            <div class="col-12 col-md-3 d-flex align-items-center">
+              <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" value="yes" id="checkFinancing">
+                <label class="form-check-label text-white" for="checkFinancing">
+                  Financing available
+                </label>
               </div>
             </div>
           </div>
 
-          <div class="row g-3 mt-1">
-            <div class="col-12 col-md-6" id="image">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
               <div class="mb-3">
-                <input type="file" class="form-control" id="model">
+                <label for="inputImage" class="form-label text-white">Vehicle Image</label>
+                <input type="file" class="form-control" id="inputImage">
               </div>
             </div>
-            <div class="col-12 col-md-6" id="price">
+            <div class="col-12 col-md-6">
               <div class="mb-3">
-                <input type="text" class="form-control" id="price" placeholder="Price">
+                <label for="inputPrice" class="form-label text-white">Price</label>
+                <input type="number" class="form-control" id="inputPrice" placeholder="Price">
               </div>
             </div>
           </div>
+
           <div class="row g-3 mt-3 mb-3">
             <div class="col-12 d-flex justify-content-end gap-2">
               <a href="index.html" class="btn btn-secondary" id="cancel">CANCEL</a>
@@ -431,32 +403,27 @@
         </form>
       </div>
     </section>
-
   </main>
-  <!-- end main-->
 
-
-  <!-- footer-->
-  <footer class=" bg-black small text-white-50 border-top mt-auto pt-5 pb-4">
+  <footer class="bg-black small text-white-50 border-top mt-auto pt-5 pb-4">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
           <h5 class="mb-3">CarX</h5>
           <ul class="list-unstyled small text-body-secondary">
-            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-                <path
-                  d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+            <li class="mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
                 <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
-              </svg> Madrid, Spain</li>
-            <li class="mb-2"><i class="bi bi-envelope me-2"></i><a class="link-secondary text-decoration-none"
-                href="mailto:carx@carx.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                  <path
-                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
-                </svg>
-                carx@carx.com</a></li>
+              </svg> Madrid, Spain
+            </li>
+            <li class="mb-2">
+              <a class="link-secondary text-decoration-none" href="mailto:carx@carx.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
+                  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
+                </svg> carx@carx.com
+              </a>
+            </li>
           </ul>
         </div>
         <div class="col-lg-4">
@@ -466,33 +433,25 @@
               <ul class="list-unstyled small">
                 <li class="mb-2"><a class="link-secondary text-decoration-none" href="#page-top">Home</a></li>
                 <li class="mb-2"><a class="link-secondary text-decoration-none" href="#cars">Cars</a></li>
-                <li class="mb-2"><a class="link-secondary text-decoration-none" href="mailto:carx@carx.com">Contact</a>
-                </li>
+                <li class="mb-2"><a class="link-secondary text-decoration-none" href="mailto:carx@carx.com">Contact</a></li>
               </ul>
             </div>
-
           </div>
         </div>
         <div class="col-lg-4">
           <h6 class="text-uppercase small fw-bold mb-3">Wanna buy a car?</h6>
           <p class="small text-body-secondary">At CarX we care about your dream car. Contact us</p>
           <p class="small text-body-secondary">
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-telephone-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-            </svg>
-            +34 123 45 67 89
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill me-2" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+            </svg> +34 123 45 67 89
           </p>
-
         </div>
       </div>
       <div class="border-top pt-3 mt-4 small text-body-secondary">&copy; CarX</div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
