@@ -8,3 +8,10 @@ const moviesCollection = db.collection('movies');
 router.get('/',  (req, res) => {
   res.render('index');
 });
+
+router.get('/createElement',  (req, res) => {
+  res.render('createElement');
+});
+router.get('/detalle',  (req, res) => {
+  res.render('detalle');
+});
