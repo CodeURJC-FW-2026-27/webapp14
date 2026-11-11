@@ -20,42 +20,13 @@
 <body class="text-white d-flex flex-column min-vh-100 bg-dark">
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top text-bg-white text-black-50">
-      <div class="container-fluid px-4">
-        <a class="navbar-brand" href="index.html">CarX</a>
-
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <div class="input-group w-auto mx-auto" style="max-width: 300px;">
-          <input type="search" placeholder="Search" id="search-focus" class="form-control" />
-          <button type="button" class="btn btn-primary" data-mdb-ripple-init>
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-
-        <div class="collapse navbar-collapse flex-grow-0" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="detalle.html">Detail</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="createElement.html">Create</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    {{> navbar}}
   </header>
-
   <section class="card border-0 shadow-lg overflow-hidden mb-5 mt-5 rounded-3 text-white">
     <div class="bg-banner row align-items-center">
       <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
         <h3 class="display-4 fw-bolder text-uppercase mb-2 text-black">
-          Scuderia
+          {{name}}
         </h3>
       </div>
       <div class="col-lg-4 text-center">
@@ -63,7 +34,7 @@
       </div>
       <div class="col-lg-4 text-center text-lg-end mb-4 mb-lg-0">
         <h3 class="display-4 fw-bolder text-uppercase mb-2 text-black">
-          Ferrari
+          {{name}}
         </h3>
       </div>
     </div>
@@ -268,7 +239,6 @@
         </div>
       </div>
     </section>
-
     <section class="mt-5">
       <div class="container fw-bold text-capitalize bg-dark d-flex border border-secondary justify-content-center align-items-center rounded-4 shadow p-5 text-center" id="bannerCreate">
         <h2 class="m-0">Model creation section</h2>
@@ -405,52 +375,8 @@
     </section>
   </main>
 
-  <footer class="bg-black small text-white-50 border-top mt-auto pt-5 pb-4">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <h5 class="mb-3">CarX</h5>
-          <ul class="list-unstyled small text-body-secondary">
-            <li class="mb-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
-                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
-                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
-              </svg> Madrid, Spain
-            </li>
-            <li class="mb-2">
-              <a class="link-secondary text-decoration-none" href="mailto:carx@carx.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill me-2" viewBox="0 0 16 16">
-                  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
-                </svg> carx@carx.com
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-4">
-          <h6 class="text-uppercase small fw-bold mb-3">Quick links</h6>
-          <div class="row">
-            <div class="col-6">
-              <ul class="list-unstyled small">
-                <li class="mb-2"><a class="link-secondary text-decoration-none" href="#page-top">Home</a></li>
-                <li class="mb-2"><a class="link-secondary text-decoration-none" href="#cars">Cars</a></li>
-                <li class="mb-2"><a class="link-secondary text-decoration-none" href="mailto:carx@carx.com">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <h6 class="text-uppercase small fw-bold mb-3">Wanna buy a car?</h6>
-          <p class="small text-body-secondary">At CarX we care about your dream car. Contact us</p>
-          <p class="small text-body-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill me-2" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-            </svg> +34 123 45 67 89
-          </p>
-        </div>
-      </div>
-      <div class="border-top pt-3 mt-4 small text-body-secondary">&copy; CarX</div>
-    </div>
-  </footer>
+    {{> footer}}
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
