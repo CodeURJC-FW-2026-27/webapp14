@@ -1,0 +1,52 @@
+
+[
+  {
+    "name": "volkswagen",
+    "img": "volkswagen.svg"
+  },
+  {
+    "name": "mercedes",
+    "img": "mercedes.svg"
+  },
+  {
+    "name": "porsche",
+    "img": "porsche.svg"
+  },
+  {
+    "name": "ferrari",
+    "img": "ferrari.svg"
+  },
+  {
+    "name": "ford",
+    "img": "ford.svg"
+  },
+  {
+    "name": "lamborghini",
+    "img": "lamborghini.svg"
+  },
+  {
+    "name": "audi",
+    "img": "audi.svg"
+  },
+  {
+    "name": "bmw",
+    "img": "bmw.svg"
+  },
+  {
+    "name": "dacia",
+    "img": "dacia.svg"
+  },
+  {
+    "name": "opel",
+    "img": "opel.svg"
+  },
+  {
+    "name": "tesla",
+    "img": "tesla.svg"
+  },
+  {
+    "name": "toyota",
+    "img": "toyota.svg"
+  }
+  
+]
