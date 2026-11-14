@@ -1,0 +1,50 @@
+[
+  {
+    "model": "F40",
+    "image": "/img/Ferrari_F40.jpg",
+    "year": 2017,
+    "plate": "1234XYZ",
+    "price": "3.000.000€",
+    "originalPrice": "5.000.000€",
+    "discount": "-40%",
+    "condition": "New",
+    "financingOptions": "available",
+    "km": "200.454 km",
+    "horsepower": "478 CV",
+    "motor": "hybrid",
+    "gearbox": "Manual",
+    "doors": 2
+  },
+  {
+    "model": "488 GTB",
+    "image": "/img/Ferrari_488_GTB.jpeg",
+    "year": 2018,
+    "plate": "5778ABC",
+    "price": "133.000€",
+    "originalPrice": "190.000€",
+    "discount": "-30%",
+    "condition": "Used",
+    "financingOptions": "not available",
+    "km": "85.420 km",
+    "horsepower": "661 CV",
+    "motor": "petrol",
+    "gearbox": "Automatic",
+    "doors": 2
+  },
+  {
+    "model": "SF90 Stradale",
+    "image": "/img/Ferrari_SF90_Stradale.webp",
+    "year": 2022,
+    "plate": "9012DEF",
+    "price": "103.500",
+    "originalPrice": "230.000€",
+    "discount": "-55%",
+    "condition": "Certified Pre-Owned",
+    "financingOptions": "not available",
+    "km": "12.500 km",
+    "horsepower": "986 CV",
+    "motor": "hybrid",
+    "gearbox": "Automatic",
+    "doors": 2
+  }
+]

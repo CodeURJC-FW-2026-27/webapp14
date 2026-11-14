@@ -87,43 +87,44 @@
       </div>
 
       <div class="row g-4">
+        {{#Cars}}
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <img src="/img/Ferrari_F40.jpg" class="card-img-top" alt="Ferrari F40" style="height: 200px; object-fit: cover;">
+            <img src="{{image}}" class="card-img-top" alt="Ferrari {{model}}" style="height: 200px; object-fit: cover;">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-start mb-2">
-                <h4 class="h5 card-title mb-0">F40</h4>
-                <span class="badge bg-info text-dark">2017</span>
+                <h4 class="h5 card-title mb-0">{{model}}</h4>
+                <span class="badge bg-info text-dark">{{year}}</span>
               </div>
               <p class="text-white-50 small mb-2">
-                Plate: <strong>1234XYZ</strong>
+                Plate: <strong>{{plate}}</strong>
               </p>
               <div class="mb-3">
                 <h1 class="h5 text-white mb-0" style="font-size:x-large;">
-                  <strong>3.000.000€</strong>
+                  <strong>{{price}}</strong>
                 </h1>
-                <span class="discount">5.000.000€</span>
-                <span class="small bg-warning badge ">-40%</span>
+                <span class="discount">{{originalPrice}}</span>
+                <span class="small bg-warning badge ">{{discount}}</span>
               </div>
               <div class="mb-3">
-                <span class="badge bg-success">New</span>
-                <span class="badge bg-primary text-end">Financing options: available</span>
+                <span class="badge bg-info">{{condition}}</span>
+                <span class="badge bg-primary text-end">Financing options: {{financingOptions}}</span>
               </div>
               <ul class="list-unstyled small text-white-50 mb-0">
                 <li class="mb-1">
-                  <i class="fas fa-tachometer-alt me-2 text-white"></i><strong>Km:</strong> 200.454 km
+                  <i class="fas fa-tachometer-alt me-2 text-white"></i><strong>Km:</strong> {{km}}
                 </li>
                 <li class="mb-1">
-                  <i class="fas fa-bolt me-2 text-white"></i><strong>Horsepower:</strong> 478 CV
+                  <i class="fas fa-bolt me-2 text-white"></i><strong>Horsepower:</strong> {{horsepower}}
                 </li>
                 <li class="mb-1">
-                  <i class="fas fa-gas-pump me-2 text-white"></i><strong>Motor:</strong> hybrid
+                  <i class="fas fa-gas-pump me-2 text-white"></i><strong>Motor:</strong> {{motor}}
                 </li>
                 <li class="mb-1">
-                  <i class="fas fa-cog me-2 text-white"></i><strong>Gearbox:</strong> Manual
+                  <i class="fas fa-cog me-2 text-white"></i><strong>Gearbox:</strong> {{gearbox}}
                 </li>
                 <li class="mb-1">
-                  <i class="fas fa-door-closed me-2 text-white"></i><strong>Doors:</strong> 2
+                  <i class="fas fa-door-closed me-2 text-white"></i><strong>Doors:</strong> {{doors}}
                 </li>
               </ul>
             </div>
@@ -138,106 +139,9 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <img src="/img/Ferrari_488_GTB.jpeg" class="card-img-top" alt="Ferrari 488 GTB" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h4 class="h5 card-title mb-0">488 GTB</h4>
-                <span class="badge bg-info text-dark">2018</span>
-              </div>
-              <p class="text-white-50 small mb-2">
-                Plate: <strong>5778ABC</strong>
-              </p>
-              <div>
-                <h1 class="h5 text-white mb-0" style="font-size:x-large;">
-                  <strong>133.000€</strong>
-                </h1>
-                <span class="discount">190.000€</span>
-                <span class="small bg-warning badge ">-30%</span>
-              </div>
-              <div class="mb-3">
-                <span class="badge bg-secondary">Used</span>
-              </div>
-              <ul class="list-unstyled small text-white-50 mb-0">
-                <li class="mb-1">
-                  <i class="fas fa-tachometer-alt me-2 text-white"></i><strong>Km:</strong> 85.420 km
-                </li>
-                <li class="mb-1">
-                  <i class="fas fa-bolt me-2 text-white"></i><strong>Horsepower:</strong> 661 CV
-                </li>
-                <li class="mb-1">
-                  <i class="fas fa-gas-pump me-2 text-white"></i><strong>Motor:</strong> petrol
-                </li>
-                <li class="mb-1">
-                  <i class="fas fa-cog me-2 text-white"></i><strong>Gearbox:</strong> Automatic
-                </li>
-                <li class="mb-1">
-                  <i class="fas fa-door-closed me-2 text-white"></i><strong>Doors:</strong> 2
-                </li>
-              </ul>
-            </div>
-            <div class="card-footer border-secondary bg-transparent d-flex justify-content-between">
-              <button class="btn btn-sm btn-outline-danger">
-                <i class="fas fa-trash"></i>
-              </button>
-              <a href="editar-elemento.html?id=1" class="btn btn-sm btn-warning text-dark fw-bold">
-                <i class="fas fa-edit me-1"></i>Edit
-              </a>
-            </div>
-          </div>
-        </div>
+        {{/Cars}}
 
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card bg-dark text-white border-secondary h-100 shadow-sm">
-            <img src="/img/Ferrari_SF90_Stradale.webp" class="card-img-top" alt="Ferrari SF90 Stradale" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-start mb-2">
-                <h4 class="h5 card-title mb-0">SF90 Stradale</h4>
-                <span class="badge bg-info text-dark">2022</span>
-              </div>
-              <p class="text-white-50 small mb-2">
-                Plate: <strong>9012DEF</strong>
-              </p>
-              <div>
-                <h1 class="h5 text-white mb-0" style="font-size:x-large;">
-                  <strong>103.500</strong>
-                </h1>
-                <span class="discount">230.000€</span>
-                <span class="small bg-warning badge ">-55%</span>
-              </div>
-              <div class="mb-3">
-                <span class="badge bg-warning text-dark">Certified Pre-Owned</span>
-              </div>
-              <ul class="list-unstyled small text-white-50 mb-0">
-                <li class="mb-1">
-                  <i class="fas fa-tachometer-alt me-2 text-white"></i><strong>Km:</strong> 12.500 km
-                </li>
-                <li class="mb-1">
-                  <i class="fas fa-bolt me-2 text-white"></i><strong>Horsepower:</strong> 986 CV
-                </li>
-                <li class="mb-1">
-                  <i class="fas fa-gas-pump me-2 text-white"></i><strong>Motor:</strong> hybrid
-                </li>
-                <li class="mb-1">
-                  <i class="fas fa-cog me-2 text-white"></i><strong>Gearbox:</strong> Automatic
-                </li>
-                <li class="mb-1">
-                  <i class="fas fa-door-closed me-2 text-white"></i><strong>Doors:</strong> 2
-                </li>
-              </ul>
-            </div>
-            <div class="card-footer border-secondary bg-transparent d-flex justify-content-between">
-              <button class="btn btn-sm btn-outline-danger">
-                <i class="fas fa-trash"></i>
-              </button>
-              <a href="editar-elemento.html?id=1" class="btn btn-sm btn-warning text-dark fw-bold">
-                <i class="fas fa-edit me-1"></i>Edit
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+        
     </section>
     <section class="mt-5">
       <div class="container fw-bold text-capitalize bg-dark d-flex border border-secondary justify-content-center align-items-center rounded-4 shadow p-5 text-center" id="bannerCreate">
