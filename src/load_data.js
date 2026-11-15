@@ -1,27 +1,22 @@
-import { MongoClient } from "mongodb";
 import fs from "fs";
 import path from "path";
+import { db } from "./db.js";
 
-const client = new MongoClient("mongodb://localhost:27017");
+export async function cargarJson(collectionName, Data) {
+  // Creamos la colección dinámicamente usando 'db'
+  const targetCollection = db.collection(collectionName);
 
-export async function cargarJson(collection,Data) {
-  await client.connect();
-  const db = client.db("brands");
-  const carsCollection = db.collection(collection);
+  await targetCollection.deleteMany({});
 
-  await carsCollection.deleteMany({});
-
-  let jsonData = "./public/"+ Data;
+  let jsonData = "./public/" + Data;
   const filePath = path.resolve(jsonData);
   const fileContent = fs.readFileSync(filePath, "utf-8");
-  const LoadedData  = JSON.parse(fileContent);
+  const LoadedData = JSON.parse(fileContent);
 
   if (Array.isArray(LoadedData) && LoadedData.length > 0) {
-    await carsCollection.insertMany(LoadedData);
-    console.log("¡Datos del JSON cargados exitosamente en MongoDB!");
+    await targetCollection.insertMany(LoadedData);
+    console.log(`¡Datos del JSON cargados exitosamente en la colección ${collectionName}!`);
   }
 
   return LoadedData;
-
-  await client.close();
 }
