@@ -1,19 +1,18 @@
-import express from 'express';
+import express, { raw } from 'express';
 
 
 import multer from 'multer';
 import { MongoClient } from 'mongodb';
 import { cargarJson } from './load_data.js';
-
+import  {nameValidator, createBrand} from './creatorBrands.js';
+import { carsCollection } from './db.js';
 const router = express.Router();
 export default router;
-const client = new MongoClient('mongodb://localhost:27017');
-const db = client.db('brands');
-const carsCollection = db.collection('cars');
+
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '/uploads/'); // Carpeta donde se guarda el archivo
+    cb(null, 'uploads/'); // Carpeta donde se guarda el archivo
   },
   });
 const upload = multer({ storage: storage });
@@ -26,11 +25,29 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/createElement',  (req, res) => {
-  res.render('createElement');
+  
+
+});
+router.post('/createElement',upload.single('bImage'), async (req, res) => {
+   const nameExists = await nameValidator(req.body.bName);
+    if (nameExists) {
+      return res.render('errorPage',{
+        error: "This brand already exists "
+      });
+      
+    }
+
+    let brand = createBrand(req,res);
+    console.log(brand);
+    
+  
 });
 router.get('/detalle',  (req, res) => {
+ 
   res.render('detalle', {
-    name: req.query.name
+
+    
+   
   });
 });
 
