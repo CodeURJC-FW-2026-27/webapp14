@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
   });
 const upload = multer({ storage: storage });
 
-await cargarJson();
+//await cargarJson();
 
 router.get('/', async (req, res) => {
   let cars = await carsCollection.find().toArray();
@@ -25,22 +25,23 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/createElement',  (req, res) => {
-  
+  res.render('createElement');
 
 });
-router.post('/createElement',upload.single('bImage'), async (req, res) => {
-   const nameExists = await nameValidator(req.body.bName);
+router.post('/createElement', upload.single('bImage'), async (req, res) => {
+    const nameNew = req.body.bName.trim();
+    const nameExists = await nameValidator(nameNew);
     if (nameExists) {
-      return res.render('errorPage',{
-        error: "This brand already exists "
-      });
-      
+      return res.render('errorPage', { error: 'El nombre de la marca ya existe' });
     }
 
-    let brand = createBrand(req,res);
-    console.log(brand);
-    
+    const brand = createBrand(req, res);
+    console.log(brand)
+    await carsCollection.insertOne(brand);
   
+
+    res.redirect('/');
+
 });
 router.get('/detalle',  (req, res) => {
  

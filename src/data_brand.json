@@ -1,52 +1,542 @@
-
 [
   {
     "name": "volkswagen",
-    "img": "volkswagen.svg"
+    "img": "volkswagen.svg",
+    "models": [
+      {
+        "modelName": "Golf",
+        "plate": "1234ABC",
+        "year": 2021,
+        "price": 22500.50,
+        "km": 15000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 150.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "Polo",
+        "plate": "5678DEF",
+        "year": 2019,
+        "price": 14200.00,
+        "km": 45000,
+        "condition": "Usado",
+        "engine": "Gasolina",
+        "hp": 95.5,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": false
+      },
+      {
+        "modelName": "ID.4",
+        "plate": "9012GHI",
+        "year": 2023,
+        "price": 38900.00,
+        "km": 5000,
+        "condition": "Nuevo",
+        "engine": "Eléctrico",
+        "hp": 204.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      }
+    ]
   },
   {
     "name": "mercedes",
-    "img": "mercedes.svg"
+    "img": "mercedes.svg",
+    "models": [
+      {
+        "modelName": "Clase A",
+        "plate": "3344JKL",
+        "year": 2022,
+        "price": 29990.00,
+        "km": 12000,
+        "condition": "Ocasión",
+        "engine": "Diesel",
+        "hp": 163.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "Clase C",
+        "plate": "5566MNO",
+        "year": 2020,
+        "price": 34500.50,
+        "km": 60000,
+        "condition": "Usado",
+        "engine": "Gasolina",
+        "hp": 204.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "EQE",
+        "plate": "7788PQR",
+        "year": 2023,
+        "price": 75000.00,
+        "km": 1000,
+        "condition": "Nuevo",
+        "engine": "Eléctrico",
+        "hp": 292.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": false
+      }
+    ]
   },
   {
     "name": "porsche",
-    "img": "porsche.svg"
+    "img": "porsche.svg",
+    "models": [
+      {
+        "modelName": "911 Carrera",
+        "plate": "1111STU",
+        "year": 2022,
+        "price": 125000.00,
+        "km": 8000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 385.0,
+        "doors": 2,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "Cayenne",
+        "plate": "2222VWX",
+        "year": 2021,
+        "price": 89000.00,
+        "km": 30000,
+        "condition": "Usado",
+        "engine": "Gasolina",
+        "hp": 340.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "Taycan",
+        "plate": "3333YZA",
+        "year": 2023,
+        "price": 98500.00,
+        "km": 2000,
+        "condition": "Nuevo",
+        "engine": "Eléctrico",
+        "hp": 408.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": false
+      }
+    ]
   },
   {
     "name": "ferrari",
-    "img": "ferrari.svg"
+    "img": "ferrari.svg",
+    "models": [
+      {
+        "modelName": "F40",
+        "plate": "4444BCD",
+        "year": 1990,
+        "price": 2500000.00,
+        "km": 15000,
+        "condition": "Usado",
+        "engine": "Gasolina",
+        "hp": 478.0,
+        "doors": 2,
+        "gearbox": "Manual",
+        "financing": false
+      },
+      {
+        "modelName": "488 GTB",
+        "plate": "5555EFG",
+        "year": 2018,
+        "price": 185000.00,
+        "km": 22000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 670.0,
+        "doors": 2,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "SF90 Stradale",
+        "plate": "6666HIJ",
+        "year": 2023,
+        "price": 430000.00,
+        "km": 500,
+        "condition": "Nuevo",
+        "engine": "Eléctrico",
+        "hp": 1000.0,
+        "doors": 2,
+        "gearbox": "Automático",
+        "financing": false
+      }
+    ]
   },
   {
     "name": "ford",
-    "img": "ford.svg"
+    "img": "ford.svg",
+    "models": [
+      {
+        "modelName": "Focus",
+        "plate": "7777KLM",
+        "year": 2020,
+        "price": 16500.00,
+        "km": 52000,
+        "condition": "Usado",
+        "engine": "Diesel",
+        "hp": 120.0,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": true
+      },
+      {
+        "modelName": "Fiesta",
+        "plate": "8888NOP",
+        "year": 2021,
+        "price": 13900.50,
+        "km": 28000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 100.0,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": true
+      },
+      {
+        "modelName": "Mustang",
+        "plate": "9999QRS",
+        "year": 2022,
+        "price": 52000.00,
+        "km": 10000,
+        "condition": "Nuevo",
+        "engine": "Gasolina",
+        "hp": 450.0,
+        "doors": 2,
+        "gearbox": "Automático",
+        "financing": false
+      }
+    ]
   },
   {
     "name": "lamborghini",
-    "img": "lamborghini.svg"
+    "img": "lamborghini.svg",
+    "models": [
+      {
+        "modelName": "Huracán",
+        "plate": "1010TUV",
+        "year": 2021,
+        "price": 210000.00,
+        "km": 14000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 610.0,
+        "doors": 2,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "Aventador",
+        "plate": "2020WXY",
+        "year": 2020,
+        "price": 380000.00,
+        "km": 9000,
+        "condition": "Usado",
+        "engine": "Gasolina",
+        "hp": 700.0,
+        "doors": 2,
+        "gearbox": "Automático",
+        "financing": false
+      },
+      {
+        "modelName": "Urus",
+        "plate": "3030ZAB",
+        "year": 2023,
+        "price": 290000.00,
+        "km": 2500,
+        "condition": "Nuevo",
+        "engine": "Gasolina",
+        "hp": 650.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      }
+    ]
   },
   {
     "name": "audi",
-    "img": "audi.svg"
+    "img": "audi.svg",
+    "models": [
+      {
+        "modelName": "A3",
+        "plate": "4040CDE",
+        "year": 2022,
+        "price": 27500.00,
+        "km": 18000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 150.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "A4",
+        "plate": "5050FGH",
+        "year": 2019,
+        "price": 21000.00,
+        "km": 75000,
+        "condition": "Usado",
+        "engine": "Diesel",
+        "hp": 190.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "Q5",
+        "plate": "6060IJK",
+        "year": 2023,
+        "price": 49900.00,
+        "km": 4000,
+        "condition": "Nuevo",
+        "engine": "Diesel",
+        "hp": 204.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": false
+      }
+    ]
   },
   {
     "name": "bmw",
-    "img": "bmw.svg"
+    "img": "bmw.svg",
+    "models": [
+      {
+        "modelName": "Serie 1",
+        "plate": "7070LMN",
+        "year": 2021,
+        "price": 24000.00,
+        "km": 32000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 140.0,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": true
+      },
+      {
+        "modelName": "Serie 3",
+        "plate": "8080OPQ",
+        "year": 2020,
+        "price": 29500.00,
+        "km": 55000,
+        "condition": "Usado",
+        "engine": "Diesel",
+        "hp": 190.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "X5",
+        "plate": "9090RST",
+        "year": 2023,
+        "price": 78000.00,
+        "km": 1500,
+        "condition": "Nuevo",
+        "engine": "Gasolina",
+        "hp": 340.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": false
+      }
+    ]
   },
   {
     "name": "dacia",
-    "img": "dacia.svg"
+    "img": "dacia.svg",
+    "models": [
+      {
+        "modelName": "Sandero",
+        "plate": "1212UVW",
+        "year": 2022,
+        "price": 12500.00,
+        "km": 10000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 90.0,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": true
+      },
+      {
+        "modelName": "Duster",
+        "plate": "2323XYZ",
+        "year": 2020,
+        "price": 15200.00,
+        "km": 40000,
+        "condition": "Usado",
+        "engine": "Diesel",
+        "hp": 115.0,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": true
+      },
+      {
+        "modelName": "Jogger",
+        "plate": "3434ABC",
+        "year": 2023,
+        "price": 19500.00,
+        "km": 2500,
+        "condition": "Nuevo",
+        "engine": "Gasolina",
+        "hp": 100.0,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": false
+      }
+    ]
   },
   {
     "name": "opel",
-    "img": "opel.svg"
+    "img": "opel.svg",
+    "models": [
+      {
+        "modelName": "Corsa",
+        "plate": "4545DEF",
+        "year": 2021,
+        "price": 14500.00,
+        "km": 25000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 75.0,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": true
+      },
+      {
+        "modelName": "Astra",
+        "plate": "5656GHI",
+        "year": 2019,
+        "price": 13000.00,
+        "km": 65000,
+        "condition": "Usado",
+        "engine": "Diesel",
+        "hp": 130.0,
+        "doors": 4,
+        "gearbox": "Manual",
+        "financing": true
+      },
+      {
+        "modelName": "Mokka",
+        "plate": "6767JKL",
+        "year": 2023,
+        "price": 24500.00,
+        "km": 3000,
+        "condition": "Nuevo",
+        "engine": "Eléctrico",
+        "hp": 136.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      }
+    ]
   },
   {
     "name": "tesla",
-    "img": "tesla.svg"
+    "img": "tesla.svg",
+    "models": [
+      {
+        "modelName": "Model 3",
+        "plate": "7878MNO",
+        "year": 2022,
+        "price": 39900.00,
+        "km": 15000,
+        "condition": "Ocasión",
+        "engine": "Eléctrico",
+        "hp": 325.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "Model S",
+        "plate": "8989PQR",
+        "year": 2020,
+        "price": 65000.00,
+        "km": 45000,
+        "condition": "Usado",
+        "engine": "Eléctrico",
+        "hp": 670.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": false
+      },
+      {
+        "modelName": "Model Y",
+        "plate": "9090STU",
+        "year": 2023,
+        "price": 46400.00,
+        "km": 1000,
+        "condition": "Nuevo",
+        "engine": "Eléctrico",
+        "hp": 299.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      }
+    ]
   },
   {
     "name": "toyota",
-    "img": "toyota.svg"
+    "img": "toyota.svg",
+    "models": [
+      {
+        "modelName": "Yaris",
+        "plate": "1313VWX",
+        "year": 2022,
+        "price": 18500.00,
+        "km": 11000,
+        "condition": "Ocasión",
+        "engine": "Gasolina",
+        "hp": 116.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "Corolla",
+        "plate": "2424YZA",
+        "year": 2021,
+        "price": 22000.00,
+        "km": 35000,
+        "condition": "Usado",
+        "engine": "Gasolina",
+        "hp": 125.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": true
+      },
+      {
+        "modelName": "RAV4",
+        "plate": "3535BCD",
+        "year": 2023,
+        "price": 37900.00,
+        "km": 2000,
+        "condition": "Nuevo",
+        "engine": "Gasolina",
+        "hp": 218.0,
+        "doors": 4,
+        "gearbox": "Automático",
+        "financing": false
+      }
+    ]
   }
-  
 ]

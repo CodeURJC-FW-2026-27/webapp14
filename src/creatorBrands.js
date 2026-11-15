@@ -1,8 +1,9 @@
 import { carsCollection } from './db.js';
 
 export const nameValidator = async (nameNew) => {
-    const existName = await carsCollection.findOne({ name: nameNew }); 
-    return !!existName;
+    const cars = await carsCollection.find().toArray();
+    const existName = cars.find(car => car.name.toLowerCase() === nameNew.toLowerCase());
+    return !!existName; 
 };
 export const createBrand = (req, res) => {
     let newBrand = {

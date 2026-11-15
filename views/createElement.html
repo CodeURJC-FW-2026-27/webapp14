@@ -50,7 +50,7 @@
       </div>
       <div class="container bg-dark border border-secondary rounded-4 shadow p-4 p-md-5 mt-5" id="formulario">
 
-        <form action="" id="formCreator" enctype="multipart/form-data" method="post">
+        <form action="/createElement" id="formCreator" enctype="multipart/form-data" method="post">
        
           <div class="row g-3 mt-1">
             <div class="col-12 col-md-6" id="brandDiv">
@@ -115,7 +115,7 @@
               <div class="mb-3">
                 <label class="form-label text-white small text-uppercase fw-bold mb-2">Segment</label>
                 <select class="form-select" name="segment" id="segment" required>
-                  <option selected disabled>Choose the segment</option>
+                  <option selected disabled value="">Choose the segment</option>
                   <option value="lowCost">LOW-COST</option>
                   <option value="midRange">Mid-range</option>
                   <option value="luxury">Luxury</option>
