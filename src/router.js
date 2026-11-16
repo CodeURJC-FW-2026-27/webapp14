@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/'); // Carpeta donde se guarda el archivo
   },
 });
+});
 const upload = multer({ storage: storage });
 
 await cargarJson();
