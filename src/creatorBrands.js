@@ -12,7 +12,8 @@ export const createBrand = (req, res) => {
     year: req.body.bYear,
     rating: req.body.stars,
     image: req.file.filename,
-    segment: req.body.segment
+    segment: req.body.segment,
+    models: []
     }
     return newBrand;
 }
