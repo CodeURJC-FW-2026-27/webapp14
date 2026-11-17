@@ -123,15 +123,7 @@ router.post("/createElement", upload.single("bImage"), async (req, res) => {
               message: `The brand ${brand.name} has been created successfully`,
               name: brand.name
             });
-          }
-
-
-        }
-
-
-      }
-    }
-});
+          });
 router.post("/detalle", upload.single("image"), async (req, res) => {
   const carsCollection = db.collection('cars');
   const brandName = req.query.name;
