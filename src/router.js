@@ -3,6 +3,7 @@ import multer from "multer";
 import { cargarJson } from "./load_data.js";
 import { nameValidator, createBrand } from './creatorBrands.js';
 import { db } from "./db.js"; 
+import { ObjectId } from "mongodb";
 
 const router = express.Router();
 export default router;
@@ -23,6 +24,7 @@ const upload = multer({ storage: storage });
 router.get("/", async (req, res) => {
   const carsCollection = db.collection('cars');
   const brandCars = await carsCollection.find().toArray();
+  console.log(brandCars);
   res.render("index", { brandCars });
 });
 
@@ -31,10 +33,11 @@ router.get("/createElement", (req, res) => {
 });
 
 // Detail route: Finds the specific brand and passes its details and nested cars
-router.get("/detalle", async (req, res) => {
+router.get("/detalle/:id", async (req, res) => {
   const carsCollection = db.collection('cars');
-  const brandName = req.query.name;
-  const brand = await carsCollection.findOne({ name: { $regex: new RegExp(`^${brandName}$`, "i") } });
+  
+  // Búsqueda directa convirtiendo el parámetro a ObjectId
+  const brand = await carsCollection.findOne({ _id: new ObjectId(req.params.id) });
 
   if (!brand) {
     return res.redirect("/");
