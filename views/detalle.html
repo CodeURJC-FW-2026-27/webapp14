@@ -149,132 +149,132 @@
       </div>
 
       <div class="container mt-4" id="formulario">
-        <form action="" id="formCreator" enctype="multipart/form-data">
-          <div class="row g-3">
-            <div class="col-12 col-md-4">
-              <div class="mb-3">
-                <label for="inputModel" class="form-label text-white">Model Name</label>
-                <input type="text" class="form-control" id="inputModel" placeholder="Name of model">
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="mb-3">
-                <label for="inputPlate" class="form-label text-white">Plate</label>
-                <input type="text" class="form-control" id="inputPlate" placeholder="Plate">
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="mb-3">
-                <label for="selectBrand" class="form-label text-white">Brand</label>
-                <select class="form-select" id="selectBrand">
-                  <option selected disabled>Choose the brand</option>
-                  <option value="bmw">BMW</option>
-                  <option value="audi">Audi</option>
-                  <option value="mercedes">Mercedes-Benz</option>
-                  <option value="ferrari">Ferrari</option>
-                  <option value="ford">Ford</option>
-                  <option value="lamborghini">Lamborghini</option>
-                  <option value="tesla">Tesla</option>
-                  <option value="toyota">Toyota</option>
-                  <option value="volkswagen">Volkswagen</option>
-                </select>
-              </div>
-            </div>
-          </div>
+       <form action="/detalle" id="formCreator" enctype="multipart/form-data" method="post">
+  <div class="row g-3">
+    <div class="col-12 col-md-4">
+      <div class="mb-3">
+        <label for="inputModel" class="form-label text-white">Model Name</label>
+        <input type="text" class="form-control" id="inputModel" name="mName" placeholder="Name of model" required>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="mb-3">
+        <label for="inputPlate" class="form-label text-white">Plate</label>
+        <input type="text" class="form-control" id="inputPlate" name="mPlate" placeholder="Plate" required>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="mb-3">
+        <label for="selectBrand" class="form-label text-white">Brand</label>
+        <select class="form-select" id="selectBrand" name="mBrand" required>
+          <option selected disabled value="">Choose the brand</option>
+          <option value="bmw">BMW</option>
+          <option value="audi">Audi</option>
+          <option value="mercedes">Mercedes-Benz</option>
+          <option value="ferrari">Ferrari</option>
+          <option value="ford">Ford</option>
+          <option value="lamborghini">Lamborghini</option>
+          <option value="tesla">Tesla</option>
+          <option value="toyota">Toyota</option>
+          <option value="volkswagen">Volkswagen</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
-          <div class="row g-3">
-            <div class="col-12 col-md-3">
-              <div class="mb-3">
-                <label for="inputKm" class="form-label text-white">Kilometers</label>
-                <input type="number" class="form-control" id="inputKm" placeholder="Km">
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class="mb-3">
-                <label for="inputYear" class="form-label text-white">Year</label>
-                <input type="number" class="form-control" id="inputYear" placeholder="Year of model">
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class="mb-3">
-                <label for="inputDoors" class="form-label text-white">Doors</label>
-                <input type="number" class="form-control" id="inputDoors" placeholder="Number of doors">
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class="mb-3">
-                <label for="selectCondition" class="form-label text-white">Condition</label>
-                <select class="form-select" id="selectCondition">
-                  <option selected disabled>Car's condition</option>
-                  <option value="poor">In poor condition</option>
-                  <option value="preowned">Pre-owned</option>
-                  <option value="new">New</option>
-                </select>
-              </div>
-            </div>
-          </div>
+  <div class="row g-3">
+    <div class="col-12 col-md-3">
+      <div class="mb-3">
+        <label for="inputKm" class="form-label text-white">Kilometers</label>
+        <input type="number" class="form-control" id="inputKm" name="mKm" placeholder="Km" required>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="mb-3">
+        <label for="inputYear" class="form-label text-white">Year</label>
+        <input type="number" class="form-control" id="inputYear" name="mYear" placeholder="Year of model" required>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="mb-3">
+        <label for="inputDoors" class="form-label text-white">Doors</label>
+        <input type="number" class="form-control" id="inputDoors" name="mDoors" placeholder="Number of doors" required>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="mb-3">
+        <label for="selectCondition" class="form-label text-white">Condition</label>
+        <select class="form-select" id="selectCondition" name="mCondition" required>
+          <option selected disabled value="">Car's condition</option>
+          <option value="poor">In poor condition</option>
+          <option value="preowned">Pre-owned</option>
+          <option value="new">New</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
-          <div class="row g-3">
-            <div class="col-12 col-md-3">
-              <div class="mb-3">
-                <label for="selectMotor" class="form-label text-white">Engine Type</label>
-                <select class="form-select" id="selectMotor">
-                  <option selected disabled>Engine type</option>
-                  <option value="diesel">Diesel</option>
-                  <option value="petrol">Gasoline</option>
-                  <option value="hybrid">Hybrid</option>
-                  <option value="electric">Electric</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class="mb-3">
-                <label for="selectGearbox" class="form-label text-white">Gearbox</label>
-                <select class="form-select" id="selectGearbox">
-                  <option selected disabled>Gearbox</option>
-                  <option value="manual">Manual</option>
-                  <option value="automatic">Automatic</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class="mb-3">
-                <label for="inputHorsepower" class="form-label text-white">Horsepower</label>
-                <input type="number" class="form-control" id="inputHorsepower" placeholder="Horsepower">
-              </div>
-            </div>
-            <div class="col-12 col-md-3 d-flex align-items-center">
-              <div class="form-check mt-3">
-                <input class="form-check-input" type="checkbox" value="yes" id="checkFinancing">
-                <label class="form-check-label text-white" for="checkFinancing">
-                  Financing available
-                </label>
-              </div>
-            </div>
-          </div>
+  <div class="row g-3">
+    <div class="col-12 col-md-3">
+      <div class="mb-3">
+        <label for="selectMotor" class="form-label text-white">Engine Type</label>
+        <select class="form-select" id="selectMotor" name="mMotor" required>
+          <option selected disabled value="">Engine type</option>
+          <option value="diesel">Diesel</option>
+          <option value="petrol">Gasoline</option>
+          <option value="hybrid">Hybrid</option>
+          <option value="electric">Electric</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="mb-3">
+        <label for="selectGearbox" class="form-label text-white">Gearbox</label>
+        <select class="form-select" id="selectGearbox" name="mGearbox" required>
+          <option selected disabled value="">Gearbox</option>
+          <option value="manual">Manual</option>
+          <option value="automatic">Automatic</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="mb-3">
+        <label for="inputHorsepower" class="form-label text-white">Horsepower</label>
+        <input type="number" class="form-control" id="inputHorsepower" name="mHorsepower" placeholder="Horsepower" required>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 d-flex align-items-center">
+      <div class="form-check mt-3">
+        <input class="form-check-input" type="checkbox" value="yes" id="checkFinancing" name="mFinancing">
+        <label class="form-check-label text-white" for="checkFinancing">
+          Financing available
+        </label>
+      </div>
+    </div>
+  </div>
 
-          <div class="row g-3">
-            <div class="col-12 col-md-6">
-              <div class="mb-3">
-                <label for="inputImage" class="form-label text-white">Vehicle Image</label>
-                <input type="file" class="form-control" id="inputImage">
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="mb-3">
-                <label for="inputPrice" class="form-label text-white">Price</label>
-                <input type="number" class="form-control" id="inputPrice" placeholder="Price">
-              </div>
-            </div>
-          </div>
+  <div class="row g-3">
+    <div class="col-12 col-md-6">
+      <div class="mb-3">
+        <label for="inputImage" class="form-label text-white">Vehicle Image</label>
+        <input type="file" class="form-control" id="inputImage" name="bImage" required>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="mb-3">
+        <label for="inputPrice" class="form-label text-white">Price</label>
+        <input type="number" class="form-control" id="inputPrice" name="mPrice" placeholder="Price" required>
+      </div>
+    </div>
+  </div>
 
-          <div class="row g-3 mt-3 mb-3">
-            <div class="col-12 d-flex justify-content-end gap-2">
-              <a href="index.html" class="btn btn-secondary" id="cancel">CANCEL</a>
-              <button type="submit" class="btn btn-primary" id="send">CREATE</button>
-            </div>
-          </div>
-        </form>
+  <div class="row g-3 mt-3 mb-3">
+    <div class="col-12 d-flex justify-content-end gap-2">
+      <a href="index.html" class="btn btn-secondary" id="cancel">CANCEL</a>
+      <button type="submit" class="btn btn-primary" id="send">CREATE</button>
+    </div>
+  </div>
+</form>
       </div>
     </section>
   </main>

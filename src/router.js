@@ -15,10 +15,9 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/'); // Carpeta donde se guarda el archivo
   },
 });
-});
 const upload = multer({ storage: storage });
 
-await cargarJson();
+await cargarJson('cars','data_brand.json');
 
 router.get('/', async (req, res) => {
   let cars = await carsCollection.find().toArray();
@@ -30,12 +29,18 @@ router.get('/createElement', (req, res) => {
 
 });
 router.post('/createElement', upload.single('bImage'), async (req, res) => {
-  const nameNew = req.body.bName.trim();
-  const nameExists = await nameValidator(nameNew);
+   const brand = createBrand(req, res);
+  const nameExists = await nameValidator(brand.name.trim());
   if (nameExists) {
     return res.render('errorPage', { error: 'El nombre de la marca ya existe' });
-  } else {
-    const brand = createBrand(req, res);
+  } 
+  if (brand.name === "" || brand.country === ""  ) {
+    
+  }
+  
+  
+  else {
+   
     console.log(brand)
     const result = await carsCollection.insertOne(brand);
     return res.render('success', { id: result.insertedId });
@@ -48,5 +53,24 @@ router.get('/detalle', (req, res) => {
 
 
   });
+});
+
+router.post('/detalle',upload.single('bImage'), async (req, res) => {
+   const brand = createBrand(req, res);
+  const nameExists = await nameValidator(brand.name.trim());
+  if (nameExists) {
+    return res.render('errorPage', { error: 'El nombre de la marca ya existe' });
+  } 
+  if (brand.name === "" || brand.country === ""  ) {
+    
+  }
+  
+  
+  else {
+   
+    console.log(brand)
+    const result = await carsCollection.insertOne(brand);
+    return res.render('success', { id: result.insertedId });
+  }
 });
 
