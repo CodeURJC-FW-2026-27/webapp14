@@ -56,13 +56,13 @@
             <div class="col-12 col-md-6" id="brandDiv">
               <div class="mb-3">
                 <label class="form-label text-white small text-uppercase fw-bold mb-2">Brand Name</label>
-                <input type="text" class="form-control" id="brand" required placeholder="Name of brand" name="bName">
+                <input type="text" class="form-control" id="brand"  placeholder="Name of brand" name="bName">
               </div>
             </div>
             <div class="col-12 col-md-6" id="yearDiv">
               <div class="mb-3">
                 <label class="form-label text-white small text-uppercase fw-bold mb-2">Year of Foundation</label>
-                <input type="number" class="form-control" id="year"  required placeholder="Year of foundation" name="bYear">
+                <input type="date" class="form-control" id="year"   placeholder="Year of foundation" name="bYear">
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
             <div class="col-12 col-md-6" id="countryDiv">
               <div class="mb-3">
                 <label class="form-label text-white small text-uppercase fw-bold mb-2">Country</label>
-                <input type="text" class="form-control" id="country" required placeholder="Country" name="bCountry">
+                <input type="text" class="form-control" id="country"  placeholder="Country" name="bCountry">
               </div>
             </div>
             <div class="col-12 col-md-6" id="ratingDiv">
@@ -79,7 +79,7 @@
                 <label class="form-label text-white small text-uppercase fw-bold mb-2">Rating</label>
                 <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 px-3 py-2 bg-black bg-opacity-25 rounded border border-secondary">
                   <div class="form-check m-0">
-                    <input class="form-check-input" type="radio" name="stars" id="rate1"  required value="1">
+                    <input class="form-check-input" type="radio" name="stars" id="rate1"   value="1">
                     <label class="form-check-label text-white fw-bold" for="rate1">1</label>
                   </div>
                   <div class="form-check m-0">
@@ -103,20 +103,27 @@
             </div>
           </div>
 
-         
+         <div class="row g-3 mt-1">
+            <div class="col-12" id="descriptionDiv">
+              <div class="mb-3">
+                <label class="form-label text-white small text-uppercase fw-bold mb-2">Description</label>
+                <textarea class="form-control" id="description" rows="3" placeholder="Enter brand description" name="bDescription"></textarea>
+              </div>
+            </div>
+          </div>
           <div class="row g-3 mt-1">
             <div class="col-12 col-md-6" id="imageDiv">
               <div class="mb-3">
                 <label class="form-label text-white small text-uppercase fw-bold mb-2">Image</label>
-                <input type="file" class="form-control"  required id="imageFile" name="bImage">
+                <input type="file" class="form-control"   id="imageFile" name="bImage">
               </div>
             </div>
             <div class="col-12 col-md-6" id="segmentDiv">
               <div class="mb-3">
                 <label class="form-label text-white small text-uppercase fw-bold mb-2">Segment</label>
-                <select class="form-select" name="segment" id="segment" required>
+                <select class="form-select" name="segment" id="segment" >
                   <option selected disabled value="">Choose the segment</option>
-                  <option value="lowCost">LOW-COST</option>
+                  <option value="lowCost">Low-cost</option>
                   <option value="midRange">Mid-range</option>
                   <option value="luxury">Luxury</option>
                 </select>
