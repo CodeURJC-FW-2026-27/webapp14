@@ -47,6 +47,7 @@ router.get("/detalle", async (req, res) => {
     country: brand.country,
     year: brand.year,
     rating: brand.rating,
+    description: brand.description,
     segment: brand.segment,
     modelsCount: Cars.length,
     Cars
