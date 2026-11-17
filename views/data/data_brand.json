@@ -1,15 +1,15 @@
 [
   {
-    "name": "volkswagen",
+    "name": "Volkswagen",
     "country": "Germany",
     "year": "28-05-1937",
     "rating": "4",
-    "segment": "mid-range",
+    "segment": "midRange",
     "img": "volkswagen.svg",
     "description": "Fabricante alemán fundado en 1937, referente mundial en vehículos de gama media y populares por su fiabilidad."
   },
   {
-    "name": "mercedes",
+    "name": "Mercedes",
     "country": "Germany",
     "year": "28-06-1926",
     "rating": "5",
@@ -18,7 +18,7 @@
     "description": "Marca alemana de lujo fundada en 1926, sinónimo de elegancia, innovación tecnológica y altas prestaciones."
   },
   {
-    "name": "porsche",
+    "name": "Porsche",
     "country": "Germany",
     "year": "25-04-1931",
     "rating": "5",
@@ -27,7 +27,7 @@
     "description": "Fabricante alemán de deportivos de lujo fundado en 1931, conocido por su alto rendimiento y diseño icónico."
   },
   {
-    "name": "ferrari",
+    "name": "Ferrari",
     "country": "Italy",
     "year": "13-09-1939",
     "rating": "5",
@@ -36,16 +36,16 @@
     "description": "Legendaria marca italiana de superdeportivos fundada en 1939, famosa por su herencia en competición y potencia."
   },
   {
-    "name": "ford",
+    "name": "Ford",
     "country": "USA",
     "year": "16-06-1903",
     "rating": "3",
-    "segment": "mid-range",
+    "segment": "midRange",
     "img": "ford.svg",
     "description": "Icónica marca estadounidense fundada en 1903, pionera en la producción en masa y vehículos accesibles."
   },
   {
-    "name": "lamborghini",
+    "name": "Lamborghini",
     "country": "Italy",
     "year": "06-05-1963",
     "rating": "5",
@@ -54,7 +54,7 @@
     "description": "Fabricante italiano de superdeportivos de lujo fundado en 1963, célebre por sus diseños agresivos y motores V12."
   },
   {
-    "name": "audi",
+    "name": "Audi",
     "country": "Germany",
     "year": "16-07-1909",
     "rating": "4",
@@ -63,7 +63,7 @@
     "description": "Marca alemana de vehículos de lujo y alta gama fundada en 1909, destacada por su avanzada tecnología y diseño."
   },
   {
-    "name": "bmw",
+    "name": "BMW",
     "country": "Germany",
     "year": "07-03-1916",
     "rating": "4",
@@ -72,25 +72,25 @@
     "description": "Fabricante alemán de vehículos de lujo fundado en 1916, reconocido por su enfoque deportivo y elegante."
   },
   {
-    "name": "dacia",
+    "name": "Dacia",
     "country": "Romania",
     "year": "01-09-1966",
     "rating": "3",
-    "segment": "low-cost",
+    "segment": "lowCost",
     "img": "dacia.svg",
     "description": "Marca rumana fundada en 1966, propiedad del Grupo Renault, especializada en vehículos económicos y funcionales."
   },
   {
-    "name": "opel",
+    "name": "Opel",
     "country": "Germany",
     "year": "21-01-1862",
     "rating": "3",
-    "segment": "mid-range",
+    "segment": "midRange",
     "img": "opel.svg",
     "description": "Histórico fabricante alemán fundado en 1862, enfocado en ofrecer una amplia gama de automóviles prácticos."
   },
   {
-    "name": "tesla",
+    "name": "Tesla",
     "country": "USA",
     "year": "01-07-2003",
     "rating": "4",
@@ -99,11 +99,11 @@
     "description": "Empresa estadounidense fundada en 2003, líder global en el mercado de vehículos 100% eléctricos y tecnológicos."
   },
   {
-    "name": "toyota",
+    "name": "Toyota",
     "country": "Japan",
     "year": "28-08-1937",
     "rating": "4",
-    "segment": "mid-range",
+    "segment": "midRange",
     "img": "toyota.svg",
     "description": "Gigante automotriz japonés fundado en 1937, mundialmente famoso por su fiabilidad, eficiencia e innovación."
   }
