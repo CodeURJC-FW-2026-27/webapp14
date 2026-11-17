@@ -67,76 +67,38 @@ router.post("/createElement", upload.single("bImage"), async (req, res) => {
     res.render("errorPage", {
       error: "The brand name already exists",
     });
-  } else
-    if (req.body.bName === "" || req.body.bCountry === "" || req.body.bYear === "" || req.body.segment === "" || req.body.stars === "") {
-      res.render("errorPage", {
-        error: "There are fields left to complete"
-      });
-    } else {
-      const firstLetter = nameNew.charAt(0);
-      if (firstLetter !== firstLetter.toUpperCase()) {
-        res.render("errorPage", {
-          error: "The brand name must start with a capital letter."
-        });
-      } else {
-        const descriptionLength = req.body.bDescription.trim().length;
-        if (descriptionLength < 10 || descriptionLength > 150) {
-          res.render("errorPage", {
-            error: "The description must contain at least 10 characters and fewer than 151."
-          });
-        } else {
-          if (!req.file) {
-            res.render("errorPage", {
-              error: "You must add an image"
-            });
-          } else {
-            const brand = createBrand(req, res);
-            console.log(brand);
-            await carsCollection.insertOne(brand);
+  }
+  if(req.body.bName === "" || req.body.bCountry === "" || req.body.bYear === "" || req.body.segment === "" || req.body.starts === "") {
+    return res.render("errorPage", {
+      error: "There are fields left to complete"
+    });
+  }
+  const firstLetter = nameNew.charAt(0);
+  if (firstLetter !== firstLetter.toUpperCase() ) {
+     return res.render("errorPage", {
+      error: "The brand name must start with a capital letter."
+    });
+  }
 
-            res.render("success", {
-              message: `The brand ${brand.name} has been created successfully`,
-              name: brand.name
-            });
-          }
+  const descriptionLength = req.body.bDescription.trim().length; 
+  if (descriptionLength < 10 || descriptionLength > 150) {
+     return res.render("errorPage", {
+      error: "The description must contain at least 10 characters and fewer than 151."
+    });
+  }
 
+  if (!req.file) {
+      return res.render("errorPage", {
+      error: "You must add an image"
+    });
+  }
+  const brand = createBrand(req, res);
+  console.log(brand);
+  await carsCollection.insertOne(brand);
 
-        }
-
-
-      }
-    }
-});
-router.post("/detalle", upload.single("image"), async (req, res) => {
-  const carsCollection = db.collection('cars');
-  const brandName = req.query.name;
-  const model = createModel(req);
-
-  const existModel = modelValidator(brandName,model.name);
-
-  if (existModel) {
-     res.render("errorPage", {
-              error: "This model already exists"
-            });
-  }else {
-   const firstLetter = model.name.charAt(0);
-      if (firstLetter !== firstLetter.toUpperCase()) {
-        res.render("errorPage", {
-          error: "The model name must start with a capital letter."
-        });
-      }
-  } 
-    
-
- 
-
-  await carsCollection.updateOne(
-    { name: brandName },
-    { $push: { cars: model } }
-  );
   res.render("success", {
-    message: `The model ${model.name} has been added successfully`,
-    name: brandName
+    message: `The brand ${brand.name} has been created successfully`,
+    name: brand.name
   });
 });
 
