@@ -1,8 +1,8 @@
 import express from "express";
 import multer from "multer";
 import { cargarJson } from "./load_data.js";
-import { nameValidator, createBrand } from './creatorBrands.js';
-import { db } from "./db.js"; 
+import { nameValidator, createBrand, createModel,modelValidator } from './creatorBrands.js';
+import { db } from "./db.js";
 
 const router = express.Router();
 export default router;
@@ -13,7 +13,7 @@ await cargarJson();
 // Configured to save brand logos into the specific logos subfolder
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/uploads/logos/"); 
+    cb(null, "./public/uploads/logos/");
   },
 });
 
@@ -57,45 +57,83 @@ router.get("/detalle", async (req, res) => {
 // Route to create a new element/brand
 router.post("/createElement", upload.single("bImage"), async (req, res) => {
   const carsCollection = db.collection('cars');
-  
+
   const nameNew = req.body.bName.trim();
   const nameExists = await nameValidator(nameNew);
   if (nameExists) {
-    return res.render("errorPage", {
+    res.render("errorPage", {
       error: "The brand name already exists",
     });
-  }
-  if(req.body.bName === "" || req.body.bCountry === "" || req.body.bYear === "" || req.body.segment === "" || req.body.starts === "") {
-    return res.render("errorPage", {
-      error: "There are fields left to complete"
-    });
-  }
-  const firstLetter = nameNew.charAt(0);
-  if (firstLetter !== firstLetter.toUpperCase() ) {
-     return res.render("errorPage", {
-      error: "The brand name must start with a capital letter."
-    });
-  }
+  } else
+    if (req.body.bName === "" || req.body.bCountry === "" || req.body.bYear === "" || req.body.segment === "" || req.body.stars === "") {
+      res.render("errorPage", {
+        error: "There are fields left to complete"
+      });
+    } else {
+      const firstLetter = nameNew.charAt(0);
+      if (firstLetter !== firstLetter.toUpperCase()) {
+        res.render("errorPage", {
+          error: "The brand name must start with a capital letter."
+        });
+      } else {
+        const descriptionLength = req.body.bDescription.trim().length;
+        if (descriptionLength < 10 || descriptionLength > 150) {
+          res.render("errorPage", {
+            error: "The description must contain at least 10 characters and fewer than 151."
+          });
+        } else {
+          if (!req.file) {
+            res.render("errorPage", {
+              error: "You must add an image"
+            });
+          } else {
+            const brand = createBrand(req, res);
+            console.log(brand);
+            await carsCollection.insertOne(brand);
 
-  const descriptionLength = req.body.bDescription.trim().length; 
-  if (descriptionLength < 10 || descriptionLength > 150) {
-     return res.render("errorPage", {
-      error: "The description must contain at least 10 characters and fewer than 151."
-    });
-  }
+            res.render("success", {
+              message: `The brand ${brand.name} has been created successfully`,
+              name: brand.name
+            });
+          }
 
-  if (!req.file) {
-      return res.render("errorPage", {
-      error: "You must add an image"
-    });
-  }
-  const brand = createBrand(req, res);
-  console.log(brand);
-  await carsCollection.insertOne(brand);
 
+        }
+
+
+      }
+    }
+});
+router.post("/detalle", upload.single("image"), async (req, res) => {
+  const carsCollection = db.collection('cars');
+  const brandName = req.query.name;
+  const model = createModel(req);
+
+  const existModel = modelValidator(brandName,model.name);
+
+  if (existModel) {
+     res.render("errorPage", {
+              error: "This model already exists"
+            });
+  }else {
+   const firstLetter = model.name.charAt(0);
+      if (firstLetter !== firstLetter.toUpperCase()) {
+        res.render("errorPage", {
+          error: "The model name must start with a capital letter."
+        });
+      }
+  } 
+    
+
+ 
+
+  await carsCollection.updateOne(
+    { name: brandName },
+    { $push: { cars: model } }
+  );
   res.render("success", {
-    message: `The brand ${brand.name} has been created successfully`,
-    name: brand.name
+    message: `The model ${model.name} has been added successfully`,
+    name: brandName
   });
 });
 
@@ -111,15 +149,15 @@ router.post("/search", async (req, res) => {
     // Usamos el método .filter() de JavaScript
     const filterResult = allCars.filter(car => {
       // Validar país (si se seleccionó y el carro tiene la propiedad)
-      const matchCountry = !fCountry || fCountry === "COUNTRY" || 
+      const matchCountry = !fCountry || fCountry === "COUNTRY" ||
         (car.country && car.country.toLowerCase() === fCountry.toLowerCase());
 
       // Validar rating (si se seleccionó y el carro tiene la propiedad)
-      const matchRating = !fRating || fRating === "RATING" || 
+      const matchRating = !fRating || fRating === "RATING" ||
         (car.rating && String(car.rating) === String(fRating));
 
       // Validar segmento (si se seleccionó y el carro tiene la propiedad)
-      const matchSegment = !fSegment || fSegment === "SEGMENT" || 
+      const matchSegment = !fSegment || fSegment === "SEGMENT" ||
         (car.segment && car.segment.toLowerCase() === fSegment.toLowerCase());
 
       // El elemento pasa el filtro solo si cumple con todos los criterios seleccionados

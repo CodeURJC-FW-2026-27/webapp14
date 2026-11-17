@@ -153,35 +153,19 @@
       </div>
 
       <div class="container mt-4" id="formulario">
-        <form action="" id="formCreator" method="POST" enctype="multipart/form-data">
+        <div class="container mt-4" id="formulario">
+        <form action="/detalle?name={{name}}" id="formCreator" method="POST" enctype="multipart/form-data">
           <div class="row g-3">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-6">
               <div class="mb-3">
                 <label for="inputModel" class="form-label text-white">Model Name</label>
                 <input type="text" name="model" class="form-control" id="inputModel" placeholder="Name of model">
               </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-6">
               <div class="mb-3">
                 <label for="inputPlate" class="form-label text-white">Plate</label>
                 <input type="text" name="plate" class="form-control" id="inputPlate" placeholder="Plate">
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="mb-3">
-                <label for="selectBrand" class="form-label text-white">Brand</label>
-                <select class="form-select" id="selectBrand" name="brand">
-                  <option selected disabled>Choose the brand</option>
-                  <option value="BMW">BMW</option>
-                  <option value="Audi">Audi</option>
-                  <option value="Mercedes-Benz">Mercedes-Benz</option>
-                  <option value="Ferrari">Ferrari</option>
-                  <option value="Ford">Ford</option>
-                  <option value="Lamborghini">Lamborghini</option>
-                  <option value="Tesla">Tesla</option>
-                  <option value="Toyota">Toyota</option>
-                  <option value="Volkswagen">Volkswagen</option>
-                </select>
               </div>
             </div>
           </div>
@@ -218,7 +202,7 @@
             </div>
           </div>
 
-         <div class="row g-3">
+          <div class="row g-3">
             <div class="col-12 col-md-3">
               <div class="mb-3">
                 <label for="selectMotor" class="form-label text-white">Engine Type</label>
@@ -283,6 +267,7 @@
               </div>
             </div>
           </div>
+
           <div class="row g-3 mt-3 mb-3">
             <div class="col-12 d-flex justify-content-end gap-2">
               <a href="/" class="btn btn-secondary" id="cancel">CANCEL</a>
