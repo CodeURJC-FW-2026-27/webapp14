@@ -34,12 +34,11 @@
 
     <!-- main container that centers elements-->
     <div class="container-fluid px-4 px-lg-5 d-flex flex-column h-100 align-items-center justify-content-center"
-      style="background: url('img/bg-porsche.jpeg') no-repeat center center; background-size: cover;">
-      <h1 class="text-uppercase">CarX</h1>
-      <p class="paragraph">
-        Welcome to CarX! Your Next Car Starts Here.
-      </p>
-
+     style="background: url('/uploads/img/bg-porsche.jpeg') no-repeat center center; background-size: cover;">
+     <h1 class="text-uppercase">CarX</h1>
+     <p class="paragraph">F
+       Welcome to CarX! Your Next Car Starts Here.
+     </p>
       <!--link that redirects to brands section-->
       <a class="btn btn-primary" href="#cars">See Vehicules</a>
     </div>
@@ -87,9 +86,9 @@
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="card h-100 text-center border-0 shadow-sm py-4">
               <div class="card-body">
-                <img src="/logos/{{img}}" alt="{{name}}" width="48" height="48" class="mb-3" />
+                <img src="/uploads/logos/{{img}}" alt="{{name}}" width="48" height="48" class="mb-3" />
                 <h3 class="h5">{{name}}</h3>
-                <a class="btn btn-primary mt-2" href="detalle?marca={{name}}">See Vehicles</a>
+                <a class="btn btn-primary mt-2" href="/detalle?name={{name}}">See Vehicles</a>
               </div>
             </div>
           </div>

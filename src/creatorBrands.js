@@ -1,21 +1,25 @@
-import { db } from './db.js';
+import { CarsCollection } from './db.js';
 
-const carsCollection = db.collection('cars');
-
+// Validates if a brand name already exists
 export const nameValidator = async (nameNew) => {
-    const cars = await carsCollection.find().toArray();
-    const existName = cars.find(car => car.name.toLowerCase() === nameNew.toLowerCase());
-    return !!existName; 
+    // Search directly in the database collection for a brand with that name
+    const existingBrand = await CarsCollection.findOne({ 
+        name: { $regex: new RegExp(`^${nameNew}$`, "i") } 
+    });
+    return !!existingBrand; // Returns true if it exists, false otherwise
 };
 
+// Generates the new brand object to be inserted into MongoDB
 export const createBrand = (req, res) => {
     let newBrand = {
         name: req.body.bName,
         country: req.body.bCountry,
         year: req.body.bYear,
         rating: req.body.stars,
-        img: req.file.filename,
-        segment: req.body.segment
+        // Saves the relative path pointing to your new logos folder
+        img: `/uploads/logos/${req.file.filename}`,
+        segment: req.body.segment,
+        cars: [] // Initializes an empty array for future cars belonging to this brand
     };
     return newBrand;
 };

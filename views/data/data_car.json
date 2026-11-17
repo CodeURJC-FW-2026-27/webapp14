@@ -1,7 +1,8 @@
 [
   {
+    "brand": "Ferrari",
     "model": "F40",
-    "image": "/img/Ferrari_F40.jpg",
+    "image": "Ferrari_F40.jpg",
     "year": 2017,
     "plate": "1234XYZ",
     "price": "3.000.000€",
@@ -16,8 +17,9 @@
     "doors": 2
   },
   {
+    "brand": "Ferrari",
     "model": "488 GTB",
-    "image": "/img/Ferrari_488_GTB.jpeg",
+    "image": "Ferrari_488_GTB.jpeg",
     "year": 2018,
     "plate": "5778ABC",
     "price": "133.000€",
@@ -32,8 +34,9 @@
     "doors": 2
   },
   {
+    "brand": "Ferrari",
     "model": "SF90 Stradale",
-    "image": "/img/Ferrari_SF90_Stradale.webp",
+    "image": "Ferrari_SF90_Stradale.webp",
     "year": 2022,
     "plate": "9012DEF",
     "price": "103.500",
