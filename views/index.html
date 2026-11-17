@@ -26,7 +26,7 @@
   <header>
 
     <!-- fixed navbar-->
-         {{> navbar}}
+    {{> navbar}}
 
   </header>
   <!--Landing page-->
@@ -34,11 +34,11 @@
 
     <!-- main container that centers elements-->
     <div class="container-fluid px-4 px-lg-5 d-flex flex-column h-100 align-items-center justify-content-center"
-     style="background: url('/uploads/img/bg-porsche.jpeg') no-repeat center center; background-size: cover;">
-     <h1 class="text-uppercase">CarX</h1>
-     <p class="paragraph">F
-       Welcome to CarX! Your Next Car Starts Here.
-     </p>
+      style="background: url('/uploads/img/bg-porsche.jpeg') no-repeat center center; background-size: cover;">
+      <h1 class="text-uppercase">CarX</h1>
+      <p class="paragraph">
+        Welcome to CarX! Your Next Car Starts Here.
+      </p>
       <!--link that redirects to brands section-->
       <a class="btn btn-primary" href="#cars">See Vehicules</a>
     </div>
@@ -53,19 +53,36 @@
     <section class="bg-dark py-5" id="cars">
       <div class="container px-4 px-lg-5 mb-4">
         <div id="bannerCreate" class="bg-white border border-secondary rounded-4 shadow h-auto p-3 p-md-4">
-          <div class="row row-cols-2 row-cols-md-4 g-3 g-md-4">
-            <div class="col">
-              <button type="button" class="btn btn-outline-info border-2 w-100 py-3 fw-semibold">Country</button>
-            </div>
-            <div class="col">
-              <button type="button" class="btn btn-outline-info border-2 w-100 py-3 fw-semibold">Rating</button>
-            </div>
-            <div class="col">
-              <button type="button" class="btn btn-outline-info border-2 w-100 py-3 fw-semibold">Year</button>
-            </div>
-            <div class="col">
-              <button type="button" class="btn btn-outline-info border-2 w-100 py-3 fw-semibold">Segment</button>
-            </div>
+          <div class="row row-cols-2 row-cols-md-4 g-3 g-md-4 gap-5">
+            <form class="col text-center" method="post" action="/search">
+              <select class="btn btn-outline-info border-2 w-100 py-3 fw-semibold text-center" id="country"
+                name="filter-country">
+                <option selected disabled>COUNTRY</option>
+                <option value="germany">Germany</option>
+                <option value="spain">Spain</option>
+                <option value="france">France</option>
+              </select>
+              <button type="submit" class="btn btn-info mt-2">Buscar</button>
+              <select class="btn btn-outline-info border-2 w-100 py-3 fw-semibold" id="rating" name="filter-rating">
+                <option selected>RATING</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+
+
+              </select>
+              <select class="btn btn-outline-info border-2 w-100 py-3 fw-semibold" id="segment" name="
+              filter-segment">
+
+                <option selected>SEGEMENT</option>
+                <option value="germany">Low-Cost</option>
+                <option value="germany">Mild-Range</option>
+                <option value="germany">Luxury</option>
+              </select>
+            </form>
           </div>
         </div>
       </div>
@@ -82,7 +99,7 @@
 
           <!-- We are repeating the same code about each brand card...-->
           <!-- Brand 1 card-->
-           {{#brandCars}}
+          {{#brandCars}}
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="card h-100 text-center border-0 shadow-sm py-4">
               <div class="card-body">
