@@ -93,13 +93,10 @@ router.post("/createElement", upload.single("bImage"), async (req, res) => {
   console.log(brand);
   await carsCollection.insertOne(brand);
 
-<<<<<<< HEAD
   res.render("success", {
     message: `The brand ${brand.name} has been created successfully`,
     name: brand.name
   });
-=======
-  res.redirect("/");
 });
 
 router.post("/search", async (req, res) => {
@@ -175,5 +172,4 @@ router.post("/input", async (req, res) => {
     console.error("Error en la búsqueda por input:", error);
     res.redirect("/");
   }
->>>>>>> 7019491c3df4dbdc5ab803f46c9c467c25ebbe2b
 });
