@@ -1,8 +1,8 @@
 import express from "express";
 import multer from "multer";
 import { cargarJson } from "./load_data.js";
-import { nameValidator, createBrand } from './creatorBrands.js';
-import { db } from "./db.js"; 
+import { nameValidator, createBrand, createModel, modelValidator } from './creatorBrands.js';
+import { db } from "./db.js";
 import { ObjectId } from "mongodb";
 
 const router = express.Router();
@@ -35,7 +35,7 @@ router.get("/createElement", (req, res) => {
 // Detail route: Finds the specific brand and passes its details and nested cars
 router.get("/detalle/:id", async (req, res) => {
   const carsCollection = db.collection('cars');
-  
+
   // Búsqueda directa convirtiendo el parámetro a ObjectId
   const brand = await carsCollection.findOne({ _id: new ObjectId(req.params.id) });
 
@@ -110,25 +110,58 @@ router.post("/createElement", upload.single("bImage"), async (req, res) => {
 router.post("/detalle", upload.single("image"), async (req, res) => {
   const carsCollection = db.collection('cars');
   const brandName = req.query.name;
-  const model = createModel(req);
 
-  const existModel = modelValidator(brandName,model.name);
+
+  const existModel = await modelValidator(brandName, req.body.model);
+
+  if (
+    req.body.model === "" ||
+    req.body.plate === "" ||
+    req.body.km === "" ||
+    req.body.year === "" ||
+    req.body.doors === "" ||
+    req.body.condition === "" ||
+    req.body.motor === "" ||
+    req.body.gearbox === "" ||
+    req.body.horsepower === "" ||
+    req.body.price === "" ||
+    req.body.originalPrice === "" ||
+    req.body.discount === ""
+  ) {
+    return res.render("errorPage", {
+      error: "There are fields left to complete"
+    });
+  }
+
+  if (!req.file) {
+    return res.render("errorPage", {
+      error: "You must add an image"
+    });
+  }
 
   if (existModel) {
-     res.render("errorPage", {
-              error: "This model already exists"
-            });
-  }else {
-   const firstLetter = model.name.charAt(0);
-      if (firstLetter !== firstLetter.toUpperCase()) {
-        res.render("errorPage", {
-          error: "The model name must start with a capital letter."
-        });
-      }
-  } 
-    
+    return res.render("errorPage", {
+      error: "This model already exists"
+    });
+  }
 
- 
+  if (req.body.plate.trim().length !== 7 ) {
+    return res.render("errorPage", {
+      error: "The license plate must have 7 digits."
+    });
+  }
+  if (req.body.year.length !== 4) {
+      return res.render("errorPage", {
+      error: "The year must have 4 digits."
+    });
+  }
+  const firstLetter = req.body.model.charAt(0);
+  if (firstLetter !== firstLetter.toUpperCase()) {
+    return res.render("errorPage", {
+      error: "The model name must start with a capital letter."
+    });
+  }
+  const model = createModel(req);
 
   await carsCollection.updateOne(
     { name: brandName },
@@ -141,42 +174,42 @@ router.post("/detalle", upload.single("image"), async (req, res) => {
 });
 
 router.post("/search", async (req, res) => {
-    const carsCollection = db.collection('cars');
-    const allCars = await carsCollection.find().toArray();
+  const carsCollection = db.collection('cars');
+  const allCars = await carsCollection.find().toArray();
 
-    const searchText = req.body.search ? req.body.search.trim().toLowerCase() : "";
-    const fCountry = req.body["filter-country"];
-    const fRating = req.body["filter-rating"];
-    const fSegment = req.body["filter-segment"];
+  const searchText = req.body.search ? req.body.search.trim().toLowerCase() : "";
+  const fCountry = req.body["filter-country"];
+  const fRating = req.body["filter-rating"];
+  const fSegment = req.body["filter-segment"];
 
-    let results = [];
+  let results = [];
 
-    // Si se envió el formulario de la barra de búsqueda (texto)
-    if (req.body.search !== undefined && searchText !== "") {
-        results = allCars.filter(car => car.name && car.name.toLowerCase().includes(searchText));
-    } else {
-        // Si se envió el formulario con los selectores (filtros)
-        results = allCars.filter(car => {
-            const matchCountry = !fCountry || fCountry === "COUNTRY" || 
-                (car.country && car.country.toLowerCase() === fCountry.toLowerCase());
+  // Si se envió el formulario de la barra de búsqueda (texto)
+  if (req.body.search !== undefined && searchText !== "") {
+    results = allCars.filter(car => car.name && car.name.toLowerCase().includes(searchText));
+  } else {
+    // Si se envió el formulario con los selectores (filtros)
+    results = allCars.filter(car => {
+      const matchCountry = !fCountry || fCountry === "COUNTRY" ||
+        (car.country && car.country.toLowerCase() === fCountry.toLowerCase());
 
-            const matchRating = !fRating || fRating === "RATING" || 
-                (car.rating && String(car.rating) === String(fRating));
+      const matchRating = !fRating || fRating === "RATING" ||
+        (car.rating && String(car.rating) === String(fRating));
 
-            const matchSegment = !fSegment || fSegment === "SEGMENT" || 
-                (car.segment && car.segment.toLowerCase() === fSegment.toLowerCase());
+      const matchSegment = !fSegment || fSegment === "SEGMENT" ||
+        (car.segment && car.segment.toLowerCase() === fSegment.toLowerCase());
 
-            return matchCountry && matchRating && matchSegment;
-        });
-    }
-
-    let errorMessage = null;
-    if (results.length === 0) {
-        errorMessage = "No se encontraron elementos con los requisitos seleccionados.";
-    }
-
-    res.render("search", {
-        cars: results,
-        error: errorMessage
+      return matchCountry && matchRating && matchSegment;
     });
+  }
+
+  let errorMessage = null;
+  if (results.length === 0) {
+    errorMessage = "No se encontraron elementos con los requisitos seleccionados.";
+  }
+
+  res.render("search", {
+    cars: results,
+    error: errorMessage
+  });
 });
