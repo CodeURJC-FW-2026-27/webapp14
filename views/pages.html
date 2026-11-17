@@ -1,0 +1,19 @@
+<!-- Controles de Paginación Numérica -->
+{{#hasMultiplePages}}
+<nav aria-label="Page navigation" class="mt-5">
+  <ul class="pagination justify-content-center">
+    {{#pages}}
+      {{#isCurrent}}
+        <li class="page-item active" aria-current="page">
+          <span class="page-link">{{number}}</span>
+        </li>
+      {{/isCurrent}}
+      {{^isCurrent}}
+        <li class="page-item">
+          <a class="page-link" href="/?page={{number}}">{{number}}</a>
+        </li>
+      {{/isCurrent}}
+    {{/pages}}
+  </ul>
+</nav>
+{{/hasMultiplePages}}
