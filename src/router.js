@@ -8,16 +8,31 @@ import { filterCars, generatePagination } from "./script.js"; // <--- ImportaciÃ
 const router = express.Router();
 export default router;
 
-// 1. Data loading on startup:
+// 1. Data loading on startup
 await cargarJson();
 
-// Configured to save brand logos into the specific logos subfolder
+// Configured to save uploaded images
+// Configured to save brand and model images
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/uploads/logos/");
+    // Brand logos
+    if (file.fieldname === "bImage") {
+      cb(null, "./public/uploads/logos/");
+    }
+
+    // Model images
+    if (file.fieldname === "image") {
+      cb(null, "./public/uploads/img/");
+    }
+  },
+
+  // Keep the original filename and extension
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
   },
 });
 
+// This declaration must appear only once
 const upload = multer({ storage: storage });
 
 // Home route: Displays all brands
@@ -55,8 +70,18 @@ router.get("/detalle/:id", async (req, res) => {
     return res.redirect("/");
   }
 
-  const Cars = brand.cars || [];
+  /*
+   * Add the brand and model IDs as strings
+   * so Mustache can use them in the edit link.
+   */
+  const Cars = (brand.cars || []).map((car) => ({
+    ...car,
+    brandId: brand._id.toString(),
+    modelId: car._id.toString(),
+  }));
+
   res.render("detalle", {
+    id: brand._id.toString(),
     name: brand.name,
     img: brand.img,
     country: brand.country,
@@ -65,7 +90,7 @@ router.get("/detalle/:id", async (req, res) => {
     description: brand.description,
     segment: brand.segment,
     modelsCount: Cars.length,
-    Cars
+    Cars,
   });
 });
 
