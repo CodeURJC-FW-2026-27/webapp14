@@ -1,49 +1,80 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultados de Búsqueda</title>
-    <!-- Bootstrap CSS para mantener el estilo -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Resultados de Búsqueda - CarX</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/global.css" rel="stylesheet" />
 </head>
-<body class="container py-5">
 
-    <h1 class="text-center mb-4">Resultados de la Búsqueda</h1>
+<body id="page-top">
 
-    <!-- Botón para volver al inicio -->
-    <div class="mb-4 text-center">
-        <a href="/" class="btn btn-secondary">Volver al Inicio</a>
-    </div>
+  <!-- fixed navbar-->
+  {{> navbar}}
 
-    <!-- Mensaje de error si no hay elementos (Mustache evalúa si 'error' existe/tiene valor) -->
-    {{#error}}
-      <div class="alert alert-warning text-center" role="alert">
-        {{error}}
-      </div>
-    {{/error}}
+  <!-- Main content-->
+  <main>
+    <!-- section con el mismo fondo oscuro y espaciado que en el index -->
+    <section class="bg-dark py-5" style="min-height: 100vh; padding-top: 100px !important;" id="search-results">
+      <div class="container px-4 px-lg-5">
+        
+        <!-- Título y botón para volver -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="text-white m-0">Resultados de la Búsqueda</h2>
+          <a href="/" class="btn btn-secondary">Volver al Inicio</a>
+        </div>
 
-    <!-- Listado de resultados (Mustache itera sobre el array 'brandCars') -->
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      {{#brandCars}}
-        <div class="col">
-          <div class="card h-100 shadow-sm text-center p-3">
-            {{#img}}
-              <img src="/uploads/logos/{{img}}" class="card-img-top mx-auto" style="height: 100px; width: auto; object-fit: contain;" alt="{{name}}">
-            {{/img}}
-            <div class="card-body">
-              <h5 class="card-title text-uppercase fw-bold">{{name}}</h5>
-              <p class="card-text mb-1"><strong>País:</strong> {{country}}</p>
-              <p class="card-text mb-1"><strong>Año:</strong> {{year}}</p>
-              <p class="card-text mb-1"><strong>Rating:</strong> {{rating}}</p>
-              <p class="card-text"><strong>Segmento:</strong> {{segment}}</p>
+        <!-- Mensaje de error si no hay elementos -->
+        {{#error}}
+          <div class="alert alert-warning text-center mb-4" role="alert">
+            {{error}}
+          </div>
+        {{/error}}
+
+        <!-- Listado de resultados usando la misma estructura de tarjetas del index -->
+        <div class="row g-4 justify-content-center">
+          {{#cars}}
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card h-100 text-center border-0 shadow-sm py-4">
+              <div class="card-body">
+                {{#img}}
+                  <img src="/uploads/logos/{{img}}" alt="{{name}}" width="48" height="48" class="mb-3 object-fit-contain" style="height: 48px; width: auto;" />
+                {{/img}}
+                <h3 class="h5 text-uppercase fw-bold">{{name}}</h3>
+                <p class="card-text mb-1"><strong>País:</strong> {{country}}</p>
+                <p class="card-text mb-1"><strong>Año:</strong> {{year}}</p>
+                <p class="card-text mb-1"><strong>Rating:</strong> {{rating}}</p>
+                <p class="card-text mb-3"><strong>Segmento:</strong> {{segment}}</p>
                 <a class="btn btn-primary mt-2" href="/detalle?name={{name}}">See Vehicles</a>
-
+              </div>
             </div>
           </div>
+          {{/cars}}
         </div>
-      {{/brandCars}}
-    </div>
 
+      </div>
+    </section>
+  </main>
+  <!-- End of section and main-->
+
+  <!-- footer-->
+  {{> footer}}
+
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
