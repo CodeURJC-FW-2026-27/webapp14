@@ -21,25 +21,26 @@
 
     {{>navbar}}
 
-  <section class="card border-0 shadow-lg overflow-hidden mb-5 mt-5 rounded-3 text-white">
-    <div class="bg-banner row align-items-center">
-      <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
-        <h3 class="display-4 fw-bolder text-uppercase mb-2 text-black">
+  <!-- Banner principal adaptado y responsive con textos ajustados -->
+  <section class="card border-0 shadow-lg overflow-hidden mt-5 rounded-3 bg-white text-dark mx-3 mx-lg-5">
+    <div class="row align-items-center p-3 p-md-4 g-3">
+      <div class="col-12 col-lg-4 text-center text-lg-start">
+        <h3 class="fs-2 fs-md-1 fw-bolder text-uppercase mb-0">
           {{name}}
         </h3>
       </div>
-      <div class="col-lg-4 text-center">
-        <img src="/uploads/logos/{{img}}" alt="{{name}} Logo" class="img-fluid drop-shadow" style="max-height: 180px;" />
+      <div class="col-12 col-lg-4 text-center">
+        <img src="/uploads/logos/{{img}}" alt="{{name}} Logo" class="img-fluid drop-shadow" style="max-height: 120px; object-fit: contain;" />
       </div>
-      <div class="col-lg-4 text-center text-lg-end mb-4 mb-lg-0">
-        <h3 class="display-4 fw-bolder text-uppercase mb-2 text-black">
+      <div class="col-12 col-lg-4 text-center text-lg-end">
+        <h3 class="fs-3 fs-md-2 fw-bolder text-uppercase mb-0 text-muted">
           {{segment}}
         </h3>
       </div>
     </div>
   </section>
 
-  <main class="container px-4 px-lg-5 my-5 flex-grow-1">
+  <main class="container px-3 px-lg-5 my-4 flex-grow-1">
     <aside>
       <div class="mb-4">
         <a href="/" class="btn btn-outline-secondary btn-sm text-white">
@@ -47,35 +48,34 @@
         </a>
       </div>
 
-      <div class="card bg-dark text-white border-secondary mb-5 p-4 shadow">
-        <div class="row align-items-center">
-          <div class="col-md-3 text-center mb-3 mb-md-0">
-            <img src="/uploads/logos/{{img}}" alt="{{name}}" class="img-fluid" style="max-height: 90px" />
+      <div class="card bg-dark text-white border-secondary mb-5 p-3 p-md-4 shadow">
+        <div class="row align-items-center g-3">
+          <div class="col-12 col-md-3 text-center">
+            <img src="/uploads/logos/{{img}}" alt="{{name}}" class="img-fluid" style="max-height: 80px; object-fit: contain;" />
           </div>
-          <div class="col-md-9">
-            <div class="d-flex align-items-center gap-2 mb-2">
-              <h2 class="h3 mb-0">{{name}}</h2>
+          <div class="col-12 col-md-9">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2 justify-content-center justify-content-md-start">
+              <h2 class="h4 h3-md mb-0">{{name}}</h2>
               <span class="badge bg-primary">{{segment}}</span>
               <span class="badge bg-warning text-dark"><i class="fas fa-star me-1"></i>{{rating}}</span>
-
             </div>
-            <div class="row text-center text-md-start mt-3">
-              <div class="col-6 col-sm-4">
+            <div class="row text-center text-md-start mt-3 g-2">
+              <div class="col-4">
                 <span class="text-white-50 d-block small">Country</span>
-                <strong>{{country}}</strong>
+                <strong class="text-truncate d-block">{{country}}</strong>
               </div>
-              <div class="col-6 col-sm-4">
-                <span class="text-white-50 d-block small">Fundation</span>
+              <div class="col-4">
+                <span class="text-white-50 d-block small">Foundation</span>
                 <strong>{{year}}</strong>
               </div>
-              <div class="col-6 col-sm-4">
+              <div class="col-4">
                 <span class="text-white-50 d-block small">Models available</span>
                 <strong>{{modelsCount}}</strong>
               </div>
-              <div class="row text-center text-md-start mt-3">
-              <div class="col-12">
+              <div class="col-12 mt-2">
                 <span class="text-white-50 d-block small">Description</span>
-                <span class="text-white">{{description}}</span>
+                <span class="text-white small">{{description}}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -147,8 +147,8 @@
     </section>
 
     <section class="mt-5">
-      <div class="container fw-bold text-capitalize bg-dark d-flex border border-secondary justify-content-center align-items-center rounded-4 shadow p-5 text-center" id="bannerCreate">
-        <h2 class="m-0">Model creation section</h2>
+      <div class="container fw-bold text-capitalize bg-dark d-flex border border-secondary justify-content-center align-items-center rounded-4 shadow p-4 p-md-5 text-center" id="bannerCreate">
+        <h2 class="m-0 fs-3 fs-md-2">Model creation section</h2>
       </div>
 
       <div class="container mt-4" id="formulario">
