@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Grayscale - Start Bootstrap Theme</title>
+  <title>Webapp14</title>
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <!-- Font Awesome icons (free version)-->
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -22,13 +22,10 @@
 
 <body id="page-top">
 
-  <!-- Semantically, header includes navbar and landing page section-->
-  <header>
 
-    <!-- fixed navbar-->
-    {{> navbar}}
+  <!-- fixed navbar-->
+  {{> navbar}}
 
-  </header>
   <!--Landing page-->
   <section class="masthead">
 
@@ -53,35 +50,42 @@
     <section class="bg-dark py-5" id="cars">
       <div class="container px-4 px-lg-5 mb-4">
         <div id="bannerCreate" class="bg-white border border-secondary rounded-4 shadow h-auto p-3 p-md-4">
-          <div class="row row-cols-2 row-cols-md-4 g-3 g-md-4 gap-5">
-            <form class="col text-center" method="post" action="/search">
-              <select class="btn btn-outline-info border-2 w-100 py-3 fw-semibold text-center" id="country"
-                name="filter-country">
-                <option selected disabled>COUNTRY</option>
-                <option value="germany">Germany</option>
-                <option value="spain">Spain</option>
-                <option value="france">France</option>
-              </select>
-              <button type="submit" class="btn btn-info mt-2">Buscar</button>
-              <select class="btn btn-outline-info border-2 w-100 py-3 fw-semibold" id="rating" name="filter-rating">
-                <option selected>RATING</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+          <div class="row">
+            <form class="col-12 text-center" method="post" action="/search">
+              <!-- Contenedor para los select en una sola fila sin wrap -->
+              <div class="d-flex flex-row flex-nowrap gap-3 overflow-auto w-100 mb-3">
+                <select class="btn btn-outline-info border-2 py-3 fw-semibold text-center flex-fill" id="country"
+                  name="filter-country">
+                  <option selected disabled>COUNTRY</option>
+                  <option value="germany">Germany</option>
+                  <option value="italy">Italy</option>
+                  <option value="japan">Japan</option>
+                  <option value="romania">Romania</option>
+                  <option value="usa">USA</option>
+                </select>
+                <select class="btn btn-outline-info border-2 py-3 fw-semibold flex-fill" id="rating"
+                  name="filter-rating">
+                  <option selected disabled>RATING</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
 
+                <select class="btn btn-outline-info border-2 py-3 fw-semibold flex-fill" id="segment"
+                  name="filter-segment">
+                  <option selected disabled>SEGMENT</option>
+                  <option value="low-cost">Low-Cost</option>
+                  <option value="mid-range">Mid-Range</option>
+                  <option value="luxury">Luxury</option>
+                </select>
+              </div>
 
-
-              </select>
-              <select class="btn btn-outline-info border-2 w-100 py-3 fw-semibold" id="segment" name="
-              filter-segment">
-
-                <option selected>SEGEMENT</option>
-                <option value="germany">Low-Cost</option>
-                <option value="germany">Mild-Range</option>
-                <option value="germany">Luxury</option>
-              </select>
+              <!-- Botón de búsqueda en otra fila -->
+              <div class="w-100">
+                <button type="submit" class="btn btn-info px-5 py-2 fw-semibold">Buscar</button>
+              </div>
             </form>
           </div>
         </div>
@@ -94,34 +98,38 @@
           </a>
         </div>
 
-        <!-- main container that groups each element.-->
-        <div class="row g-4 justify-content-center">
-
-          <!-- We are repeating the same code about each brand card...-->
-          <!-- Brand 1 card-->
-          {{#brandCars}}
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card h-100 text-center border-0 shadow-sm py-4">
-              <div class="card-body">
-                <img src="/uploads/logos/{{img}}" alt="{{name}}" width="48" height="48" class="mb-3" />
-                <h3 class="h5">{{name}}</h3>
-                <a class="btn btn-primary mt-2" href="/detalle?name={{name}}">See Vehicles</a>
+          <!-- main container that groups each element.-->
+          <div class="row g-4 justify-content-center">
+            <!-- We are repeating the same code about each brand card...-->
+            <!-- Brand 1 card-->
+            {{#brandCars}}
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="card h-100 text-center border-0 shadow-sm py-4">
+                <div class="card-body">
+                  <img
+                    src="/uploads/logos/{{img}}"
+                    alt="{{name}}"
+                    width="48"
+                    height="48"
+                    class="mb-3"
+                  />
+                  <h3 class="h5">{{name}}</h3>
+                  <!-- Fíjate que ahora es /detalle/{{id_}} en vez de /detalle?id={{id_}} -->
+                  <a class="btn btn-primary mt-2" href="/detalle/{{_id}}">See Vehicles</a>
+                </div>
               </div>
             </div>
+            {{/brandCars}}
           </div>
-          {{/brandCars}}
         </div>
-      </div>
-    </section>
-  </main>
-  <!-- End of section and main-->
+      </section>
+    </main>
+    <!-- End of section and main-->
 
+    <!-- footer-->
+    {{> footer}}
 
-  <!-- footer-->
-  {{> footer}}
-
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

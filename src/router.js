@@ -1,8 +1,9 @@
 import express from "express";
 import multer from "multer";
 import { cargarJson } from "./load_data.js";
-import { nameValidator, createBrand, createModel,modelValidator } from './creatorBrands.js';
-import { db } from "./db.js";
+import { nameValidator, createBrand } from './creatorBrands.js';
+import { db } from "./db.js"; 
+import { ObjectId } from "mongodb";
 
 const router = express.Router();
 export default router;
@@ -23,6 +24,7 @@ const upload = multer({ storage: storage });
 router.get("/", async (req, res) => {
   const carsCollection = db.collection('cars');
   const brandCars = await carsCollection.find().toArray();
+  console.log(brandCars);
   res.render("index", { brandCars });
 });
 
@@ -31,10 +33,11 @@ router.get("/createElement", (req, res) => {
 });
 
 // Detail route: Finds the specific brand and passes its details and nested cars
-router.get("/detalle", async (req, res) => {
+router.get("/detalle/:id", async (req, res) => {
   const carsCollection = db.collection('cars');
-  const brandName = req.query.name;
-  const brand = await carsCollection.findOne({ name: { $regex: new RegExp(`^${brandName}$`, "i") } });
+  
+  // Búsqueda directa convirtiendo el parámetro a ObjectId
+  const brand = await carsCollection.findOne({ _id: new ObjectId(req.params.id) });
 
   if (!brand) {
     return res.redirect("/");
@@ -138,76 +141,42 @@ router.post("/detalle", upload.single("image"), async (req, res) => {
 });
 
 router.post("/search", async (req, res) => {
-  try {
     const carsCollection = db.collection('cars');
     const allCars = await carsCollection.find().toArray();
 
+    const searchText = req.body.search ? req.body.search.trim().toLowerCase() : "";
     const fCountry = req.body["filter-country"];
     const fRating = req.body["filter-rating"];
     const fSegment = req.body["filter-segment"];
 
-    // Usamos el método .filter() de JavaScript
-    const filterResult = allCars.filter(car => {
-      // Validar país (si se seleccionó y el carro tiene la propiedad)
-      const matchCountry = !fCountry || fCountry === "COUNTRY" ||
-        (car.country && car.country.toLowerCase() === fCountry.toLowerCase());
+    let results = [];
 
-      // Validar rating (si se seleccionó y el carro tiene la propiedad)
-      const matchRating = !fRating || fRating === "RATING" ||
-        (car.rating && String(car.rating) === String(fRating));
+    // Si se envió el formulario de la barra de búsqueda (texto)
+    if (req.body.search !== undefined && searchText !== "") {
+        results = allCars.filter(car => car.name && car.name.toLowerCase().includes(searchText));
+    } else {
+        // Si se envió el formulario con los selectores (filtros)
+        results = allCars.filter(car => {
+            const matchCountry = !fCountry || fCountry === "COUNTRY" || 
+                (car.country && car.country.toLowerCase() === fCountry.toLowerCase());
 
-      // Validar segmento (si se seleccionó y el carro tiene la propiedad)
-      const matchSegment = !fSegment || fSegment === "SEGMENT" ||
-        (car.segment && car.segment.toLowerCase() === fSegment.toLowerCase());
+            const matchRating = !fRating || fRating === "RATING" || 
+                (car.rating && String(car.rating) === String(fRating));
 
-      // El elemento pasa el filtro solo si cumple con todos los criterios seleccionados
-      return matchCountry && matchRating && matchSegment;
-    });
+            const matchSegment = !fSegment || fSegment === "SEGMENT" || 
+                (car.segment && car.segment.toLowerCase() === fSegment.toLowerCase());
 
-    // Control de mensaje si no hay resultados
+            return matchCountry && matchRating && matchSegment;
+        });
+    }
+
     let errorMessage = null;
-    if (filterResult.length === 0) {
-      errorMessage = "No se encontraron elementos con los requisitos seleccionados.";
+    if (results.length === 0) {
+        errorMessage = "No se encontraron elementos con los requisitos seleccionados.";
     }
 
     res.render("search", {
-      brandCars: filterResult,
-      error: errorMessage
+        cars: results,
+        error: errorMessage
     });
-
-  } catch (error) {
-    console.error("Error en la búsqueda:", error);
-    res.redirect("/");
-  }
-});
-
-router.post("/input", async (req, res) => {
-  try {
-    const carsCollection = db.collection('cars');
-    const allCars = await carsCollection.find().toArray();
-
-    // Capturamos el valor usando "search" tal como está en tu HTML
-    const searchText = req.body.search ? req.body.search.trim().toLowerCase() : "";
-
-    // Filtramos los elementos que coincidan con el nombre
-    const filterResult = allCars.filter(car => {
-      const result = car.name === searchText;
-      return result;
-    });
-
-    // Control de mensaje si no hay resultados
-    let errorMessage = null;
-    if (filterResult.length === 0) {
-      errorMessage = "No se encontraron marcas que coincidan con la búsqueda.";
-    }
-
-    res.render("input", {
-      brandCars: filterResult,
-      error: errorMessage
-    });
-
-  } catch (error) {
-    console.error("Error en la búsqueda por input:", error);
-    res.redirect("/");
-  }
 });
