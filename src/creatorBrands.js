@@ -17,9 +17,8 @@ export const createBrand = (req, res) => {
         year: req.body.bYear,
         rating: req.body.stars,
         // Saves the relative path pointing to your new logos folder
-        img: req.file.filename,
+        img: `/uploads/logos/${req.file.filename}`,
         segment: req.body.segment,
-        description: req.body.bDescription,
         cars: [] // Initializes an empty array for future cars belonging to this brand
     };
     return newBrand;

@@ -98,34 +98,38 @@
           </a>
         </div>
 
-        <!-- main container that groups each element.-->
-        <div class="row g-4 justify-content-center">
-
-          <!-- We are repeating the same code about each brand card...-->
-          <!-- Brand 1 card-->
-          {{#brandCars}}
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card h-100 text-center border-0 shadow-sm py-4">
-              <div class="card-body">
-                <img src="/uploads/logos/{{img}}" alt="{{name}}" width="48" height="48" class="mb-3" />
-                <h3 class="h5">{{name}}</h3>
-                <a class="btn btn-primary mt-2" href="/detalle?name={{name}}">See Vehicles</a>
+          <!-- main container that groups each element.-->
+          <div class="row g-4 justify-content-center">
+            <!-- We are repeating the same code about each brand card...-->
+            <!-- Brand 1 card-->
+            {{#brandCars}}
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="card h-100 text-center border-0 shadow-sm py-4">
+                <div class="card-body">
+                  <img
+                    src="/uploads/logos/{{img}}"
+                    alt="{{name}}"
+                    width="48"
+                    height="48"
+                    class="mb-3"
+                  />
+                  <h3 class="h5">{{name}}</h3>
+                  <!-- Fíjate que ahora es /detalle/{{id_}} en vez de /detalle?id={{id_}} -->
+                  <a class="btn btn-primary mt-2" href="/detalle/{{_id}}">See Vehicles</a>
+                </div>
               </div>
             </div>
+            {{/brandCars}}
           </div>
-          {{/brandCars}}
         </div>
-      </div>
-    </section>
-  </main>
-  <!-- End of section and main-->
+      </section>
+    </main>
+    <!-- End of section and main-->
 
+    <!-- footer-->
+    {{> footer}}
 
-  <!-- footer-->
-  {{> footer}}
-
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
