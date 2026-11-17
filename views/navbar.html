@@ -8,22 +8,13 @@
           <i class="fas fa-bars"></i>
         </button>
 
-        <div class="input-group w-auto mx-auto" style="max-width: 300px;">
-          <input type="search" placeholder="Search" id="search-focus" class="form-control" />
-          <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+        <form action="/input" method="post" class="input-group w-auto mx-auto" style="max-width: 300px;">
+                <input type="search" placeholder="Search" id="search-focus" class="form-control" name="search" />
+          <button type="submit" class="btn btn-primary" data-mdb-ripple-init>
             <i class="fas fa-search"></i>
           </button>
-        </div>
+        </form>
 
-        <div class="collapse navbar-collapse flex-grow-0" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="detalle">Detail</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="createElement">Create</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      
+      </form>
     </nav>
