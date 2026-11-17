@@ -23,9 +23,32 @@ const upload = multer({ storage: storage });
 // Home route: Displays all brands (which now contain their nested cars thanks to cargarJson)
 router.get("/", async (req, res) => {
   const carsCollection = db.collection('cars');
-  const brandCars = await carsCollection.find().toArray();
-  console.log(brandCars);
-  res.render("index", { brandCars });
+  
+  const page = parseInt(req.query.page) || 1;
+  const limit = 6;
+  const skip = (page - 1) * limit;
+
+  const totalCars = await carsCollection.countDocuments();
+  const totalPages = Math.ceil(totalCars / limit);
+
+  const brandCars = await carsCollection.find().skip(skip).limit(limit).toArray();
+  const uniqueCountries = [...new Set(brandCars.map(car => car.country).filter(Boolean))].sort();
+
+  // Generar un array con los números de página, ej: [1, 2, 3] y marcar cuál está activa
+  const pages = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push({
+      number: i,
+      isCurrent: i === page
+    });
+  }
+
+  res.render("index", { 
+    brandCars,
+    pages,
+    hasMultiplePages: totalPages > 1, // Para mostrar la paginación solo si hay más de 1 página
+    uniqueCountries // <--- Pasamos esto a la vista
+  });
 });
 
 router.get("/createElement", (req, res) => {
@@ -173,43 +196,68 @@ router.post("/detalle", upload.single("image"), async (req, res) => {
   });
 });
 
-router.post("/search", async (req, res) => {
-  const carsCollection = db.collection('cars');
-  const allCars = await carsCollection.find().toArray();
+router.get("/search", async (req, res) => {
+    const carsCollection = db.collection('cars');
+    const allCars = await carsCollection.find().toArray();
 
-  const searchText = req.body.search ? req.body.search.trim().toLowerCase() : "";
-  const fCountry = req.body["filter-country"];
-  const fRating = req.body["filter-rating"];
-  const fSegment = req.body["filter-segment"];
+    const searchText = req.query.search ? req.query.search.trim().toLowerCase() : "";
+    const fCountry = req.query["filter-country"];
+    const fRating = req.query["filter-rating"];
+    const fSegment = req.query["filter-segment"];
 
-  let results = [];
+    // Filtrar los resultados
+    let results = [];
+    if (searchText !== "") {
+        results = allCars.filter(car => car.name && car.name.toLowerCase().includes(searchText));
+    } else {
+        results = allCars.filter(car => {
+            // Comparamos en minúsculas ignorando mayúsculas/minúsculas de la BD
+            const matchCountry = !fCountry || fCountry === "COUNTRY" || 
+                (car.country && car.country.toLowerCase().trim() === fCountry.toLowerCase().trim());
 
-  // Si se envió el formulario de la barra de búsqueda (texto)
-  if (req.body.search !== undefined && searchText !== "") {
-    results = allCars.filter(car => car.name && car.name.toLowerCase().includes(searchText));
-  } else {
-    // Si se envió el formulario con los selectores (filtros)
-    results = allCars.filter(car => {
-      const matchCountry = !fCountry || fCountry === "COUNTRY" ||
-        (car.country && car.country.toLowerCase() === fCountry.toLowerCase());
+            const matchRating = !fRating || fRating === "RATING" || 
+                (car.rating && String(car.rating).trim() === String(fRating).trim());
 
-      const matchRating = !fRating || fRating === "RATING" ||
-        (car.rating && String(car.rating) === String(fRating));
+            const matchSegment = !fSegment || fSegment === "SEGMENT" || 
+                (car.segment && car.segment.toLowerCase().trim() === fSegment.toLowerCase().trim());
 
-      const matchSegment = !fSegment || fSegment === "SEGMENT" ||
-        (car.segment && car.segment.toLowerCase() === fSegment.toLowerCase());
+            return matchCountry && matchRating && matchSegment;
+        });
+    }
 
-      return matchCountry && matchRating && matchSegment;
-    });
-  }
+    // Configuración de la paginación sobre los resultados filtrados
+    const page = parseInt(req.query.page) || 1;
+    const limit = 6;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+
+    const paginatedResults = results.slice(startIndex, endIndex);
+    const totalPages = Math.ceil(results.length / limit);
+
+    // Generar array de páginas para Mustache
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pages.push({
+            number: i,
+            isCurrent: i === page
+        });
+    }
+
+    // Construir una cadena de consulta (query string) para mantener los filtros activos en los enlaces de paginación
+    const queryParams = new URLSearchParams(req.query);
+    queryParams.delete('page'); // Eliminamos la página anterior para meter la nueva
+    const queryString = queryParams.toString() ? `&${queryParams.toString()}` : "";
 
   let errorMessage = null;
   if (results.length === 0) {
     errorMessage = "No se encontraron elementos con los requisitos seleccionados.";
   }
 
-  res.render("search", {
-    cars: results,
-    error: errorMessage
-  });
+    res.render("search", {
+        cars: paginatedResults,
+        pages,
+        hasMultiplePages: totalPages > 1,
+        queryString, // Se pasa a la vista para mantener los filtros al cambiar de página
+        error: errorMessage
+    });
 });
