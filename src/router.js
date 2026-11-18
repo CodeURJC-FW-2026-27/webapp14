@@ -187,3 +187,41 @@ router.get("/detalle/:id/edit", (req, res) =>{
 router.get("/detalle/:brandId/model/:modelId/edit", (req, res) =>{
   res.render("formEditorModel");
 });
+router.post("/detalle/:id/delete", async (req, res) => {
+  const carsCollection = db.collection("cars");
+  const brandId = req.params.id;
+
+  const brand = await carsCollection.findOne({
+    _id: new ObjectId(brandId),
+  });
+
+  const brandName = brand.name;
+
+  await carsCollection.deleteOne({
+    _id: new ObjectId(brandId),
+  });
+
+  return res.render("delete", {
+    message: `The brand ${brandName} has been deleted.`
+  });
+});
+router.post("/detalle/:brandId/model/:modelId/delete", async (req, res) => {
+  const carsCollection = db.collection("cars");
+  const brandId = req.params.brandId;
+  const modelId = req.params.modelId;
+
+  const brand = await carsCollection.findOne({
+    _id: new ObjectId(brandId),
+  });
+
+  await carsCollection.updateOne(
+    { _id: new ObjectId(brandId) },
+    { $pull: { cars: { _id: new ObjectId(modelId) } } }
+  );
+
+  return res.render("success", {
+    message: "The model has been deleted ",
+    name: brand.name,
+    id: brandId,
+  });
+});
