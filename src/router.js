@@ -262,7 +262,10 @@ router.post("/detalle/:id/edit", upload.single("bImage"), async (req, res) => {
 //Edit model page
 
 router.get("/detalle/:brandId/model/:modelId/edit", async (req, res) => {
-  const result = await setters.modelDelete(req.params.brandId, req.params.modelId);
+  const result = await getEditModelData(
+    req.params.brandId,
+    req.params.modelId
+  );
 
   if (result.redirect) {
     return res.redirect(result.redirect);
@@ -270,7 +273,6 @@ router.get("/detalle/:brandId/model/:modelId/edit", async (req, res) => {
 
   res.render("formEditorModel", result);
 });
-
 //Update model
 router.post("/detalle/:brandId/model/:modelId/edit", upload.single("image"), async (req, res) => {
   const result = 
