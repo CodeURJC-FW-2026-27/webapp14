@@ -100,7 +100,7 @@ router.get("/detalle/:id", async (req, res) => {
     name: brand.name,
     img: brand.img,
     country: brand.country,
-    year: brand.year,
+    year: brand.year.split("-").reverse().join("-"),
     rating: brand.rating,
     description: brand.description,
     segment: brand.segment,
