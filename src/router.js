@@ -3,15 +3,18 @@ import multer from "multer";
 import { cargarJson } from "./load_data.js";
 import { db } from "./db.js";
 import { ObjectId } from "mongodb";
-import { filterCars, generatePagination } from "./script.js";
+import * as fPag from "./filtersAndPagination.js";
 import { validateBrandData } from "./brandValidator.js";
 import { validateModelData } from "./modelValidator.js";
-import { createBrand, createModel } from "./creatorBrands.js";
+import * as creator from "./creatorBrands.js";
+import * as setters from "./update.js";
+import { getEditModelData } from "./edit.js";
+
 
 const router = express.Router();
 export default router;
 
-// 1. Data loading on startup
+// Data loading on setup
 await cargarJson();
 
 // Configured to save uploaded images
@@ -49,7 +52,7 @@ router.get("/", async (req, res) => {
 
   // Load cars in its page
   const { paginatedResults, pages, totalPages, hasMultiplePages } =
-    generatePagination(brandCars, req.query.page);
+    fPag.generatePagination(brandCars, req.query.page);
 
   res.render("index", {
     brandCars: paginatedResults,
@@ -119,7 +122,7 @@ router.post("/createElement", upload.single("bImage"), async (req, res) => {
   }
 
   // 2. Crear objeto e insertar en base de datos
-  const brand = createBrand(req);
+  const brand = creator.createBrand(req);
   console.log(brand);
   const result = await CarsCollection.insertOne(brand);
 
@@ -148,7 +151,7 @@ router.post("/detalle", upload.single("image"), async (req, res) => {
     });
   }
 
-  const model = createModel(req);
+  const model = creator.createModel(req);
 
   await carsCollection.updateOne(
     { _id: brand._id },
@@ -167,7 +170,7 @@ router.get("/search", async (req, res) => {
   const allCars = await carsCollection.find().toArray();
 
   // Use imports from script.js
-  const results = filterCars(allCars, req.query);
+  const results = fPag.filterCars(allCars, req.query);
 
   // Get the params
   const { paginatedResults, pages, hasMultiplePages } = generatePagination(
@@ -240,204 +243,69 @@ router.get("/detalle/:id/edit", async (req, res) => {
   });
 });
 
+
+// Update brand
 router.post("/detalle/:id/edit", upload.single("bImage"), async (req, res) => {
-  const carsCollection = db.collection("cars");
-  const brandId = req.params.id; 
+  
+  const result = await setters.setBrandUpdate(req.params.id, req.body, req.file);
+  if (result.redirect) return res.redirect(result.redirect);
+  if (result.error) return res.render("errorPage", {error: result.error});
 
-  // 1. Obtener la marca actual de la base de datos
-  const currentBrand = await carsCollection.findOne({ _id: new ObjectId(brandId) });
-  if (!currentBrand) {
-    return res.redirect("/");
-  }
-
-  // 2. Ejecutar validaciones reutilizables pasando la marca actual
-  const validationError = await validateBrandData(req.body, req.file, currentBrand);
-  if (validationError) {
-    return res.render("errorPage", { error: validationError });
-  }
-
-  // 3. Preparar los datos actualizados
-  const updatedBrand = {
-    name: req.body.bName.trim(),
-    country: req.body.bCountry.trim(),
-    year: req.body.bYear.trim(),
-    rating: req.body.stars,
-    segment: req.body.segment,
-    description: req.body.bDescription.trim(),
-    img: req.file ? req.file.filename : currentBrand.img
-  };
-
-  // 4. Actualizar en la base de datos
-  await carsCollection.updateOne(
-    { _id: new ObjectId(brandId) },
-    { $set: updatedBrand }
-  );
-
-  // 5. Renderizar vista de éxito
   return res.render("success", {
-    message: "The brand has been edited",
-    name: updatedBrand.name,
-    id: brandId
+    message: result.message,
+    name: result.name,
+    id: result.id
   });
 });
+
+
+//Edit model page
 
 router.get("/detalle/:brandId/model/:modelId/edit", async (req, res) => {
-  const carsCollection = db.collection("cars");
+  const result = await getEditModelData(req.params.brandId, req.params.modelId);
 
-  if (!ObjectId.isValid(req.params.brandId)) {
-    return res.redirect("/");
+  if (result.redirect) {
+    return res.redirect(result.redirect);
   }
 
-  const brand = await carsCollection.findOne({
-    _id: new ObjectId(req.params.brandId)
-  });
-
-  if (!brand) {
-    return res.redirect("/");
-  }
-
-  const model = (brand.cars || []).find(
-    car => car._id.toString() === req.params.modelId
-  );
-
-  if (!model) {
-    return res.redirect(`/detalle/${req.params.brandId}`);
-  }
-
-  res.render("formEditorModel", {
-    brandId: brand._id.toString(),
-    modelId: model._id.toString(),
-    model: model.model || model.name,
-    plate: model.plate,
-    km: model.km,
-    year: model.year,
-    doors: model.doors,
-    condition: model.condition,
-    motor: model.motor,
-    gearbox: model.gearbox,
-    horsepower: model.horsepower,
-    financingOptions: model.financingOptions,
-    price: model.price,
-    originalPrice: model.originalPrice,
-    discount: model.discount,
-    image: model.image,
-  });
+  res.render("formEditorModel", result);
 });
 
-router.post(
-  "/detalle/:brandId/model/:modelId/edit",
-  upload.single("image"),
-  async (req, res) => {
-    const carsCollection = db.collection("cars");
-    const brandId = req.params.brandId;
-    const modelId = req.params.modelId;
+//Update model
+router.post("/detalle/:brandId/model/:modelId/edit", upload.single("image"), async (req, res) => {
+  const result = 
+  await setters.setModelUpdate(req.params.brandId, req.params.modelId, req.body, req.file);
 
-    const brandObjectId = new ObjectId(brandId);
-    const modelObjectId = new ObjectId(modelId);
+  if (result.redirect) return res.redirect(result.redirect);
+  if (result.error) return res.render("errorPage", { error: result.error });
 
-    // 1. Buscar la marca y el modelo actual
-    const brand = await carsCollection.findOne({ _id: brandObjectId });
-    if (!brand) {
-      return res.redirect("/");
-    }
-
-    const currentModel = (brand.cars || []).find(
-      (car) => car._id.toString() === modelId
-    );
-
-    // 2. Ejecutar las validaciones centralizadas pasando carsCollection
-    const validationError = await validateModelData(
-      carsCollection,
-      req.body,
-      brandObjectId,
-      modelObjectId,
-      req.file,
-      currentModel
-    );
-
-    if (validationError) {
-      return res.render("errorPage", { error: validationError });
-    }
-
-    // 3. Preparar los datos actualizados
-    const updatedModel = {
-      "cars.$.model": req.body.model.trim(),
-      "cars.$.plate": req.body.plate.trim(),
-      "cars.$.km": req.body.km,
-      "cars.$.year": req.body.year,
-      "cars.$.doors": req.body.doors,
-      "cars.$.condition": req.body.condition,
-      "cars.$.motor": req.body.motor,
-      "cars.$.gearbox": req.body.gearbox,
-      "cars.$.horsepower": req.body.horsepower,
-      "cars.$.financingOptions": req.body.financingOptions || "no",
-      "cars.$.price": req.body.price,
-      "cars.$.originalPrice": req.body.originalPrice,
-      "cars.$.discount": req.body.discount,
-      "cars.$.image": req.file ? req.file.filename : (currentModel ? currentModel.image : "")
-    };
-
-    // 4. Actualizar en la base de datos
-    await carsCollection.updateOne(
-      {
-        _id: brandObjectId,
-        "cars._id": modelObjectId
-      },
-      {
-        $set: updatedModel
-      }
-    );
-
-    // 5. Renderizar vista de éxito
-    return res.render("success", {
-      message: "The model has been edited",
-      name: brand.name,
-      id: brandId
-    });
-  }
-);
+  return res.render("success", {
+    message: result.message,
+    name: result.name,
+    id: result.id
+  });
+});
 
 router.post("/detalle/:id/delete", async (req, res) => {
-  const carsCollection = db.collection("cars");
-  const brandId = req.params.id;
-
-  const brand = await carsCollection.findOne({
-    _id: new ObjectId(brandId),
-  });
-
-  const brandName = brand ? brand.name : "Brand";
-
-  await carsCollection.deleteOne({
-    _id: new ObjectId(brandId),
-  });
+  const result = await setters.setBrandDelete(req.params.id);
 
   return res.render("success", {
-    message: `The brand ${brandName} has been deleted.`,
-    deletedOk: true
+    message: result.message,
+    deletedOk: result.deletedOk
   });
 });
 
+// Delete model
 router.post("/detalle/:brandId/model/:modelId/delete", async (req, res) => {
-  const carsCollection = db.collection("cars");
-  const brandId = req.params.brandId;
-  const modelId = req.params.modelId;
+  const result = await modelDelete(req.params.brandId, req.params.modelId);
 
-  const brand = await carsCollection.findOne({
-    _id: new ObjectId(brandId),
-  });
-
-  if (!brand) {
-    return res.redirect("/");
+  if (result.redirect) {
+    return res.redirect(result.redirect);
   }
 
-  await carsCollection.updateOne(
-    { _id: new ObjectId(brandId) },
-    { $pull: { cars: { _id: new ObjectId(modelId) } } },
-  );
-
   return res.render("success", {
-    message: "The model has been deleted ",
-    name: brand.name,
-    id: brandId,
+    message: result.message,
+    name: result.name,
+    id: result.id,
   });
 });
