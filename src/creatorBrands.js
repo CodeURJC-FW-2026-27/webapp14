@@ -4,7 +4,7 @@ export const createBrand = (req) => {
     return {
         name: req.body.bName.trim(),
         country: req.body.bCountry,
-        year: req.body.bYear,
+        year: req.body.bYear.split("-").reverse().join("-"),
         rating: req.body.stars,
         img: req.file.filename,
         segment: req.body.segment,
