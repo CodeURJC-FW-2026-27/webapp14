@@ -61,7 +61,17 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/createElement", (req, res) => {
-  res.render("createElement");
+  res.render("createElement", {
+    pageTitle: "Creator of brands",
+    mainTitle: "BRAND CREATOR",
+    subtitle: "Create any brand.",
+    formTitle: "Create your brand here",
+    formAction: "/createElement",
+    cancelUrl: "/",
+    submitText: "CREATE",
+    isEdit: false,
+    noSegment: true
+  });
 });
 
 // Detail route
@@ -194,27 +204,41 @@ router.get("/search", async (req, res) => {
 
 router.get("/detalle/:id/edit", async (req, res) => {
   const carsCollection = db.collection("cars");
-  
-  // 1. Validar que el ID sea válido para MongoDB por seguridad
+
   if (!ObjectId.isValid(req.params.id)) {
     return res.redirect("/");
   }
 
-  const brand = await carsCollection.findOne({ _id: new ObjectId(req.params.id) });
+  const brand = await carsCollection.findOne({
+    _id: new ObjectId(req.params.id)
+  });
 
-  // 2. Comprobar si la marca existe antes de usarla
   if (!brand) {
-    return res.status(404).render("errorPage", { error: "Brand not found" });
+    return res.status(404).render("errorPage", {
+      error: "Brand not found"
+    });
   }
 
-  res.render("formEditor", {
-    id: brand._id.toString(), // <-- Aquí es donde fallaba si brand era null
+  res.render("createElement", {
+    pageTitle: "Brand Editor",
+    mainTitle: "BRAND EDITOR",
+    subtitle: "Edit your brand.",
+    formTitle: "Edit your brand here",
+
+    formAction: `/detalle/${brand._id.toString()}/edit`,
+    cancelUrl: `/detalle/${brand._id.toString()}`,
+    submitText: "EDIT",
+
+    isEdit: true,
+
     name: brand.name,
     year: brand.year,
     country: brand.country,
     description: brand.description,
     img: brand.img,
+
     [`rate${brand.rating}`]: true,
+
     isLowCost: brand.segment === "lowCost",
     isMidRange: brand.segment === "midRange",
     isLuxury: brand.segment === "luxury"
