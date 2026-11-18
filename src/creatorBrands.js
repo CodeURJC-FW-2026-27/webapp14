@@ -16,7 +16,7 @@ export const createBrand = (req) => {
 export const createModel = (req) => {
     return {
         _id: new ObjectId(),
-        name: req.body.model,
+        model: req.body.model,
         plate: req.body.plate,
         brand: req.body.brand,
         km: req.body.km,

@@ -91,6 +91,7 @@
           enctype="multipart/form-data"
           method="post">
 
+          <!-- Brand name and foundation date -->
           <div class="row g-3 mt-1">
 
             <div class="col-12 col-md-6" id="brandDiv">
@@ -109,8 +110,7 @@
                   id="brand"
                   placeholder="Name of brand"
                   name="bName"
-                  value="{{name}}"
-                  required>
+                  value="{{name}}">
 
               </div>
 
@@ -123,7 +123,7 @@
                 <label
                   class="form-label text-white small text-uppercase fw-bold mb-2"
                   for="year">
-                  Year of Foundation
+                  Foundation Date
                 </label>
 
                 <input
@@ -131,8 +131,7 @@
                   class="form-control"
                   id="year"
                   name="bYear"
-                  value="{{year}}"
-                  required>
+                  value="{{year}}">
 
               </div>
 
@@ -140,6 +139,7 @@
 
           </div>
 
+          <!-- Country and rating -->
           <div class="row g-3 mt-1">
 
             <div class="col-12 col-md-6" id="countryDiv">
@@ -158,8 +158,7 @@
                   id="country"
                   placeholder="Country"
                   name="bCountry"
-                  value="{{country}}"
-                  required>
+                  value="{{country}}">
 
               </div>
 
@@ -178,23 +177,25 @@
                   class="d-flex flex-wrap align-items-center justify-content-between gap-2 px-3 py-2 bg-black bg-opacity-25 rounded border border-secondary">
 
                   <div class="form-check m-0">
+
                     <input
                       class="form-check-input"
                       type="radio"
                       name="stars"
                       id="rate1"
                       value="1"
-                      {{#rate1}}checked{{/rate1}}
-                      required>
+                      {{#rate1}}checked{{/rate1}}>
 
                     <label
                       class="form-check-label text-white fw-bold"
                       for="rate1">
                       1
                     </label>
+
                   </div>
 
                   <div class="form-check m-0">
+
                     <input
                       class="form-check-input"
                       type="radio"
@@ -208,9 +209,11 @@
                       for="rate2">
                       2
                     </label>
+
                   </div>
 
                   <div class="form-check m-0">
+
                     <input
                       class="form-check-input"
                       type="radio"
@@ -224,9 +227,11 @@
                       for="rate3">
                       3
                     </label>
+
                   </div>
 
                   <div class="form-check m-0">
+
                     <input
                       class="form-check-input"
                       type="radio"
@@ -240,9 +245,11 @@
                       for="rate4">
                       4
                     </label>
+
                   </div>
 
                   <div class="form-check m-0">
+
                     <input
                       class="form-check-input"
                       type="radio"
@@ -256,6 +263,7 @@
                       for="rate5">
                       5
                     </label>
+
                   </div>
 
                 </div>
@@ -266,6 +274,7 @@
 
           </div>
 
+          <!-- Description -->
           <div class="row g-3 mt-1">
 
             <div class="col-12" id="descriptionDiv">
@@ -283,10 +292,7 @@
                   id="description"
                   rows="3"
                   placeholder="Enter brand description"
-                  name="bDescription"
-                  minlength="10"
-                  maxlength="150"
-                  required>{{description}}</textarea>
+                  name="bDescription">{{description}}</textarea>
 
               </div>
 
@@ -294,6 +300,7 @@
 
           </div>
 
+          <!-- Image and segment -->
           <div class="row g-3 mt-1">
 
             <div class="col-12 col-md-6" id="imageDiv">
@@ -316,30 +323,20 @@
                         width="100"
                         class="rounded border border-secondary">
 
-                      <p class="small text-white mt-2 mb-0">
+                      <p class="small text-light mt-2 mb-0">
                         Current image
                       </p>
 
                     </div>
                   {{/img}}
-
-                  <input
-                    type="file"
-                    class="form-control"
-                    id="imageFile"
-                    name="bImage"
-                    accept="image/*">
                 {{/isEdit}}
 
-                {{^isEdit}}
-                  <input
-                    type="file"
-                    class="form-control"
-                    id="imageFile"
-                    name="bImage"
-                    accept="image/*"
-                    required>
-                {{/isEdit}}
+                <input
+                  type="file"
+                  class="form-control"
+                  id="imageFile"
+                  name="bImage"
+                  accept="image/*">
 
               </div>
 
@@ -358,8 +355,7 @@
                 <select
                   class="form-select"
                   name="segment"
-                  id="segment"
-                  required>
+                  id="segment">
 
                   <option
                     disabled
@@ -394,6 +390,7 @@
 
           </div>
 
+          <!-- Form buttons -->
           <div class="row g-3 mt-3 mb-3">
 
             <div class="col-12 d-flex justify-content-end gap-2">
