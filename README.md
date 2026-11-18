@@ -236,3 +236,36 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 * [brandValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/brandValidator.js)
 * [modelValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/modelValidator.js)
 
+## Adrián Dueñas
+
+* **funcionalidades del router:**
+  * Implementación de las inserciones de nuevas marcas y modelos a la base de datos
+  * Implementación del borrado de modelos y de marcas.
+  * Validaciones de formularios modelo y marcas
+
+* **paginas success y error**
+  * desarrollo de las plantillas error y success para que procesen los datos correctamente
+
+* **htmls:**
+  * he modificado los campos de los formularios para que se adapten bien al json y a la base.
+
+* **revisión de datos:**
+  * he correguido algunos datos menores para la correcta funcionalidad.
+
+ * **Commits más significativos:**
+* [Commit 1](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/a58504330ab4c9ac91fb8d2be9cd606c495fcd7d)
+* [Commit 2](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/b5a5c9ee5f0d66b6f5662f9b294284500cdfdc46)
+* [Commit 3](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/54f154953eaa5150f57351abb4643fb15fc10a66)
+* [Commit 4](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/055b87cf8493bf4008622772d71f6ffcbb9a90e8)
+* [Commit 5](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/f070c274df4f02909246ed3507ca994cf56700a9)
+
+* **ficheros en los que más he participado:**
+* [router](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/router.js)
+* [success](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/develop3/views/success.html)
+* [createElement](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/develop3/views/createElement.html)
+* [detail](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/detail.html)
+* [brandValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/brandValidator.js)
+* [modelValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/modelValidator.js)
+* [error](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/develop3/views/errorPage.html)
+* [creatorBrands](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/develop3/src/creatorBrands.js)
+  
