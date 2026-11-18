@@ -40,23 +40,23 @@ const upload = multer({ storage: storage });
 
 // Home route: Displays all brands
 router.get("/", async (req, res) => {
-  const carsCollection = db.collection('cars'); 
+  const carsCollection = db.collection("cars");
 
   const brandCars = await carsCollection.find().toArray();
-  const uniqueCountries = [...new Set(brandCars.map(car => car.country)
-    .filter(Boolean))].sort();
-  
-    // Load cars in its page 
-  const {paginatedResults, pages, totalPages, hasMultiplePages} = 
-  generatePagination(brandCars, req.query.page);
+  const uniqueCountries = [
+    ...new Set(brandCars.map((car) => car.country).filter(Boolean)),
+  ].sort();
 
+  // Load cars in its page
+  const { paginatedResults, pages, totalPages, hasMultiplePages } =
+    generatePagination(brandCars, req.query.page);
 
-  res.render("index", { 
+  res.render("index", {
     brandCars: paginatedResults,
     pages,
     totalPages,
     hasMultiplePages,
-    uniqueCountries 
+    uniqueCountries,
   });
 });
 
@@ -66,8 +66,10 @@ router.get("/createElement", (req, res) => {
 
 // Detail route
 router.get("/detalle/:id", async (req, res) => {
-  const carsCollection = db.collection('cars');
-  const brand = await carsCollection.findOne({ _id: new ObjectId(req.params.id) });
+  const carsCollection = db.collection("cars");
+  const brand = await carsCollection.findOne({
+    _id: new ObjectId(req.params.id),
+  });
 
   if (!brand) {
     return res.redirect("/");
@@ -99,92 +101,150 @@ router.get("/detalle/:id", async (req, res) => {
 
 // Route to create a new element/brand
 router.post("/createElement", upload.single("bImage"), async (req, res) => {
+  const CarsCollection = db.collection("cars");
+  // 1. Ejecutar validaciones de negocio
+  const validationError = await validateBrandData(req.body, req.file);
+  if (validationError) {
+    return res.render("errorPage", { error: validationError });
+  }
 
-        const CarsCollection = db.collection("cars");
-        // 1. Ejecutar validaciones de negocio
-        const validationError = await validateBrandData(req.body, req.file);
-        if (validationError) {
-            return res.render("errorPage", { error: validationError });
-        }
+  // 2. Crear objeto e insertar en base de datos
+  const brand = createBrand(req);
+  console.log(brand);
+  const result = await CarsCollection.insertOne(brand);
 
-        // 2. Crear objeto e insertar en base de datos
-        const brand = createBrand(req);
-        console.log(brand);
-        const result = await CarsCollection.insertOne(brand);
-
-        return res.render("success", {
-            message: `The brand ${brand.name} has been created successfully`,
-            name: brand.name,
-            id: result.insertedId.toString()
-        });
-    
+  return res.render("success", {
+    message: `The brand ${brand.name} has been created successfully`,
+    name: brand.name,
+    id: result.insertedId.toString(),
+  });
 });
+
 router.post("/detalle", upload.single("image"), async (req, res) => {
+  const carsCollection = db.collection("cars");
+  const brandName = req.query.name;
 
-    const carsCollection = db.collection('cars');
-    const brandName = req.query.name;
+  const brand = await carsCollection.findOne({ name: brandName });
 
-    //Check restrictions
-    const validationError = await validateModelData(req.body, req.file, brandName);
-    if (validationError) {
-      return res.render("errorPage", {
-        error: validationError
-      });
-    }
-    //Create model if ok
-    const model = createModel(req);
-
-    // Push to db
-    await carsCollection.updateOne(
-      { name: brandName },
-      { $push: { cars: model } }
-    );
-
-    // success message if ok
-    return res.render("success", {
-      message: `The model ${model.name} has been added successfully`,
-      name: brandName
+  if (!brand) {
+    return res.render("errorPage", {
+      error: "The brand does not exist.",
     });
+  }
 
-  
+  const validationError = await validateModelData(
+    carsCollection,
+    req.body,
+    brand._id,
+  );
+
+  if (validationError) {
+    return res.render("errorPage", {
+      error: validationError,
+    });
+  }
+
+  const model = createModel(req);
+
+  await carsCollection.updateOne(
+    { _id: brand._id },
+    { $push: { cars: model } },
+  );
+
+  return res.render("success", {
+    message: `The model ${model.name} has been added successfully`,
+    name: brandName,
+  });
 });
 
 router.get("/search", async (req, res) => {
-        const carsCollection = db.collection('cars');
-        const allCars = await carsCollection.find().toArray();
+  const carsCollection = db.collection("cars");
+  const allCars = await carsCollection.find().toArray();
 
-        // Use imports from script.js
-        const results = filterCars(allCars, req.query);
+  // Use imports from script.js
+  const results = filterCars(allCars, req.query);
 
-        // Get the params
-        const { paginatedResults, pages, hasMultiplePages } =
-         generatePagination(results, req.query.page);
+  // Get the params
+  const { paginatedResults, pages, hasMultiplePages } = generatePagination(
+    results,
+    req.query.page,
+  );
 
-        // Build string to keep filters active
-        const queryParams = new URLSearchParams(req.query);
-        queryParams.delete('page');
-        const queryString = queryParams.toString() ? `&${queryParams.toString()}` : "";
+  // Build string to keep filters active
+  const queryParams = new URLSearchParams(req.query);
+  queryParams.delete("page");
+  const queryString = queryParams.toString()
+    ? `&${queryParams.toString()}`
+    : "";
 
-        let errorMessage = null;
-        if (results.length === 0) {
-            errorMessage = "No se encontraron elementos con los requisitos seleccionados.";
-        }
+  let errorMessage = null;
+  if (results.length === 0) {
+    errorMessage =
+      "No se encontraron elementos con los requisitos seleccionados.";
+  }
 
-        res.render("search", {
-            cars: paginatedResults,
-            pages,
-            hasMultiplePages,
-            queryString,
-            error: errorMessage
-        });
-    
+  res.render("search", {
+    cars: paginatedResults,
+    pages,
+    hasMultiplePages,
+    queryString,
+    error: errorMessage,
+  });
 });
 
-router.get("/detalle/:id/edit", (req, res) =>{
-  res.render("formEditor");
+router.get("/detalle/:id/edit", async (req, res) => {
+  const carsCollection = db.collection("cars");
+  const brandId = req.params.id;
+
+  const brand = await carsCollection.findOne({
+    _id: new ObjectId(brandId)
+  });
+
+  res.render("formEditor", {
+    id: brand._id.toString(),
+    name: brand.name,
+    country: brand.country,
+    year: brand.year,
+    rating: brand.rating,
+    segment: brand.segment,
+    description: brand.description,
+    img: brand.img
+  });
 });
 
-router.get("/detalle/:brandId/model/:modelId/edit", (req, res) =>{
+router.post("/detalle/:id/edit", upload.single("bImage"), async (req, res) => {
+  const carsCollection = db.collection("cars");
+  const brandId = req.params.id; 
+
+  console.log(req.body);
+  console.log(req.file);
+
+  const updatedBrand = {
+    name: req.body.bName,
+    country: req.body.bCountry,
+    year: req.body.bYear,
+    rating: req.body.stars,
+    segment: req.body.segment,
+    description: req.body.bDescription
+  };
+
+  if (req.file) {
+    updatedBrand.img = req.file.filename;
+  }
+
+  await carsCollection.updateOne(
+    { _id: new ObjectId(brandId) },
+    { $set: updatedBrand }
+  );
+
+  return res.render("success", {
+    message: "The brand has been edited",
+    name: updatedBrand.name,
+    id: brandId
+  });
+});
+
+router.get("/detalle/:brandId/model/:modelId/edit", (req, res) => {
   res.render("formEditorModel");
 });
 router.post("/detalle/:id/delete", async (req, res) => {
@@ -202,7 +262,7 @@ router.post("/detalle/:id/delete", async (req, res) => {
   });
 
   return res.render("delete", {
-    message: `The brand ${brandName} has been deleted.`
+    message: `The brand ${brandName} has been deleted.`,
   });
 });
 router.post("/detalle/:brandId/model/:modelId/delete", async (req, res) => {
@@ -216,7 +276,7 @@ router.post("/detalle/:brandId/model/:modelId/delete", async (req, res) => {
 
   await carsCollection.updateOne(
     { _id: new ObjectId(brandId) },
-    { $pull: { cars: { _id: new ObjectId(modelId) } } }
+    { $pull: { cars: { _id: new ObjectId(modelId) } } },
   );
 
   return res.render("success", {
