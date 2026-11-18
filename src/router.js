@@ -549,6 +549,6 @@ router.post("/detalle/:id/delete", async (req, res) => {
   });
 
   return res.render("delete", {
-    message: `The brand ${brandName} has been deleted successfully.`
+    message: `The brand ${brandName} has been deleted.`
   });
 });
