@@ -1,359 +1,327 @@
-<form
-  action="/detalle/{{brandId}}/model/{{modelId}}/edit"
-  id="formEditorModel"
-  method="POST"
-  enctype="multipart/form-data"
->
-  <div class="row g-3">
-    <div class="col-12 col-md-6">
-      <div class="mb-3">
-        <label for="inputModel" class="form-label text-white">
-          Model Name
-        </label>
+<!DOCTYPE html>
+<html lang="en">
 
-        <input
-          type="text"
-          name="model"
-          class="form-control"
-          id="inputModel"
-          placeholder="Name of model"
-          value="{{model}}"
-        />
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Creator of brands</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="/css/styles.css" rel="stylesheet" />
+  <link href="/css/global.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/createEleStyles.css">
+</head>
+
+<body class="text-white bg-dark d-flex flex-column min-vh-100">
+    <!-- fixed navbar-->
+    {{> navbar}}
+
+    <div class="text-center text-white mt-4">
+      <h1 class="mx-auto my-0 text-uppercase">Model Editor</h1>
     </div>
 
-    <div class="col-12 col-md-6">
-      <div class="mb-3">
-        <label for="inputPlate" class="form-label text-white">
-          Plate
-        </label>
+  <!--Main content-->
+  <main class="container px-4 px-lg-5 my-5 flex-grow-1">
 
-        <input
-          type="text"
-          minlength="7"
-          maxlength="7"
-          name="plate"
-          class="form-control"
-          id="inputPlate"
-          placeholder="Plate"
-          value="{{plate}}"
-        />
-      </div>
-    </div>
-  </div>
+    <section>
+      <div class="container bg-dark border border-secondary rounded-4 shadow p-4 p-md-5 mt-5" id="formulario">
 
-  <div class="row g-3">
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="inputKm" class="form-label text-white">
-          Kilometers
-        </label>
-
-        <input
-          type="number"
-          name="km"
-          class="form-control"
-          id="inputKm"
-          placeholder="Km"
-          value="{{km}}"
-        />
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="inputYear" class="form-label text-white">
-          Year
-        </label>
-
-        <input
-          type="number"
-          min="1800"
-          max="2026"
-          name="year"
-          class="form-control"
-          id="inputYear"
-          placeholder="Year of model"
-          value="{{year}}"
-        />
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="inputDoors" class="form-label text-white">
-          Doors
-        </label>
-
-        <input
-          type="number"
-          name="doors"
-          class="form-control"
-          id="inputDoors"
-          placeholder="Number of doors"
-          value="{{doors}}"
-        />
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="selectCondition" class="form-label text-white">
-          Condition
-        </label>
-
-        <select
-          class="form-select"
-          id="selectCondition"
-          name="condition"
+        <form
+          action="/detalle/{{brandId}}/model/{{modelId}}/edit"
+          id="formEditorModel"
+          method="POST"
+          enctype="multipart/form-data"
         >
-          <option disabled>Car's condition</option>
+          <div class="row g-3 mt-1">
+            <div class="col-12 col-md-6">
+              <div class="mb-3">
+                <label for="inputModel" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Model Name
+                </label>
+                <input
+                  type="text"
+                  name="model"
+                  class="form-control"
+                  id="inputModel"
+                  placeholder="Name of model"
+                  value="{{model}}"
+                />
+              </div>
+            </div>
 
-          <option
-            value="poor"
-            {{#conditionPoor}}selected{{/conditionPoor}}
-          >
-            In poor condition
-          </option>
+            <div class="col-12 col-md-6">
+              <div class="mb-3">
+                <label for="inputPlate" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Plate
+                </label>
+                <input
+                  type="text"
+                  minlength="7"
+                  maxlength="7"
+                  name="plate"
+                  class="form-control"
+                  id="inputPlate"
+                  placeholder="Plate"
+                  value="{{plate}}"
+                />
+              </div>
+            </div>
+          </div>
 
-          <option
-            value="preowned"
-            {{#conditionPreowned}}selected{{/conditionPreowned}}
-          >
-            Pre-owned
-          </option>
+          <div class="row g-3 mt-1">
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="inputKm" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Kilometers
+                </label>
+                <input
+                  type="number"
+                  name="km"
+                  class="form-control"
+                  id="inputKm"
+                  placeholder="Km"
+                  value="{{km}}"
+                />
+              </div>
+            </div>
 
-          <option
-            value="new"
-            {{#conditionNew}}selected{{/conditionNew}}
-          >
-            New
-          </option>
-        </select>
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="inputYear" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Year
+                </label>
+                <input
+                  type="number"
+                  min="1800"
+                  max="2026"
+                  name="year"
+                  class="form-control"
+                  id="inputYear"
+                  placeholder="Year of model"
+                  value="{{year}}"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="inputDoors" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Doors
+                </label>
+                <input
+                  type="number"
+                  name="doors"
+                  class="form-control"
+                  id="inputDoors"
+                  placeholder="Number of doors"
+                  value="{{doors}}"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="selectCondition" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Condition
+                </label>
+                <select
+                  class="form-select"
+                  id="selectCondition"
+                  name="condition"
+                >
+                  <option disabled>Car's condition</option>
+                  <option value="poor" {{#conditionPoor}}selected{{/conditionPoor}}>In poor condition</option>
+                  <option value="preowned" {{#conditionPreowned}}selected{{/conditionPreowned}}>Pre-owned</option>
+                  <option value="new" {{#conditionNew}}selected{{/conditionNew}}>New</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-1">
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="selectMotor" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Engine Type
+                </label>
+                <select
+                  class="form-select"
+                  id="selectMotor"
+                  name="motor"
+                >
+                  <option disabled>Engine type</option>
+                  <option value="diesel" {{#motorDiesel}}selected{{/motorDiesel}}>Diesel</option>
+                  <option value="petrol" {{#motorPetrol}}selected{{/motorPetrol}}>Gasoline</option>
+                  <option value="hybrid" {{#motorHybrid}}selected{{/motorHybrid}}>Hybrid</option>
+                  <option value="electric" {{#motorElectric}}selected{{/motorElectric}}>Electric</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="selectGearbox" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Gearbox
+                </label>
+                <select
+                  class="form-select"
+                  id="selectGearbox"
+                  name="gearbox"
+                >
+                  <option disabled>Gearbox</option>
+                  <option value="manual" {{#gearboxManual}}selected{{/gearboxManual}}>Manual</option>
+                  <option value="automatic" {{#gearboxAutomatic}}selected{{/gearboxAutomatic}}>Automatic</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="inputHorsepower" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Horsepower
+                </label>
+                <input
+                  type="number"
+                  name="horsepower"
+                  class="form-control"
+                  id="inputHorsepower"
+                  placeholder="Horsepower"
+                  value="{{horsepower}}"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3 d-flex align-items-center">
+              <div class="form-check mt-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="yes"
+                  id="checkFinancing"
+                  name="financingOptions"
+                  {{#hasFinancing}}checked{{/hasFinancing}}
+                />
+                <label
+                  class="form-check-label text-white"
+                  for="checkFinancing"
+                >
+                  Financing available
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-1">
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="inputPrice" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Price
+                </label>
+                <input
+                  type="text"
+                  name="price"
+                  class="form-control"
+                  id="inputPrice"
+                  placeholder="Price"
+                  value="{{price}}"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="inputOriginalPrice" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Original Price
+                </label>
+                <input
+                  type="text"
+                  name="originalPrice"
+                  class="form-control"
+                  id="inputOriginalPrice"
+                  placeholder="Original Price"
+                  value="{{originalPrice}}"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                <label for="inputDiscount" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  Discount
+                </label>
+                <input
+                  type="text"
+                  name="discount"
+                  class="form-control"
+                  id="inputDiscount"
+                  placeholder="Discount"
+                  value="{{discount}}"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="mb-3">
+                {{#image}}
+                  <div class="mb-2">
+                    <img
+                      src="/uploads/logos/{{image}}"
+                      alt="{{model}}"
+                      class="rounded border border-secondary"
+                      style="width: 70px; height: 50px; object-fit: cover;"
+                    />
+                    <small class="text-muted d-block">Current image</small>
+                  </div>
+                {{/image}}
+                <label for="inputImage" class="form-label text-white small text-uppercase fw-bold mb-2">
+                  New Vehicle Image
+                </label>
+                <input
+                  type="file"
+                  name="image"
+                  class="form-control"
+                  id="inputImage"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-3 mb-3">
+            <div class="col-12 d-flex justify-content-end gap-2">
+              <a
+                href="/detalle/{{brandId}}"
+                class="btn btn-secondary"
+                id="cancel"
+              >
+                CANCEL
+              </a>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="send"
+              >
+                SAVE CHANGES
+              </button>
+            </div>
+          </div>
+        </form>
+
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="row g-3">
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="selectMotor" class="form-label text-white">
-          Engine Type
-        </label>
+  </main>
 
-        <select
-          class="form-select"
-          id="selectMotor"
-          name="motor"
-        >
-          <option disabled>Engine type</option>
-
-          <option
-            value="diesel"
-            {{#motorDiesel}}selected{{/motorDiesel}}
-          >
-            Diesel
-          </option>
-
-          <option
-            value="petrol"
-            {{#motorPetrol}}selected{{/motorPetrol}}
-          >
-            Gasoline
-          </option>
-
-          <option
-            value="hybrid"
-            {{#motorHybrid}}selected{{/motorHybrid}}
-          >
-            Hybrid
-          </option>
-
-          <option
-            value="electric"
-            {{#motorElectric}}selected{{/motorElectric}}
-          >
-            Electric
-          </option>
-        </select>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="selectGearbox" class="form-label text-white">
-          Gearbox
-        </label>
-
-        <select
-          class="form-select"
-          id="selectGearbox"
-          name="gearbox"
-        >
-          <option disabled>Gearbox</option>
-
-          <option
-            value="manual"
-            {{#gearboxManual}}selected{{/gearboxManual}}
-          >
-            Manual
-          </option>
-
-          <option
-            value="automatic"
-            {{#gearboxAutomatic}}selected{{/gearboxAutomatic}}
-          >
-            Automatic
-          </option>
-        </select>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="inputHorsepower" class="form-label text-white">
-          Horsepower
-        </label>
-
-        <input
-          type="number"
-          name="horsepower"
-          class="form-control"
-          id="inputHorsepower"
-          placeholder="Horsepower"
-          value="{{horsepower}}"
-        />
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3 d-flex align-items-center">
-      <div class="form-check mt-3">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="yes"
-          id="checkFinancing"
-          name="financingOptions"
-          {{#hasFinancing}}checked{{/hasFinancing}}
-        />
-
-        <label
-          class="form-check-label text-white"
-          for="checkFinancing"
-        >
-          Financing available
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row g-3">
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="inputPrice" class="form-label text-white">
-          Price
-        </label>
-
-        <input
-          type="text"
-          name="price"
-          class="form-control"
-          id="inputPrice"
-          placeholder="Price"
-          value="{{price}}"
-        />
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label
-          for="inputOriginalPrice"
-          class="form-label text-white"
-        >
-          Original Price
-        </label>
-
-        <input
-          type="text"
-          name="originalPrice"
-          class="form-control"
-          id="inputOriginalPrice"
-          placeholder="Original Price"
-          value="{{originalPrice}}"
-        />
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="inputDiscount" class="form-label text-white">
-          Discount
-        </label>
-
-        <input
-          type="text"
-          name="discount"
-          class="form-control"
-          id="inputDiscount"
-          placeholder="Discount"
-          value="{{discount}}"
-        />
-      </div>
-    </div>
-
-    <div class="col-12 col-md-3">
-      <div class="mb-3">
-        <label for="inputImage" class="form-label text-white">
-          New Vehicle Image
-        </label>
-
-        <input
-          type="file"
-          name="image"
-          class="form-control"
-          id="inputImage"
-        />
-
-        <small class="text-white-50">
-          Leave this field empty to keep the current image.
-        </small>
-      </div>
-    </div>
-  </div>
-
-  <div class="row g-3">
-    <div class="col-12">
-      <p class="form-label text-white">
-        Current image
-      </p>
-
-      <img
-        src="/uploads/logos/{{image}}"
-        alt="{{model}}"
-        class="img-fluid rounded"
-        style="max-height: 150px; object-fit: cover"
-      />
-    </div>
-  </div>
-
-  <div class="row g-3 mt-3 mb-3">
-    <div class="col-12 d-flex justify-content-end gap-2">
-      <a
-        href="/detalle/{{brandId}}"
-        class="btn btn-secondary"
-        id="cancel"
-      >
-        CANCEL
-      </a>
-
-      <button
-        type="submit"
-        class="btn btn-primary"
-        id="send"
-      >
-        SAVE
-      </button>
-    </div>
-  </div>
-</form>
+  {{> footer}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
