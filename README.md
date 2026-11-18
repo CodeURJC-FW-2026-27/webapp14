@@ -268,4 +268,39 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 * [modelValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/modelValidator.js)
 * [error](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/develop3/views/errorPage.html)
 * [creatorBrands](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/develop3/src/creatorBrands.js)
-  
+
+## Joaquín Farias Ovelar
+
+* **funcionalidades del router:**
+  * implementación de la base  de datos y de los botones edit.
+  * Participado en la calidación de los mismos.
+  * Modularización del proyeto
+
+* **Nuevos archivos js e iomportaciín exportación de módulos**
+  * creado y tratado los js para simplificar el router
+
+* **Mustache Partials:**
+  * Implementación del header y footer y otras partes con Mustache para evitar la repetixión de código.
+
+* **revisión de datos:**
+  * he correguido algunos datos menores para la correcta funcionalidad.
+
+
+### Commits Más Significativos
+- [Commit 1](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/0cdb6807b53db4d565207ed6799389e768ba1eab)
+- [Commit 2](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/01d07848ac2975b5a42f6837828b6c6465e860f6)
+- [Commit 3](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/c1f28cbeb87658366115f6a0b9d9b48b12badf1b)
+- [Commit 4](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/1b216d95f784840a70a3af8ca56cb750a4d4d16e)
+- [Commit 5](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/9ee03ad3c5ee70882970c43b0af77c2f1a11c1f8)
+
+---
+
+### Ficheros con Mayor Participación
+- **[router](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/router.js)**: Control de rutas y lógica del servidor.
+- **[load_data](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/load_data.js)**: Inicialización y carga de datos.
+- **[data](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/data)**: Estructura de almacenamiento y persistencia.
+- **[detail](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/detail.html)**: Interfaz y plantilla visual de detalles.
+- **[brandValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/brandValidator.js)**: Validaciones de negocio para las marcas.
+- **[modelValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/modelValidator.js)**: Validaciones de integridad para los modelos de coches.
+# Video explicativo: https://youtu.be/lRugIVFn3lM?si=AkBa0pmJd2gDLHMQ
+
