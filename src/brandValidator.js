@@ -3,7 +3,7 @@ import { CarsCollection } from "./db.js";
 
 
 export const nameValidator = async (nameNew) => {
-    const existingBrand = await carsCollection.findOne({ 
+    const existingBrand = await CarsCollection.findOne({ 
         name: { $regex: new RegExp(`^${nameNew}$`, "i") } 
     });
     return existingBrand; 

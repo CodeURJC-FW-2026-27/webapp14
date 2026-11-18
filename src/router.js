@@ -255,14 +255,15 @@ router.post("/detalle/:id/delete", async (req, res) => {
     _id: new ObjectId(brandId),
   });
 
-  const brandName = brand.name;
+  const brandName = brand ? brand.name : "Brand";
 
   await carsCollection.deleteOne({
     _id: new ObjectId(brandId),
   });
 
-  return res.render("delete", {
+  return res.render("success", {
     message: `The brand ${brandName} has been deleted.`,
+    deletedOk: true
   });
 });
 router.post("/detalle/:brandId/model/:modelId/delete", async (req, res) => {

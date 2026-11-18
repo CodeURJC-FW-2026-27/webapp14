@@ -1,10 +1,12 @@
+import { ObjectId } from "mongodb";
+
 export const createBrand = (req) => {
     return {
         name: req.body.bName.trim(),
         country: req.body.bCountry,
         year: req.body.bYear,
         rating: req.body.stars,
-        img: `/uploads/logos/${req.file.filename}`,
+        img: req.file.filename,
         segment: req.body.segment,
         description: req.body.bDescription.trim(),
         cars: []
@@ -13,7 +15,8 @@ export const createBrand = (req) => {
 
 export const createModel = (req) => {
     return {
-        model: req.body.model,
+        _id: new ObjectId(),
+        name: req.body.model,
         plate: req.body.plate,
         brand: req.body.brand,
         km: req.body.km,
