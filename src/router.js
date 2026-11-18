@@ -194,21 +194,30 @@ router.get("/search", async (req, res) => {
 
 router.get("/detalle/:id/edit", async (req, res) => {
   const carsCollection = db.collection("cars");
-  const brandId = req.params.id;
+  
+  // 1. Validar que el ID sea válido para MongoDB por seguridad
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.redirect("/");
+  }
 
-  const brand = await carsCollection.findOne({
-    _id: new ObjectId(brandId)
-  });
+  const brand = await carsCollection.findOne({ _id: new ObjectId(req.params.id) });
+
+  // 2. Comprobar si la marca existe antes de usarla
+  if (!brand) {
+    return res.status(404).render("errorPage", { error: "Brand not found" });
+  }
 
   res.render("formEditor", {
-    id: brand._id.toString(),
+    id: brand._id.toString(), // <-- Aquí es donde fallaba si brand era null
     name: brand.name,
-    country: brand.country,
     year: brand.year,
-    rating: brand.rating,
-    segment: brand.segment,
+    country: brand.country,
     description: brand.description,
-    img: brand.img
+    img: brand.img,
+    [`rate${brand.rating}`]: true,
+    isLowCost: brand.segment === "lowCost",
+    isMidRange: brand.segment === "midRange",
+    isLuxury: brand.segment === "luxury"
   });
 });
 
@@ -216,27 +225,36 @@ router.post("/detalle/:id/edit", upload.single("bImage"), async (req, res) => {
   const carsCollection = db.collection("cars");
   const brandId = req.params.id; 
 
-  console.log(req.body);
-  console.log(req.file);
-
-  const updatedBrand = {
-    name: req.body.bName,
-    country: req.body.bCountry,
-    year: req.body.bYear,
-    rating: req.body.stars,
-    segment: req.body.segment,
-    description: req.body.bDescription
-  };
-
-  if (req.file) {
-    updatedBrand.img = req.file.filename;
+  // 1. Obtener la marca actual de la base de datos
+  const currentBrand = await carsCollection.findOne({ _id: new ObjectId(brandId) });
+  if (!currentBrand) {
+    return res.redirect("/");
   }
 
+  // 2. Ejecutar validaciones reutilizables pasando la marca actual
+  const validationError = await validateBrandData(req.body, req.file, currentBrand);
+  if (validationError) {
+    return res.render("errorPage", { error: validationError });
+  }
+
+  // 3. Preparar los datos actualizados
+  const updatedBrand = {
+    name: req.body.bName.trim(),
+    country: req.body.bCountry.trim(),
+    year: req.body.bYear.trim(),
+    rating: req.body.stars,
+    segment: req.body.segment,
+    description: req.body.bDescription.trim(),
+    img: req.file ? req.file.filename : currentBrand.img
+  };
+
+  // 4. Actualizar en la base de datos
   await carsCollection.updateOne(
     { _id: new ObjectId(brandId) },
     { $set: updatedBrand }
   );
 
+  // 5. Renderizar vista de éxito
   return res.render("success", {
     message: "The brand has been edited",
     name: updatedBrand.name,
@@ -247,6 +265,8 @@ router.post("/detalle/:id/edit", upload.single("bImage"), async (req, res) => {
 router.get("/detalle/:brandId/model/:modelId/edit", (req, res) => {
   res.render("formEditorModel");
 });
+
+
 router.post("/detalle/:id/delete", async (req, res) => {
   const carsCollection = db.collection("cars");
   const brandId = req.params.id;
@@ -254,6 +274,10 @@ router.post("/detalle/:id/delete", async (req, res) => {
   const brand = await carsCollection.findOne({
     _id: new ObjectId(brandId),
   });
+
+  if (!brand) {
+    return res.redirect("/");
+  }
 
   const brandName = brand.name;
 
@@ -265,6 +289,7 @@ router.post("/detalle/:id/delete", async (req, res) => {
     message: `The brand ${brandName} has been deleted.`,
   });
 });
+
 router.post("/detalle/:brandId/model/:modelId/delete", async (req, res) => {
   const carsCollection = db.collection("cars");
   const brandId = req.params.brandId;
@@ -273,6 +298,10 @@ router.post("/detalle/:brandId/model/:modelId/delete", async (req, res) => {
   const brand = await carsCollection.findOne({
     _id: new ObjectId(brandId),
   });
+
+  if (!brand) {
+    return res.redirect("/");
+  }
 
   await carsCollection.updateOne(
     { _id: new ObjectId(brandId) },
