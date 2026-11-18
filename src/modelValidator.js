@@ -1,25 +1,9 @@
-import { CarsCollection } from "./db.js";
-import { ObjectId } from "mongodb";
-
-export const modelValidator = async (brandName, modelName) => {
-    const existingModel = await CarsCollection.findOne({
-        name: brandName,
-        cars: {
-            $elemMatch: {
-                model: { $regex: new RegExp(`^${modelName}$`, "i") }
-            }
-        }
-    });
-    return !!existingModel; 
-};
-
 export const validateModelData = async (carsCollection, body, brandObjectId, modelObjectId = null, file = null, currentModel = null) => {
     const {
         model, plate, km, year, doors, condition, motor, 
         gearbox, horsepower, price, originalPrice, discount
     } = body;
 
-    // Permitimos que pase si hay un archivo nuevo o si ya tenía una imagen previa guardada
     const hasImage = file || (currentModel && currentModel.image);
 
     if (
@@ -47,7 +31,6 @@ export const validateModelData = async (carsCollection, body, brandObjectId, mod
         return "The brand does not exist.";
     }
 
-    // Comprobación de duplicados (excluyendo el propio modelo que se está editando)
     const modelExists = (brand.cars || []).some(
         (car) =>
             car.model.toLowerCase() === model.toLowerCase() &&

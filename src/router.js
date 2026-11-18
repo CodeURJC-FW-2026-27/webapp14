@@ -131,26 +131,20 @@ router.post("/createElement", upload.single("bImage"), async (req, res) => {
 });
 
 router.post("/detalle", upload.single("image"), async (req, res) => {
-  const carsCollection = db.collection("cars");
+  const carsCollection = db.collection('cars');
   const brandName = req.query.name;
 
   const brand = await carsCollection.findOne({ name: brandName });
 
   if (!brand) {
     return res.render("errorPage", {
-      error: "The brand does not exist.",
+      error: "The brand does not exist."
     });
   }
-
-  const validationError = await validateModelData(
-    carsCollection,
-    req.body,
-    brand._id,
-  );
-
+  const validationError = await validateModelData(carsCollection, req.body, brand._id, null, req.file);
   if (validationError) {
     return res.render("errorPage", {
-      error: validationError,
+      error: validationError
     });
   }
 
@@ -158,12 +152,13 @@ router.post("/detalle", upload.single("image"), async (req, res) => {
 
   await carsCollection.updateOne(
     { _id: brand._id },
-    { $push: { cars: model } },
+    { $push: { cars: model } }
   );
 
   return res.render("success", {
     message: `The model ${model.name} has been added successfully`,
     name: brandName,
+    id: brand._id.toString()
   });
 });
 
