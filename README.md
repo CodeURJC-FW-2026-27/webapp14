@@ -202,3 +202,37 @@ Para realizar búsquedas avanzadas sobre la entidad principal, se dispondrá de 
 * [Página de creación de entidad principal](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/createElement.html)
 * [Estilos css nativos](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/css/global.css)
 
+
+
+# Participación en la práctica 2
+## Fernando Cuesta
+
+* **funcionalidades del router:**
+  * implementación de la base  de datos y de los botones edit.
+  * Participado en la calidación de los mismos.
+
+* **cargar datos**
+  * creado y tratado los json para que se cargen en una sola base de datos
+  * cargado tammbien las imagenes.
+
+* **htmls:**
+  * he modificado gran parte de las plantillas para que funcionen con mustache y la db.
+
+* **revisión de datos:**
+  * he correguido algunos datos menores para la correcta funcionalidad.
+
+ * **Commits más significativos:**
+* [Commit 1](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/0cdb6807b53db4d565207ed6799389e768ba1eab)
+* [Commit 2](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/01d07848ac2975b5a42f6837828b6c6465e860f6)
+* [Commit 3](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/c1f28cbeb87658366115f6a0b9d9b48b12badf1b)
+* [Commit 4](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/1b216d95f784840a70a3af8ca56cb750a4d4d16e)
+* [Commit 5](https://github.com/CodeURJC-FW-2026-27/webapp14/commit/9ee03ad3c5ee70882970c43b0af77c2f1a11c1f8)
+
+* **ficheros en los que más he participado:**
+* [router](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/router.js)
+* [load_data](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/load_data.js)
+* [data](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/data)
+* [detail](https://github.com/CodeURJC-FW-2026-27/webapp14/blob/main/detail.html)
+* [brandValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/brandValidator.js)
+* [modelValidator](https://github.com/CodeURJC-FW-2026-27/webapp14/main/modelValidator.js)
+
