@@ -155,7 +155,7 @@ router.post("/detalle", upload.single("image"), async (req, res) => {
   );
 
   return res.render("success", {
-    message: `The model ${model.name} has been added successfully`,
+    message: `The model ${model.model} has been added successfully`,
     name: brandName,
     id: brand._id.toString()
   });
