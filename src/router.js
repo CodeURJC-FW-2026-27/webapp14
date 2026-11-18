@@ -88,10 +88,6 @@ router.get("/detalle/:id", async (req, res) => {
     return res.redirect("/");
   }
 
-  /*
-   * Add the brand and model IDs as strings
-   * so Mustache can use them in the edit link.
-   */
   const Cars = (brand.cars || []).map((car) => ({
     ...car,
     brandId: brand._id.toString(),
@@ -105,7 +101,7 @@ router.get("/detalle/:id", async (req, res) => {
     country: brand.country,
     year: brand.year,
     rating: brand.rating,
-    description: brand.description,
+    description: brand.description || "No disponible",
     segment: brand.segment,
     modelsCount: Cars.length,
     Cars,
