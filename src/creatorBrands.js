@@ -13,7 +13,7 @@ export const createBrand = (req) => {
 
 export const createModel = (req) => {
     return {
-        model: req.body.model,
+        name: req.body.model,
         plate: req.body.plate,
         brand: req.body.brand,
         km: req.body.km,
