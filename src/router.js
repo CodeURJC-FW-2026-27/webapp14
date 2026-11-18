@@ -1,9 +1,12 @@
 import express from "express";
 import multer from "multer";
 import { cargarJson } from "./load_data.js";
-import { validateBrandData, createBrand, validateModelData, createModel } from './creatorBrands.js';import { db } from "./db.js";
+import { db } from "./db.js";
 import { ObjectId } from "mongodb";
-import { filterCars, generatePagination } from "./script.js"; // <--- Importación correcta
+import { filterCars, generatePagination } from "./script.js";
+import { validateBrandData } from "./brandValidator.js";
+import { validateModelData } from "./modelValidator.js";
+import { createBrand, createModel } from "./creatorBrands.js";
 
 const router = express.Router();
 export default router;
@@ -175,4 +178,12 @@ router.get("/search", async (req, res) => {
             error: errorMessage
         });
     
+});
+
+router.get("/detalle/:id/edit", (req, res) =>{
+  res.render("formEditor");
+});
+
+router.get("/detalle/:brandId/model/:modelId/edit", (req, res) =>{
+  res.render("formEditorModel");
 });

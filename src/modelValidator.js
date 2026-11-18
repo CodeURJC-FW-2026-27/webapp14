@@ -1,78 +1,70 @@
-export async function validateModel(
-  carsCollection,
-  body,
-  brandObjectId,
-  modelObjectId,
-) {
-  // Check that all required fields are completed
-  if (
-    !body.model ||
-    !body.plate ||
-    !body.km ||
-    !body.year ||
-    !body.doors ||
-    !body.condition ||
-    !body.motor ||
-    !body.gearbox ||
-    !body.horsepower ||
-    !body.price ||
-    !body.originalPrice ||
-    !body.discount
-  ) {
-    return "There are fields left to complete";
-  }
+import { CarsCollection } from "./db.js";
 
-  // Check that the license plate has exactly 7 characters
-  if (body.plate.length !== 7) {
-    return "The license plate must have 7 characters.";
-  }
 
-  // Check that the year has exactly 4 digits
-  if (body.year.length !== 4) {
-    return "The year must have 4 digits.";
-  }
+export const modelValidator = async (brandName, modelName) => {
+    const existingModel = await carsCollection.findOne({
+        name: brandName,
+        cars: {
+            $elemMatch: {
+                name: { $regex: new RegExp(`^${modelName}$`, "i") }
+            }
+        }
+    });
+    return !!existingModel; 
+};
 
-  // Check that the model name starts with a capital letter
-  const firstLetter = body.model.charAt(0);
+// Tu validación avanzada para creación/edición de modelos
+export const validateModelData = async (carsCollection, body, brandObjectId, modelObjectId = null) => {
+    const {
+        model, plate, km, year, doors, condition, motor, 
+        gearbox, horsepower, price, originalPrice, discount
+    } = body;
 
-  if (firstLetter !== firstLetter.toUpperCase()) {
-    return "The model name must start with a capital letter.";
-  }
+    if (
+        !model || !plate || !km || !year || !doors || !condition || 
+        !motor || !gearbox || !horsepower || !price || !originalPrice || !discount
+    ) {
+        return "There are fields left to complete";
+    }
 
-  // Find the brand that contains the model
-  const brand = await carsCollection.findOne({
-    _id: brandObjectId,
-  });
+    if (plate.trim().length !== 7) {
+        return "The license plate must have 7 characters.";
+    }
 
-  if (!brand) {
-    return "The brand does not exist.";
-  }
+    if (String(year).trim().length !== 4) {
+        return "The year must have 4 digits.";
+    }
 
-  /*
-   * Check whether another model in the same brand
-   * already uses the same model name.
-   */
-  const modelExists = (brand.cars || []).some(
-    (car) =>
-      car.model === body.model &&
-      car._id.toString() !== modelObjectId.toString(),
-  );
+    const firstLetter = model.trim().charAt(0);
+    if (firstLetter !== firstLetter.toUpperCase()) {
+        return "The model name must start with a capital letter.";
+    }
 
-  if (modelExists) {
-    return "This model already exists.";
-  }
+    const brand = await carsCollection.findOne({ _id: brandObjectId });
+    if (!brand) {
+        return "The brand does not exist.";
+    }
 
-  // Check whether another model uses the same license plate
-  const plateExists = (brand.cars || []).some(
-    (car) =>
-      car.plate === body.plate &&
-      car._id.toString() !== modelObjectId.toString(),
-  );
+    // Comprobación de duplicados (excluyendo el actual si se pasa un modelObjectId para edición)
+    const modelExists = (brand.cars || []).some(
+        (car) =>
+            car.model.toLowerCase() === model.toLowerCase() &&
+            (!modelObjectId || car._id.toString() !== modelObjectId.toString())
+    );
 
-  if (plateExists) {
-    return "Another model already uses this license plate.";
-  }
+    if (modelExists) {
+        return "This model already exists.";
+    }
 
-  // Return null when there are no validation errors
-  return null;
-}
+    const plateExists = (brand.cars || []).some(
+        (car) =>
+            car.plate.toLowerCase() === plate.toLowerCase() &&
+            (!modelObjectId || car._id.toString() !== modelObjectId.toString())
+    );
+
+    if (plateExists) {
+        return "Another model already uses this license plate.";
+    }
+
+    return null;
+};
