@@ -386,18 +386,15 @@ router.post("/detalle/:id/delete", async (req, res) => {
     _id: new ObjectId(brandId),
   });
 
-  if (!brand) {
-    return res.redirect("/");
-  }
-
-  const brandName = brand.name;
+  const brandName = brand ? brand.name : "Brand";
 
   await carsCollection.deleteOne({
     _id: new ObjectId(brandId),
   });
 
-  return res.render("delete", {
+  return res.render("success", {
     message: `The brand ${brandName} has been deleted.`,
+    deletedOk: true
   });
 });
 
