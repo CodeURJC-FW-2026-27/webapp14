@@ -173,7 +173,7 @@ router.get("/search", async (req, res) => {
   const results = fPag.filterCars(allCars, req.query);
 
   // Get the params
-  const { paginatedResults, pages, hasMultiplePages } = generatePagination(
+  const { paginatedResults, pages, hasMultiplePages } = fPag.generatePagination(
     results,
     req.query.page,
   );
@@ -262,7 +262,7 @@ router.post("/detalle/:id/edit", upload.single("bImage"), async (req, res) => {
 //Edit model page
 
 router.get("/detalle/:brandId/model/:modelId/edit", async (req, res) => {
-  const result = await getEditModelData(req.params.brandId, req.params.modelId);
+  const result = await setters.modelDelete(req.params.brandId, req.params.modelId);
 
   if (result.redirect) {
     return res.redirect(result.redirect);
@@ -297,7 +297,7 @@ router.post("/detalle/:id/delete", async (req, res) => {
 
 // Delete model
 router.post("/detalle/:brandId/model/:modelId/delete", async (req, res) => {
-  const result = await modelDelete(req.params.brandId, req.params.modelId);
+  const result = await setters.modelDelete(req.params.brandId, req.params.modelId);
 
   if (result.redirect) {
     return res.redirect(result.redirect);
