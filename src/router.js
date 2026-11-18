@@ -265,18 +265,30 @@ router.post("/detalle/:id/edit", upload.single("bImage"), async (req, res) => {
 router.get("/detalle/:brandId/model/:modelId/edit", async (req, res) => {
   const carsCollection = db.collection("cars");
 
+  if (!ObjectId.isValid(req.params.brandId)) {
+    return res.redirect("/");
+  }
+
   const brand = await carsCollection.findOne({
     _id: new ObjectId(req.params.brandId)
   });
 
-  const model = brand.cars.find(
+  if (!brand) {
+    return res.redirect("/");
+  }
+
+  const model = (brand.cars || []).find(
     car => car._id.toString() === req.params.modelId
   );
+
+  if (!model) {
+    return res.redirect(`/detalle/${req.params.brandId}`);
+  }
 
   res.render("formEditorModel", {
     brandId: brand._id.toString(),
     modelId: model._id.toString(),
-    model: model.name,
+    model: model.model || model.name,
     plate: model.plate,
     km: model.km,
     year: model.year,
@@ -289,7 +301,7 @@ router.get("/detalle/:brandId/model/:modelId/edit", async (req, res) => {
     price: model.price,
     originalPrice: model.originalPrice,
     discount: model.discount,
-    image: model.image
+    image: model.image,
   });
 });
 
@@ -297,12 +309,41 @@ router.post(
   "/detalle/:brandId/model/:modelId/edit",
   upload.single("image"),
   async (req, res) => {
-
     const carsCollection = db.collection("cars");
+    const brandId = req.params.brandId;
+    const modelId = req.params.modelId;
 
+    const brandObjectId = new ObjectId(brandId);
+    const modelObjectId = new ObjectId(modelId);
+
+    // 1. Buscar la marca y el modelo actual
+    const brand = await carsCollection.findOne({ _id: brandObjectId });
+    if (!brand) {
+      return res.redirect("/");
+    }
+
+    const currentModel = (brand.cars || []).find(
+      (car) => car._id.toString() === modelId
+    );
+
+    // 2. Ejecutar las validaciones centralizadas pasando carsCollection
+    const validationError = await validateModelData(
+      carsCollection,
+      req.body,
+      brandObjectId,
+      modelObjectId,
+      req.file,
+      currentModel
+    );
+
+    if (validationError) {
+      return res.render("errorPage", { error: validationError });
+    }
+
+    // 3. Preparar los datos actualizados
     const updatedModel = {
-      "cars.$.name": req.body.model,
-      "cars.$.plate": req.body.plate,
+      "cars.$.model": req.body.model.trim(),
+      "cars.$.plate": req.body.plate.trim(),
       "cars.$.km": req.body.km,
       "cars.$.year": req.body.year,
       "cars.$.doors": req.body.doors,
@@ -310,29 +351,29 @@ router.post(
       "cars.$.motor": req.body.motor,
       "cars.$.gearbox": req.body.gearbox,
       "cars.$.horsepower": req.body.horsepower,
-      "cars.$.financingOptions": req.body.financingOptions,
+      "cars.$.financingOptions": req.body.financingOptions || "no",
       "cars.$.price": req.body.price,
       "cars.$.originalPrice": req.body.originalPrice,
-      "cars.$.discount": req.body.discount
+      "cars.$.discount": req.body.discount,
+      "cars.$.image": req.file ? req.file.filename : (currentModel ? currentModel.image : "")
     };
 
-    if (req.file) {
-      updatedModel["cars.$.image"] = req.file.filename;
-    }
-
+    // 4. Actualizar en la base de datos
     await carsCollection.updateOne(
       {
-        _id: new ObjectId(req.params.brandId),
-        "cars._id": new ObjectId(req.params.modelId)
+        _id: brandObjectId,
+        "cars._id": modelObjectId
       },
       {
         $set: updatedModel
       }
     );
 
+    // 5. Renderizar vista de éxito
     return res.render("success", {
       message: "The model has been edited",
-      id: req.params.brandId
+      name: brand.name,
+      id: brandId
     });
   }
 );
