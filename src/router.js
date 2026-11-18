@@ -262,10 +262,80 @@ router.post("/detalle/:id/edit", upload.single("bImage"), async (req, res) => {
   });
 });
 
-router.get("/detalle/:brandId/model/:modelId/edit", (req, res) => {
-  res.render("formEditorModel");
+router.get("/detalle/:brandId/model/:modelId/edit", async (req, res) => {
+  const carsCollection = db.collection("cars");
+
+  const brand = await carsCollection.findOne({
+    _id: new ObjectId(req.params.brandId)
+  });
+
+  const model = brand.cars.find(
+    car => car._id.toString() === req.params.modelId
+  );
+
+  res.render("formEditorModel", {
+    brandId: brand._id.toString(),
+    modelId: model._id.toString(),
+    model: model.name,
+    plate: model.plate,
+    km: model.km,
+    year: model.year,
+    doors: model.doors,
+    condition: model.condition,
+    motor: model.motor,
+    gearbox: model.gearbox,
+    horsepower: model.horsepower,
+    financingOptions: model.financingOptions,
+    price: model.price,
+    originalPrice: model.originalPrice,
+    discount: model.discount,
+    image: model.image
+  });
 });
 
+router.post(
+  "/detalle/:brandId/model/:modelId/edit",
+  upload.single("image"),
+  async (req, res) => {
+
+    const carsCollection = db.collection("cars");
+
+    const updatedModel = {
+      "cars.$.name": req.body.model,
+      "cars.$.plate": req.body.plate,
+      "cars.$.km": req.body.km,
+      "cars.$.year": req.body.year,
+      "cars.$.doors": req.body.doors,
+      "cars.$.condition": req.body.condition,
+      "cars.$.motor": req.body.motor,
+      "cars.$.gearbox": req.body.gearbox,
+      "cars.$.horsepower": req.body.horsepower,
+      "cars.$.financingOptions": req.body.financingOptions,
+      "cars.$.price": req.body.price,
+      "cars.$.originalPrice": req.body.originalPrice,
+      "cars.$.discount": req.body.discount
+    };
+
+    if (req.file) {
+      updatedModel["cars.$.image"] = req.file.filename;
+    }
+
+    await carsCollection.updateOne(
+      {
+        _id: new ObjectId(req.params.brandId),
+        "cars._id": new ObjectId(req.params.modelId)
+      },
+      {
+        $set: updatedModel
+      }
+    );
+
+    return res.render("success", {
+      message: "The model has been edited",
+      id: req.params.brandId
+    });
+  }
+);
 
 router.post("/detalle/:id/delete", async (req, res) => {
   const carsCollection = db.collection("cars");
